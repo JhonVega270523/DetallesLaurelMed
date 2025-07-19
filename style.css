@@ -1,784 +1,489 @@
 :root {
-    --primary-pink: #FFC0CB; /* Rosa claro */
-    --dark-pink: #FF69B4;   /* Rosa fuerte */
-    --white: #FFFFFF;
-    --gray: #F8F8F8;
-    --dark-gray: #333333;
-    --text-color: #555555;
-}
-
-body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: var(--gray);
-    color: var(--text-color);
-    line-height: 1.6;
-}
-
-header {
-    background-color: var(--dark-pink);
-    color: var(--white);
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-header h1 {
-    font-family: 'Playfair Display', serif;
-    margin: 0;
-    font-size: 3em;
-    letter-spacing: 2px;
-}
-
-.author-signature {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    text-align: right;
-    max-width: 580px;
-    margin: -5px auto 10px;
-    padding-right: 5px;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-header p {
-    font-size: 1.2em;
-    margin-top: 5px;
-}
-
-/* Navbar Styles */
-nav {
-    background-color: var(--primary-pink);
-    padding: 10px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-nav ul li a {
-    color: var(--white);
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1em;
-    padding: 5px 10px;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: var(--dark-pink);
-    transform: scale(1.05);
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: var(--white);
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-    /* Asegurarse de que el texto dentro del contenedor se centre por defecto si no se sobreescribe */
-    text-align: center;
-}
-
-h2 {
-    font-family: 'Playfair Display', serif;
-    text-align: center;
-    color: var(--dark-pink);
-    margin-bottom: 30px;
-    font-size: 2.5em;
-}
-
-.categories {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.category-card {
-    background-color: var(--white);
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.category-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-.category-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-bottom: 1px solid var(--primary-pink);
-}
-
-.category-card h3 {
-    font-family: 'Playfair Display', serif;
-    color: var(--dark-pink);
-    margin: 20px 0 10px;
-    font-size: 1.8em;
-}
-
-.category-card p {
-    padding: 0 20px;
-    font-size: 0.95em;
-    color: var(--text-color);
-    flex-grow: 1;
-}
-
-.category-card .btn-view-more {
-    display: inline-block;
-    background-color: var(--dark-pink);
-    color: var(--white);
-    padding: 12px 25px;
-    margin: 20px auto;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    border: none;
-}
-
-.category-card .btn-view-more:hover {
-    background-color: #e04a9e;
-}
-
-.whatsapp-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background-color: #25D366;
-    color: var(--white);
-    padding: 15px 30px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2em;
-    margin-top: 30px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.whatsapp-button:hover {
-    background-color: #1DA851;
-    transform: translateY(-3px);
-}
-
-.whatsapp-button img {
-    width: 24px;
-    height: 24px;
-}
-
-#scrollToTopBtn {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 99;
-    border: none;
-    outline: none;
-    background-color: var(--dark-pink);
-    color: white;
-    cursor: pointer;
-    padding: 15px;
-    border-radius: 50%;
-    font-size: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-#scrollToTopBtn:hover {
-    background-color: #e04a9e;
-    transform: translateY(-3px);
-}
-
-footer {
-    background-color: var(--dark-pink);
-    color: var(--white);
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 50px;
-    font-size: 0.9em;
-}
-
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.6);
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.modal-content {
-    background-color: var(--white);
-    margin: auto;
-    padding: 30px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 700px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    position: relative;
-    animation: fadeIn 0.3s ease-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.close-button {
-    color: var(--dark-gray);
-    font-size: 28px;
-    font-weight: bold;
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.close-button:hover,
-.close-button:focus {
-    color: var(--dark-pink);
-    text-decoration: none;
-}
-
-.modal-content h3 {
-    font-family: 'Playfair Display', serif;
-    color: var(--dark-pink);
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 2.2em;
-}
-
-.modal-products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    max-height: 70vh;
-    overflow-y: auto;
-    padding-right: 10px;
-}
-
-.modal-product-card {
-    background-color: var(--gray);
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-    text-align: center;
-    padding-bottom: 10px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.modal-product-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.modal-product-card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-bottom: 1px solid var(--primary-pink);
-}
-
-.modal-product-card h5 {
-    font-family: 'Playfair Display', serif;
-    color: var(--dark-gray);
-    margin: 10px 0 5px;
-    font-size: 1.2em;
-    padding: 0 10px;
-}
-
-.modal-product-card .btn-select-product {
-    display: inline-block;
-    background-color: var(--dark-pink);
-    color: var(--white);
-    padding: 8px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-    border: none;
-    font-size: 0.9em;
-}
-
-.modal-product-card .btn-select-product:hover {
-    background-color: #e04a9e;
-}
-
-/* Contact Form Styles */
-.contact-form {
-    max-width: 600px;
-    margin: 0;
-    padding: 15px;
-    background-color: var(--white);
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: var(--dark-gray);
-    font-size: 1.05em;
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1em;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease;
-}
-
-.form-group input[type="text"]:focus,
-.form-group input[type="email"]:focus,
-.form-group textarea:focus {
-    border-color: var(--dark-pink);
-    outline: none;
-    box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
-}
-
-.form-group textarea {
-    resize: vertical;
-}
-
-.submit-button {
-    display: block;
-    width: 100%;
-    background-color: var(--dark-pink);
-    color: var(--white);
-    padding: 15px 25px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2em;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.submit-button:hover {
-    background-color: #e04a9e;
-    transform: translateY(-2px);
-}
-
-/* New: Contact section main layout (two large columns) */
-.main-contact-section-layout {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 40px;
-    padding: 20px;
-    /* Asegurarse de que el texto dentro de este layout se centre por defecto si no se sobreescribe */
-    text-align: center; /* Esto ayudará a centrar elementos inline o inline-block como el whatsapp-button */
-}
-
-.main-contact-left {
-    flex: 1;
-    min-width: 300px;
-    padding: 20px;
-    background-color: var(--white);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.03);
-    text-align: left; /* Alineación por defecto para desktop */
-}
-
-.main-contact-left h2 {
-    text-align: left; /* Alineación por defecto para desktop */
-    margin-top: 0;
-    margin-bottom: 20px;
-    color: var(--dark-pink);
-    font-size: 2.5em;
-}
-
-.main-contact-left p {
-    text-align: left; /* Alineación por defecto para desktop */
-    max-width: unset;
-    margin: 0 0 20px 0;
-}
-
-.main-contact-left ul {
-    text-align: left; /* Alineación por defecto para desktop */
-    margin-bottom: 20px;
-}
-
-.main-contact-left .whatsapp-button {
-    margin-left: 0;
-    display: inline-flex; /* Por defecto en desktop */
-}
-
-.main-contact-right {
-    flex: 1;
-    min-width: 300px;
-    max-width: 600px;
-    /* Centrar el formulario dentro de esta columna en mobile */
-    margin: 0 auto;
-}
-
-/* Media Queries for Responsiveness */
-
-/* Extra small devices (phones, 600px and down) */
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 2em;
-    }
-
-    .author-signature {
-        font-size: 0.9rem;
-        text-align: center;
-        max-width: 100%;
-        /* margin-right: 0; (Eliminado, margin: auto ya lo centra) */
-        margin: -5px auto 10px; /* Centrar también la firma */
-    }
-
-    header p {
-        font-size: 1em;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 5px;
-        padding: 5px 0;
-    }
-
-    nav ul li a {
-        font-size: 1em;
-        padding: 8px 10px;
-        width: 80%;
-        display: block;
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    .container {
-        width: 95%;
-        padding: 15px;
-        margin: 20px auto;
-        /* Asegurarse de que el texto dentro del contenedor se centre en móviles */
-        text-align: center;
-    }
-
-    /* Asegurar que el párrafo de bienvenida dentro del contenedor se centre */
-    .container#inicio p {
-        text-align: center !important; /* Usar !important para anular estilos inline si es necesario */
-        max-width: 100%; /* Asegurar que ocupe todo el ancho */
-        margin: 10px auto; /* Centrar el párrafo */
-        font-size: 1em; /* Ajustar tamaño de fuente si es necesario */
-    }
-
-    h2 {
-        font-size: 1.8em;
-        text-align: center; /* Asegurar que los títulos h2 estén centrados */
-    }
-
-    .categories {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .category-card {
-        margin: 0 auto; /* Centrar las tarjetas de categoría si no llenan el 100% */
-        width: 95%; /* Asegurar un ancho para centrar */
-        max-width: 300px; /* Limitar el ancho de la tarjeta */
-    }
-
-    .category-card img {
-        height: 180px;
-    }
-
-    .modal-content {
-        width: 95%;
-        padding: 20px;
-    }
-
-    .modal-products-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .modal-product-card {
-        margin: 0 auto; /* Centrar las tarjetas de producto en el modal */
-        width: 90%;
-        max-width: 250px;
-    }
-
-
-    .main-contact-section-layout {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        padding: 10px;
-        /* Asegurarse de que el texto dentro de este layout se centre */
-        text-align: center;
-    }
-
-    .main-contact-left,
-    .main-contact-right {
-        min-width: unset;
-        width: 95%; /* Usar más ancho en móviles */
-        max-width: 500px; /* Limitar ancho para que no sea demasiado grande */
-        padding: 15px;
-        margin: 0 auto; /* Centrar ambas columnas */
-        box-sizing: border-box; /* Asegurar que padding no rompa el ancho */
-    }
-
-    .main-contact-left h2,
-    .main-contact-left p,
-    .main-contact-left ul {
-        text-align: center; /* Centrar todo el texto de la columna izquierda */
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%; /* Asegurar que el texto ocupe el ancho para centrarlo */
-    }
-
-    .main-contact-left ul {
-        list-style: none; /* Asegurarse de que no haya viñetas que desalineen */
-        padding-left: 0; /* Remover padding que puede desalinear lista */
-    }
-
-    .main-contact-left ul li {
-        text-align: center; /* Centrar cada ítem de la lista */
-    }
-
-    .main-contact-left .whatsapp-button {
-        display: flex;
-        justify-content: center;
-        margin: 20px auto; /* Centrar el botón de WhatsApp */
-    }
-
-    /* Centrar el título del formulario en la columna derecha */
-    .main-contact-right h2 {
-        text-align: center !important; /* Usar !important para forzar el centrado */
-    }
-    
-    /* Asegurar que los inputs del formulario estén al 100% de ancho */
-    .contact-form input[type="text"],
-    .contact-form input[type="email"],
-    .contact-form textarea {
-        width: calc(100% - 24px); /* Restar padding para asegurar ancho completo */
-    }
-
-    footer {
-        padding: 15px 10px;
-        font-size: 0.8em;
-    }
-}
-
-/* Small devices (tablets, 601px and up to 900px) */
-@media (min-width: 601px) and (max-width: 900px) {
-    header h1 {
-        font-size: 2.5em;
-    }
-
-    .author-signature {
-        font-size: 1rem;
-        text-align: center;
-        max-width: 100%;
-        margin: -5px auto 10px; /* Centrar la firma */
-    }
-
-    nav ul {
-        gap: 20px;
-        flex-direction: row;
-    }
-
-    nav ul li a {
-        font-size: 1.1em;
-        padding: 5px 10px;
-        width: auto;
-        margin: 0;
-    }
-
-    .container {
-        width: 90%;
-        padding: 20px;
-        margin: 30px auto;
-        text-align: center; /* Centrar todo el contenido del contenedor */
-    }
-
-    /* Asegurar que el párrafo de bienvenida dentro del contenedor se centre */
-    .container#inicio p {
-        text-align: center !important;
-        max-width: 700px; /* Un poco más de ancho para tabletas */
-        margin: 15px auto;
-        font-size: 1.05em;
-    }
-
-    h2 {
-        font-size: 2.2em;
-        text-align: center;
-    }
-
-    .categories {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 25px;
-        /* Centrar el grid de categorías si es necesario */
-        justify-content: center;
-        align-items: center;
-    }
-
-    .category-card {
-        margin: 0 auto; /* Centrar las tarjetas dentro de la cuadrícula si no llenan */
-        width: 95%; /* Dar un ancho para el centrado */
-        max-width: 300px;
-    }
-
-    .modal-content {
-        max-width: 600px;
-    }
-
-    .modal-products-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    }
-
-    .modal-product-card {
-        margin: 0 auto; /* Centrar las tarjetas de producto en el modal */
-        width: 90%;
-        max-width: 200px;
-    }
-
-
-    .main-contact-section-layout {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-        padding: 20px;
-        text-align: center; /* Centrar todo el contenido del layout de contacto */
-    }
-
-    .main-contact-left,
-    .main-contact-right {
-        min-width: unset;
-        width: 90%;
-        max-width: 600px;
-        padding: 20px;
-        margin: 0 auto; /* Centrar ambas columnas */
-        box-sizing: border-box;
-    }
-
-    .main-contact-left h2,
-    .main-contact-left p,
-    .main-contact-left ul {
-        text-align: center; /* Centrar todo el texto de la columna izquierda */
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-    }
-
-    .main-contact-left ul {
-        list-style: none;
-        padding-left: 0;
-    }
-
-    .main-contact-left ul li {
-        text-align: center;
-    }
-
-    .main-contact-left .whatsapp-button {
-        display: flex;
-        justify-content: center;
-        margin: 20px auto;
-    }
-
-    .main-contact-right h2 {
-        text-align: center !important;
-    }
-
-    footer {
-        padding: 15px 10px;
-        font-size: 0.8em;
-    }
-}
-
-/* Medium to large devices (901px and up) - Desktop first, so these are minimal */
-@media (min-width: 901px) {
-    .container {
-        text-align: left; /* Restablecer alineación a la izquierda para desktop */
-    }
-
-    .container#inicio p {
-        text-align: center !important; /* Mantener el párrafo de inicio centrado */
-        margin: 20px auto;
-        max-width: 800px;
-    }
-
-    .author-signature {
-        text-align: right; /* Restablecer alineación a la derecha para desktop */
-    }
-
-    .main-contact-section-layout {
-        flex-direction: row;
-        justify-content: center;
-        align-items: flex-start;
-        text-align: left; /* Restablecer alineación a la izquierda para desktop */
-    }
-
-    .main-contact-left {
-        text-align: left;
-        margin-right: 20px;
-    }
-
-    .main-contact-left h2,
-    .main-contact-left p,
-    .main-contact-left ul {
-        text-align: left;
-        margin-left: unset;
-        margin-right: unset;
-        width: auto;
-    }
-
-    .main-contact-left .whatsapp-button {
-        display: inline-flex;
-        margin-left: 0;
-    }
-
-    .main-contact-right h2 {
-        text-align: center !important; /* Mantener el título del formulario centrado */
-    }
-
-    /* Asegurar que los inputs del formulario vuelvan a su comportamiento normal */
-    .contact-form input[type="text"],
-    .contact-form input[type="email"],
-    .contact-form textarea {
-        width: 100%;
-    }
-}
+            --primary-pink: #FFC0CB; /* Rosa claro */
+            --dark-pink: #FF69B4;   /* Rosa fuerte */
+            --white: #FFFFFF;
+            --gray: #F8F8F8;
+            --dark-gray: #333333;
+            --text-color: #555555;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: var(--gray);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--dark-pink);
+            color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            font-size: 3em;
+            letter-spacing: 2px;
+        }
+
+        /* Estilo añadido para "By: Laura López" */
+        .author-signature {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem; /* Tamaño de fuente pequeño */
+            font-style: italic;
+            text-align: right; /* Alineación a la derecha */
+            max-width: 580px; /* Ancho máximo para alinear con el título */
+            margin: -5px auto 10px; /* Margen para ajustar la posición vertical */
+            padding-right: 5px; /* Pequeño ajuste a la derecha */
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 5px;
+        }
+
+        /* Navbar Styles */
+        nav {
+            background-color: var(--primary-pink);
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px; /* Space between nav items */
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 5px 10px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--dark-pink);
+            transform: scale(1.05);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Regla general para h2: Centrado por defecto */
+        h2 {
+            font-family: 'Playfair Display', serif;
+            text-align: center; /* ESTO CENTRA TODOS LOS H2 POR DEFECTO */
+            color: var(--dark-pink);
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .category-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--primary-pink);
+        }
+
+        .category-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark-pink);
+            margin: 20px 0 10px;
+            font-size: 1.8em;
+        }
+
+        .category-card p {
+            padding: 0 20px;
+            font-size: 0.95em;
+            color: var(--text-color);
+            flex-grow: 1;
+        }
+
+        .category-card .btn-view-more {
+            display: inline-block;
+            background-color: var(--dark-pink);
+            color: var(--white);
+            padding: 12px 25px;
+            margin: 20px auto;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            border: none;
+        }
+
+        .category-card .btn-view-more:hover {
+            background-color: #e04a9e; /* Un rosa un poco más oscuro al hover */
+        }
+
+        /* WhatsApp Button in Contact Section */
+        .whatsapp-button {
+            display: inline-flex; /* Use flex to align icon and text */
+            align-items: center;
+            gap: 10px; /* Space between icon and text */
+            background-color: #25D366; /* WhatsApp Green */
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 50px; /* Pill shape */
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #1DA851; /* Darker green on hover */
+            transform: translateY(-3px); /* Slight lift effect */
+        }
+
+        .whatsapp-button img {
+            width: 24px; /* Icon size */
+            height: 24px;
+        }
+
+        /* Scroll to Top Button */
+        #scrollToTopBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed position */
+            bottom: 20px; /* 20px from the bottom */
+            right: 20px; /* 20px from the right */
+            z-index: 99; /* Higher z-index to be on top */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: var(--dark-pink); /* Background color */
+            color: white; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 15px; /* Some padding */
+            border-radius: 50%; /* Rounded shape */
+            font-size: 20px; /* Increase font size */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: #e04a9e; /* Darker pink on hover */
+            transform: translateY(-3px);
+        }
+
+        footer {
+            background-color: var(--dark-pink);
+            color: var(--white);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+            font-size: 0.9em;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 700px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-button {
+            color: var(--dark-gray);
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: var(--dark-pink);
+            text-decoration: none;
+        }
+
+        .modal-content h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark-pink);
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.2em;
+        }
+
+        /* Products in Modal */
+        .modal-products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-height: 70vh; /* Limit height for scroll */
+            overflow-y: auto; /* Enable scrolling */
+            padding-right: 10px; /* Space for scrollbar */
+        }
+
+        .modal-product-card {
+            background-color: var(--gray);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 10px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .modal-product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-product-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--primary-pink);
+        }
+
+        .modal-product-card h5 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark-gray);
+            margin: 10px 0 5px;
+            font-size: 1.2em;
+            padding: 0 10px;
+        }
+        
+        .modal-product-card .btn-select-product {
+            display: inline-block;
+            background-color: var(--dark-pink);
+            color: var(--white);
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 0.9em;
+        }
+
+         .modal-product-card .btn-select-product:hover {
+            background-color: #e04a9e;
+        }
+
+        /* Estilos para el Formulario de Contacto */
+        .contact-form {
+            max-width: 600px;
+            margin: 0; /* Ajustado para el nuevo layout */
+            padding: 15px;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--dark-gray);
+            font-size: 1.05em;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1em;
+            box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group textarea:focus {
+            border-color: var(--dark-pink);
+            outline: none;
+            box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+        }
+
+        .form-group textarea {
+            resize: vertical; /* Permite redimensionar verticalmente */
+        }
+
+        .submit-button {
+            display: block;
+            width: 100%;
+            background-color: var(--dark-pink);
+            color: var(--white);
+            padding: 15px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #e04a9e; /* Un rosa un poco más oscuro al hover */
+            transform: translateY(-2px);
+        }
+
+        /* Nuevo: Estilos para el layout principal de la sección de Contacto (dos columnas grandes) */
+        .main-contact-section-layout {
+            display: flex;
+            flex-wrap: wrap; /* Permite que las columnas se apilen en pantallas pequeñas */
+            gap: 40px; /* Espacio entre las dos columnas principales */
+            justify-content: center; /* Centra las columnas horizontalmente */
+            align-items: flex-start; /* Alinea los elementos en la parte superior */
+            margin-top: 40px;
+            padding: 20px; /* Un poco de padding para que no se pegue a los bordes del .container */
+        }
+
+        .main-contact-left {
+            flex: 1; /* Ocupa el espacio disponible */
+            min-width: 300px; /* Ancho mínimo para esta columna */
+            padding: 20px;
+            background-color: var(--white); /* Para que tenga un fondo similar */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.03);
+            text-align: left; /* Alinea el texto a la izquierda en esta columna */
+        }
+
+        /* Ahora el h2 dentro de main-contact-left: ALINEADO A LA IZQUIERDA */
+        .main-contact-left h2 { 
+            text-align: left; /* Alinea a la izquierda */
+            margin-top: 0; /* Asegura que no tenga margen superior extra si no lo deseas */
+            margin-bottom: 20px; /* Ajusta el margen inferior */
+            color: var(--dark-pink); /* Mantiene el color */
+            font-size: 2.5em; /* Mantiene el tamaño */
+        }
+        
+        /* Ahora el p dentro de main-contact-left: ALINEADO A LA IZQUIERDA */
+        .main-contact-left p { 
+            text-align: left; /* Alinea a la izquierda */
+            max-width: unset; /* Permite que ocupe el ancho disponible */
+            margin: 0 0 20px 0; /* Ajusta márgenes para que no tenga auto y esté pegado al h2 */
+        }
+
+        .main-contact-left ul {
+            text-align: left; /* Alinea la lista a la izquierda */
+            margin-bottom: 20px; /* Añade un poco de espacio debajo de la lista */
+        }
+
+        .main-contact-left .whatsapp-button {
+            margin-left: 0; /* Asegura que el botón de WhatsApp se alinee a la izquierda */
+            display: inline-flex; /* Permite que el contenido interno de flex se alinee */
+        }
+
+
+        .main-contact-right {
+            flex: 1; /* Ocupa el espacio disponible */
+            min-width: 300px; /* Ancho mínimo para esta columna */
+            max-width: 600px; /* Limita el ancho del formulario para que no se estire demasiado */
+        }
+
+        /* Media Queries para Responsividad (ajusta los puntos de quiebre si es necesario) */
+        @media (max-width: 900px) { /* Cambia el punto de quiebre para cuando las columnas deben apilarse */
+            .main-contact-section-layout {
+                flex-direction: column; /* Apila las columnas verticalmente */
+                align-items: center; /* Centra los elementos apilados */
+                gap: 30px;
+            }
+
+            .main-contact-left,
+            .main-contact-right {
+                min-width: unset; /* Quita el mínimo para que ocupen todo el ancho disponible */
+                width: 100%;
+                max-width: 100%; /* Asegura que no se desborde */
+                padding: 15px; /* Ajusta el padding para móviles */
+            }
+
+            /* En pantallas pequeñas, el contenido de main-contact-left vuelve a centrarse */
+            .main-contact-left h2,
+            .main-contact-left p,
+            .main-contact-left ul,
+            .main-contact-left .whatsapp-button {
+                text-align: center; /* Centra todo en la columna izquierda cuando está apilado */
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .main-contact-left .whatsapp-button { /* Asegúrate de que el botón se centre */
+                display: flex; /* Cambia a flex para centrarlo con margin: auto */
+                justify-content: center; /* Centra el contenido del botón */
+            }
+        }
