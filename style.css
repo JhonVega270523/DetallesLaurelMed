@@ -455,12 +455,12 @@ footer {
 /* Extra small devices (phones, 600px and down) */
 @media (max-width: 600px) {
     header h1 {
-        font-size: 2em; /* Smaller title on very small screens */
+        font-size: 2em;
     }
 
     .author-signature {
         font-size: 0.9rem;
-        text-align: center; /* Centrar firma en móviles */
+        text-align: center;
         max-width: 100%;
         margin-right: 0;
     }
@@ -471,50 +471,51 @@ footer {
 
     nav ul {
         flex-direction: column; /* Apilar ítems de navegación */
-        gap: 10px; /* Reducir espacio entre ellos */
-        padding: 10px 0;
+        gap: 5px; /* Reducir el espacio entre los ítems apilados */
+        padding: 5px 0; /* Ajustar padding */
     }
 
     nav ul li a {
         font-size: 1em;
-        padding: 8px 15px;
-        width: calc(100% - 30px); /* Ocupar casi todo el ancho */
+        padding: 8px 10px; /* Ajustar padding para enlaces individuales */
+        width: 80%; /* Hacer que ocupen un buen porcentaje del ancho */
         display: block; /* Para que el padding y ancho funcionen */
         margin: 0 auto; /* Centrar los enlaces */
+        text-align: center; /* Centrar el texto dentro de cada enlace */
     }
 
     .container {
-        width: 95%; /* Usar más ancho en móviles */
+        width: 95%;
         padding: 15px;
-        margin: 20px auto; /* Reducir margen superior/inferior */
+        margin: 20px auto;
     }
 
     h2 {
-        font-size: 1.8em; /* Más pequeño en móviles */
+        font-size: 1.8em;
     }
 
     .categories {
-        grid-template-columns: 1fr; /* Una sola columna para categorías */
-        gap: 20px; /* Reducir espacio entre tarjetas */
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .category-card img {
-        height: 180px; /* Ajustar altura de imagen */
+        height: 180px;
     }
 
     .modal-content {
-        width: 95%; /* Más ancho para el modal en móviles */
+        width: 95%;
         padding: 20px;
     }
 
     .modal-products-grid {
-        grid-template-columns: 1fr; /* Una columna para productos dentro del modal */
+        grid-template-columns: 1fr;
     }
 
     .main-contact-section-layout {
-        flex-direction: column; /* Apilar las columnas de contacto */
-        align-items: center; /* Centrar elementos apilados */
-        gap: 20px; /* Espacio entre las columnas apiladas */
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
         padding: 10px;
     }
 
@@ -530,7 +531,7 @@ footer {
     .main-contact-left p,
     .main-contact-left ul,
     .main-contact-left .whatsapp-button {
-        text-align: center; /* Centrar contenido en la columna izquierda cuando apilado */
+        text-align: center;
         margin-left: auto;
         margin-right: auto;
     }
@@ -553,17 +554,25 @@ footer {
 
     .author-signature {
         font-size: 1rem;
-        text-align: center; /* Centrar en tabletas */
+        text-align: center;
         max-width: 100%;
         margin-right: 0;
     }
 
     nav ul {
-        gap: 20px; /* Reducir un poco el espacio */
+        gap: 20px;
+        flex-direction: row; /* En tabletas, pueden ir en fila si caben */
+    }
+
+    nav ul li a {
+        font-size: 1.1em;
+        padding: 5px 10px;
+        width: auto; /* Dejar que el contenido determine el ancho */
+        margin: 0; /* Eliminar margen auto si no es necesario */
     }
 
     .categories {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 2 o 3 columnas */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 25px;
     }
 
@@ -572,11 +581,11 @@ footer {
     }
 
     .modal-products-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Ajustar productos en modal */
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     }
 
     .main-contact-section-layout {
-        flex-direction: column; /* Apilar columnas de contacto en tabletas también */
+        flex-direction: column;
         align-items: center;
         gap: 30px;
     }
@@ -584,8 +593,8 @@ footer {
     .main-contact-left,
     .main-contact-right {
         min-width: unset;
-        width: 90%; /* Un poco menos ancho que en móvil puro */
-        max-width: 600px; /* Limitar el ancho */
+        width: 90%;
+        max-width: 600px;
         padding: 20px;
     }
 
@@ -607,14 +616,14 @@ footer {
 @media (min-width: 901px) {
     /* Styles for larger screens, where the default layout applies well */
     .main-contact-section-layout {
-        flex-direction: row; /* Mantener en fila en escritorio */
+        flex-direction: row;
         justify-content: center;
         align-items: flex-start;
     }
 
     .main-contact-left {
-        text-align: left; /* Alineación a la izquierda en escritorio */
-        margin-right: 20px; /* Pequeño margen para separar */
+        text-align: left;
+        margin-right: 20px;
     }
 
     .main-contact-left h2,
@@ -624,7 +633,7 @@ footer {
     }
 
     .main-contact-left .whatsapp-button {
-        display: inline-flex; /* Mantener como inline-flex en escritorio */
-        margin-left: 0; /* Asegurar que no haya margen auto */
+        display: inline-flex;
+        margin-left: 0;
     }
 }
