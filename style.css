@@ -35,7 +35,6 @@ header h1 {
 .author-signature {
     font-family: 'Playfair Display', serif;
     font-size: 1.1rem;
-    font-style: italic;
     text-align: right;
     max-width: 580px;
     margin: -5px auto 10px;
@@ -63,7 +62,7 @@ nav ul {
     display: flex;
     justify-content: center;
     gap: 30px;
-    flex-wrap: wrap; /* Permite que los ítems del menú se envuelvan en pantallas pequeñas */
+    flex-wrap: wrap;
 }
 
 nav ul li a {
@@ -88,6 +87,8 @@ nav ul li a:hover {
     background-color: var(--white);
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    /* Asegurarse de que el texto dentro del contenedor se centre por defecto si no se sobreescribe */
+    text-align: center;
 }
 
 h2 {
@@ -408,6 +409,8 @@ footer {
     align-items: flex-start;
     margin-top: 40px;
     padding: 20px;
+    /* Asegurarse de que el texto dentro de este layout se centre por defecto si no se sobreescribe */
+    text-align: center; /* Esto ayudará a centrar elementos inline o inline-block como el whatsapp-button */
 }
 
 .main-contact-left {
@@ -417,11 +420,11 @@ footer {
     background-color: var(--white);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.03);
-    text-align: left;
+    text-align: left; /* Alineación por defecto para desktop */
 }
 
 .main-contact-left h2 {
-    text-align: left;
+    text-align: left; /* Alineación por defecto para desktop */
     margin-top: 0;
     margin-bottom: 20px;
     color: var(--dark-pink);
@@ -429,25 +432,27 @@ footer {
 }
 
 .main-contact-left p {
-    text-align: left;
+    text-align: left; /* Alineación por defecto para desktop */
     max-width: unset;
     margin: 0 0 20px 0;
 }
 
 .main-contact-left ul {
-    text-align: left;
+    text-align: left; /* Alineación por defecto para desktop */
     margin-bottom: 20px;
 }
 
 .main-contact-left .whatsapp-button {
     margin-left: 0;
-    display: inline-flex;
+    display: inline-flex; /* Por defecto en desktop */
 }
 
 .main-contact-right {
     flex: 1;
     min-width: 300px;
     max-width: 600px;
+    /* Centrar el formulario dentro de esta columna en mobile */
+    margin: 0 auto;
 }
 
 /* Media Queries for Responsiveness */
@@ -462,7 +467,8 @@ footer {
         font-size: 0.9rem;
         text-align: center;
         max-width: 100%;
-        margin-right: 0;
+        /* margin-right: 0; (Eliminado, margin: auto ya lo centra) */
+        margin: -5px auto 10px; /* Centrar también la firma */
     }
 
     header p {
@@ -470,33 +476,50 @@ footer {
     }
 
     nav ul {
-        flex-direction: column; /* Apilar ítems de navegación */
-        gap: 5px; /* Reducir el espacio entre los ítems apilados */
-        padding: 5px 0; /* Ajustar padding */
+        flex-direction: column;
+        gap: 5px;
+        padding: 5px 0;
     }
 
     nav ul li a {
         font-size: 1em;
-        padding: 8px 10px; /* Ajustar padding para enlaces individuales */
-        width: 80%; /* Hacer que ocupen un buen porcentaje del ancho */
-        display: block; /* Para que el padding y ancho funcionen */
-        margin: 0 auto; /* Centrar los enlaces */
-        text-align: center; /* Centrar el texto dentro de cada enlace */
+        padding: 8px 10px;
+        width: 80%;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
     }
 
     .container {
         width: 95%;
         padding: 15px;
         margin: 20px auto;
+        /* Asegurarse de que el texto dentro del contenedor se centre en móviles */
+        text-align: center;
+    }
+
+    /* Asegurar que el párrafo de bienvenida dentro del contenedor se centre */
+    .container#inicio p {
+        text-align: center !important; /* Usar !important para anular estilos inline si es necesario */
+        max-width: 100%; /* Asegurar que ocupe todo el ancho */
+        margin: 10px auto; /* Centrar el párrafo */
+        font-size: 1em; /* Ajustar tamaño de fuente si es necesario */
     }
 
     h2 {
         font-size: 1.8em;
+        text-align: center; /* Asegurar que los títulos h2 estén centrados */
     }
 
     .categories {
         grid-template-columns: 1fr;
         gap: 20px;
+    }
+
+    .category-card {
+        margin: 0 auto; /* Centrar las tarjetas de categoría si no llenan el 100% */
+        width: 95%; /* Asegurar un ancho para centrar */
+        max-width: 300px; /* Limitar el ancho de la tarjeta */
     }
 
     .category-card img {
@@ -511,33 +534,67 @@ footer {
     .modal-products-grid {
         grid-template-columns: 1fr;
     }
+    
+    .modal-product-card {
+        margin: 0 auto; /* Centrar las tarjetas de producto en el modal */
+        width: 90%;
+        max-width: 250px;
+    }
+
 
     .main-contact-section-layout {
         flex-direction: column;
         align-items: center;
         gap: 20px;
         padding: 10px;
+        /* Asegurarse de que el texto dentro de este layout se centre */
+        text-align: center;
     }
 
     .main-contact-left,
     .main-contact-right {
         min-width: unset;
-        width: 100%;
-        max-width: 100%;
+        width: 95%; /* Usar más ancho en móviles */
+        max-width: 500px; /* Limitar ancho para que no sea demasiado grande */
         padding: 15px;
+        margin: 0 auto; /* Centrar ambas columnas */
+        box-sizing: border-box; /* Asegurar que padding no rompa el ancho */
     }
 
     .main-contact-left h2,
     .main-contact-left p,
-    .main-contact-left ul,
-    .main-contact-left .whatsapp-button {
-        text-align: center;
+    .main-contact-left ul {
+        text-align: center; /* Centrar todo el texto de la columna izquierda */
         margin-left: auto;
         margin-right: auto;
+        width: 100%; /* Asegurar que el texto ocupe el ancho para centrarlo */
     }
+
+    .main-contact-left ul {
+        list-style: none; /* Asegurarse de que no haya viñetas que desalineen */
+        padding-left: 0; /* Remover padding que puede desalinear lista */
+    }
+
+    .main-contact-left ul li {
+        text-align: center; /* Centrar cada ítem de la lista */
+    }
+
     .main-contact-left .whatsapp-button {
         display: flex;
         justify-content: center;
+        margin: 20px auto; /* Centrar el botón de WhatsApp */
+    }
+
+    /* Centrar el título del formulario en la columna derecha */
+    .main-contact-right h2 {
+        text-align: center !important; /* Usar !important para forzar el centrado */
+    }
+    
+    /* Asegurar que los inputs del formulario estén al 100% de ancho */
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+        width: calc(100% - 24px); /* Restar padding para asegurar ancho completo */
     }
 
     footer {
@@ -556,24 +613,53 @@ footer {
         font-size: 1rem;
         text-align: center;
         max-width: 100%;
-        margin-right: 0;
+        margin: -5px auto 10px; /* Centrar la firma */
     }
 
     nav ul {
         gap: 20px;
-        flex-direction: row; /* En tabletas, pueden ir en fila si caben */
+        flex-direction: row;
     }
 
     nav ul li a {
         font-size: 1.1em;
         padding: 5px 10px;
-        width: auto; /* Dejar que el contenido determine el ancho */
-        margin: 0; /* Eliminar margen auto si no es necesario */
+        width: auto;
+        margin: 0;
+    }
+
+    .container {
+        width: 90%;
+        padding: 20px;
+        margin: 30px auto;
+        text-align: center; /* Centrar todo el contenido del contenedor */
+    }
+
+    /* Asegurar que el párrafo de bienvenida dentro del contenedor se centre */
+    .container#inicio p {
+        text-align: center !important;
+        max-width: 700px; /* Un poco más de ancho para tabletas */
+        margin: 15px auto;
+        font-size: 1.05em;
+    }
+
+    h2 {
+        font-size: 2.2em;
+        text-align: center;
     }
 
     .categories {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 25px;
+        /* Centrar el grid de categorías si es necesario */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .category-card {
+        margin: 0 auto; /* Centrar las tarjetas dentro de la cuadrícula si no llenan */
+        width: 95%; /* Dar un ancho para el centrado */
+        max-width: 300px;
     }
 
     .modal-content {
@@ -584,10 +670,19 @@ footer {
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     }
 
+    .modal-product-card {
+        margin: 0 auto; /* Centrar las tarjetas de producto en el modal */
+        width: 90%;
+        max-width: 200px;
+    }
+
+
     .main-contact-section-layout {
         flex-direction: column;
         align-items: center;
         gap: 30px;
+        padding: 20px;
+        text-align: center; /* Centrar todo el contenido del layout de contacto */
     }
 
     .main-contact-left,
@@ -596,29 +691,65 @@ footer {
         width: 90%;
         max-width: 600px;
         padding: 20px;
+        margin: 0 auto; /* Centrar ambas columnas */
+        box-sizing: border-box;
     }
 
     .main-contact-left h2,
     .main-contact-left p,
-    .main-contact-left ul,
-    .main-contact-left .whatsapp-button {
-        text-align: center;
+    .main-contact-left ul {
+        text-align: center; /* Centrar todo el texto de la columna izquierda */
         margin-left: auto;
         margin-right: auto;
+        width: 100%;
     }
+
+    .main-contact-left ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .main-contact-left ul li {
+        text-align: center;
+    }
+
     .main-contact-left .whatsapp-button {
         display: flex;
         justify-content: center;
+        margin: 20px auto;
+    }
+
+    .main-contact-right h2 {
+        text-align: center !important;
+    }
+
+    footer {
+        padding: 15px 10px;
+        font-size: 0.8em;
     }
 }
 
 /* Medium to large devices (901px and up) - Desktop first, so these are minimal */
 @media (min-width: 901px) {
-    /* Styles for larger screens, where the default layout applies well */
+    .container {
+        text-align: left; /* Restablecer alineación a la izquierda para desktop */
+    }
+
+    .container#inicio p {
+        text-align: center !important; /* Mantener el párrafo de inicio centrado */
+        margin: 20px auto;
+        max-width: 800px;
+    }
+
+    .author-signature {
+        text-align: right; /* Restablecer alineación a la derecha para desktop */
+    }
+
     .main-contact-section-layout {
         flex-direction: row;
         justify-content: center;
         align-items: flex-start;
+        text-align: left; /* Restablecer alineación a la izquierda para desktop */
     }
 
     .main-contact-left {
@@ -630,10 +761,24 @@ footer {
     .main-contact-left p,
     .main-contact-left ul {
         text-align: left;
+        margin-left: unset;
+        margin-right: unset;
+        width: auto;
     }
 
     .main-contact-left .whatsapp-button {
         display: inline-flex;
         margin-left: 0;
+    }
+
+    .main-contact-right h2 {
+        text-align: center !important; /* Mantener el título del formulario centrado */
+    }
+
+    /* Asegurar que los inputs del formulario vuelvan a su comportamiento normal */
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+        width: 100%;
     }
 }
