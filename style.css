@@ -1,489 +1,630 @@
 :root {
-            --primary-pink: #FFC0CB; /* Rosa claro */
-            --dark-pink: #FF69B4;   /* Rosa fuerte */
-            --white: #FFFFFF;
-            --gray: #F8F8F8;
-            --dark-gray: #333333;
-            --text-color: #555555;
-        }
+    --primary-pink: #FFC0CB; /* Rosa claro */
+    --dark-pink: #FF69B4;   /* Rosa fuerte */
+    --white: #FFFFFF;
+    --gray: #F8F8F8;
+    --dark-gray: #333333;
+    --text-color: #555555;
+}
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background-color: var(--gray);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--gray);
+    color: var(--text-color);
+    line-height: 1.6;
+}
 
-        header {
-            background-color: var(--dark-pink);
-            color: var(--white);
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+header {
+    background-color: var(--dark-pink);
+    color: var(--white);
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            margin: 0;
-            font-size: 3em;
-            letter-spacing: 2px;
-        }
+header h1 {
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    font-size: 3em;
+    letter-spacing: 2px;
+}
 
-        /* Estilo añadido para "By: Laura López" */
-        .author-signature {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem; /* Tamaño de fuente pequeño */
-            font-style: italic;
-            text-align: right; /* Alineación a la derecha */
-            max-width: 580px; /* Ancho máximo para alinear con el título */
-            margin: -5px auto 10px; /* Margen para ajustar la posición vertical */
-            padding-right: 5px; /* Pequeño ajuste a la derecha */
-            color: rgba(255, 255, 255, 0.9);
-        }
+.author-signature {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    text-align: right;
+    max-width: 580px;
+    margin: -5px auto 10px;
+    padding-right: 5px;
+    color: rgba(255, 255, 255, 0.9);
+}
 
-        header p {
-            font-size: 1.2em;
-            margin-top: 5px;
-        }
+header p {
+    font-size: 1.2em;
+    margin-top: 5px;
+}
 
-        /* Navbar Styles */
-        nav {
-            background-color: var(--primary-pink);
-            padding: 10px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
+/* Navbar Styles */
+nav {
+    background-color: var(--primary-pink);
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            gap: 30px; /* Space between nav items */
-        }
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Permite que los ítems del menú se envuelvan en pantallas pequeñas */
+}
 
-        nav ul li a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1em;
-            padding: 5px 10px;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
+nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
 
-        nav ul li a:hover {
-            color: var(--dark-pink);
-            transform: scale(1.05);
-        }
+nav ul li a:hover {
+    color: var(--dark-pink);
+    transform: scale(1.05);
+}
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-        }
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
 
-        /* Regla general para h2: Centrado por defecto */
-        h2 {
-            font-family: 'Playfair Display', serif;
-            text-align: center; /* ESTO CENTRA TODOS LOS H2 POR DEFECTO */
-            color: var(--dark-pink);
-            margin-bottom: 30px;
-            font-size: 2.5em;
-        }
+h2 {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    color: var(--dark-pink);
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
 
-        .categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
+.categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
 
-        .category-card {
-            background-color: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+.category-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
-        .category-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
 
-        .category-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-bottom: 1px solid var(--primary-pink);
-        }
+.category-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--primary-pink);
+}
 
-        .category-card h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--dark-pink);
-            margin: 20px 0 10px;
-            font-size: 1.8em;
-        }
+.category-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--dark-pink);
+    margin: 20px 0 10px;
+    font-size: 1.8em;
+}
 
-        .category-card p {
-            padding: 0 20px;
-            font-size: 0.95em;
-            color: var(--text-color);
-            flex-grow: 1;
-        }
+.category-card p {
+    padding: 0 20px;
+    font-size: 0.95em;
+    color: var(--text-color);
+    flex-grow: 1;
+}
 
-        .category-card .btn-view-more {
-            display: inline-block;
-            background-color: var(--dark-pink);
-            color: var(--white);
-            padding: 12px 25px;
-            margin: 20px auto;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-            border: none;
-        }
+.category-card .btn-view-more {
+    display: inline-block;
+    background-color: var(--dark-pink);
+    color: var(--white);
+    padding: 12px 25px;
+    margin: 20px auto;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border: none;
+}
 
-        .category-card .btn-view-more:hover {
-            background-color: #e04a9e; /* Un rosa un poco más oscuro al hover */
-        }
+.category-card .btn-view-more:hover {
+    background-color: #e04a9e;
+}
 
-        /* WhatsApp Button in Contact Section */
-        .whatsapp-button {
-            display: inline-flex; /* Use flex to align icon and text */
-            align-items: center;
-            gap: 10px; /* Space between icon and text */
-            background-color: #25D366; /* WhatsApp Green */
-            color: var(--white);
-            padding: 15px 30px;
-            border-radius: 50px; /* Pill shape */
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2em;
-            margin-top: 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #25D366;
+    color: var(--white);
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
-        .whatsapp-button:hover {
-            background-color: #1DA851; /* Darker green on hover */
-            transform: translateY(-3px); /* Slight lift effect */
-        }
+.whatsapp-button:hover {
+    background-color: #1DA851;
+    transform: translateY(-3px);
+}
 
-        .whatsapp-button img {
-            width: 24px; /* Icon size */
-            height: 24px;
-        }
+.whatsapp-button img {
+    width: 24px;
+    height: 24px;
+}
 
-        /* Scroll to Top Button */
-        #scrollToTopBtn {
-            display: none; /* Hidden by default */
-            position: fixed; /* Fixed position */
-            bottom: 20px; /* 20px from the bottom */
-            right: 20px; /* 20px from the right */
-            z-index: 99; /* Higher z-index to be on top */
-            border: none; /* Remove borders */
-            outline: none; /* Remove outline */
-            background-color: var(--dark-pink); /* Background color */
-            color: white; /* Text color */
-            cursor: pointer; /* Add a mouse pointer on hover */
-            padding: 15px; /* Some padding */
-            border-radius: 50%; /* Rounded shape */
-            font-size: 20px; /* Increase font size */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s, transform 0.3s;
-        }
+#scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: var(--dark-pink);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
 
-        #scrollToTopBtn:hover {
-            background-color: #e04a9e; /* Darker pink on hover */
-            transform: translateY(-3px);
-        }
+#scrollToTopBtn:hover {
+    background-color: #e04a9e;
+    transform: translateY(-3px);
+}
 
-        footer {
-            background-color: var(--dark-pink);
-            color: var(--white);
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 50px;
-            font-size: 0.9em;
-        }
+footer {
+    background-color: var(--dark-pink);
+    color: var(--white);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    font-size: 0.9em;
+}
 
-        /* Modal Styles */
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1000; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
 
-        .modal-content {
-            background-color: var(--white);
-            margin: auto;
-            padding: 30px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 700px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            position: relative;
-            animation: fadeIn 0.3s ease-out;
-        }
+.modal-content {
+    background-color: var(--white);
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 700px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+    animation: fadeIn 0.3s ease-out;
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-        .close-button {
-            color: var(--dark-gray);
-            font-size: 28px;
-            font-weight: bold;
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
+.close-button {
+    color: var(--dark-gray);
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
 
-        .close-button:hover,
-        .close-button:focus {
-            color: var(--dark-pink);
-            text-decoration: none;
-        }
+.close-button:hover,
+.close-button:focus {
+    color: var(--dark-pink);
+    text-decoration: none;
+}
 
-        .modal-content h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--dark-pink);
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 2.2em;
-        }
+.modal-content h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--dark-pink);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.2em;
+}
 
-        /* Products in Modal */
-        .modal-products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            max-height: 70vh; /* Limit height for scroll */
-            overflow-y: auto; /* Enable scrolling */
-            padding-right: 10px; /* Space for scrollbar */
-        }
+.modal-products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
 
-        .modal-product-card {
-            background-color: var(--gray);
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-            text-align: center;
-            padding-bottom: 10px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
+.modal-product-card {
+    background-color: var(--gray);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-        .modal-product-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
+.modal-product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
-        .modal-product-card img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-bottom: 1px solid var(--primary-pink);
-        }
+.modal-product-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--primary-pink);
+}
 
-        .modal-product-card h5 {
-            font-family: 'Playfair Display', serif;
-            color: var(--dark-gray);
-            margin: 10px 0 5px;
-            font-size: 1.2em;
-            padding: 0 10px;
-        }
-        
-        .modal-product-card .btn-select-product {
-            display: inline-block;
-            background-color: var(--dark-pink);
-            color: var(--white);
-            padding: 8px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-            cursor: pointer;
-            border: none;
-            font-size: 0.9em;
-        }
+.modal-product-card h5 {
+    font-family: 'Playfair Display', serif;
+    color: var(--dark-gray);
+    margin: 10px 0 5px;
+    font-size: 1.2em;
+    padding: 0 10px;
+}
 
-         .modal-product-card .btn-select-product:hover {
-            background-color: #e04a9e;
-        }
+.modal-product-card .btn-select-product {
+    display: inline-block;
+    background-color: var(--dark-pink);
+    color: var(--white);
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 0.9em;
+}
 
-        /* Estilos para el Formulario de Contacto */
-        .contact-form {
-            max-width: 600px;
-            margin: 0; /* Ajustado para el nuevo layout */
-            padding: 15px;
-            background-color: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-        }
+.modal-product-card .btn-select-product:hover {
+    background-color: #e04a9e;
+}
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+/* Contact Form Styles */
+.contact-form {
+    max-width: 600px;
+    margin: 0;
+    padding: 15px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
 
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: var(--dark-gray);
-            font-size: 1.05em;
-        }
+.form-group {
+    margin-bottom: 20px;
+}
 
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1em;
-            box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
-            transition: border-color 0.3s ease;
-        }
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--dark-gray);
+    font-size: 1.05em;
+}
 
-        .form-group input[type="text"]:focus,
-        .form-group input[type="email"]:focus,
-        .form-group textarea:focus {
-            border-color: var(--dark-pink);
-            outline: none;
-            box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
-        }
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
 
-        .form-group textarea {
-            resize: vertical; /* Permite redimensionar verticalmente */
-        }
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: var(--dark-pink);
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+}
 
-        .submit-button {
-            display: block;
-            width: 100%;
-            background-color: var(--dark-pink);
-            color: var(--white);
-            padding: 15px 25px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.2em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
+.form-group textarea {
+    resize: vertical;
+}
 
-        .submit-button:hover {
-            background-color: #e04a9e; /* Un rosa un poco más oscuro al hover */
-            transform: translateY(-2px);
-        }
+.submit-button {
+    display: block;
+    width: 100%;
+    background-color: var(--dark-pink);
+    color: var(--white);
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
-        /* Nuevo: Estilos para el layout principal de la sección de Contacto (dos columnas grandes) */
-        .main-contact-section-layout {
-            display: flex;
-            flex-wrap: wrap; /* Permite que las columnas se apilen en pantallas pequeñas */
-            gap: 40px; /* Espacio entre las dos columnas principales */
-            justify-content: center; /* Centra las columnas horizontalmente */
-            align-items: flex-start; /* Alinea los elementos en la parte superior */
-            margin-top: 40px;
-            padding: 20px; /* Un poco de padding para que no se pegue a los bordes del .container */
-        }
+.submit-button:hover {
+    background-color: #e04a9e;
+    transform: translateY(-2px);
+}
 
-        .main-contact-left {
-            flex: 1; /* Ocupa el espacio disponible */
-            min-width: 300px; /* Ancho mínimo para esta columna */
-            padding: 20px;
-            background-color: var(--white); /* Para que tenga un fondo similar */
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.03);
-            text-align: left; /* Alinea el texto a la izquierda en esta columna */
-        }
+/* New: Contact section main layout (two large columns) */
+.main-contact-section-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 40px;
+    padding: 20px;
+}
 
-        /* Ahora el h2 dentro de main-contact-left: ALINEADO A LA IZQUIERDA */
-        .main-contact-left h2 { 
-            text-align: left; /* Alinea a la izquierda */
-            margin-top: 0; /* Asegura que no tenga margen superior extra si no lo deseas */
-            margin-bottom: 20px; /* Ajusta el margen inferior */
-            color: var(--dark-pink); /* Mantiene el color */
-            font-size: 2.5em; /* Mantiene el tamaño */
-        }
-        
-        /* Ahora el p dentro de main-contact-left: ALINEADO A LA IZQUIERDA */
-        .main-contact-left p { 
-            text-align: left; /* Alinea a la izquierda */
-            max-width: unset; /* Permite que ocupe el ancho disponible */
-            margin: 0 0 20px 0; /* Ajusta márgenes para que no tenga auto y esté pegado al h2 */
-        }
+.main-contact-left {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.03);
+    text-align: left;
+}
 
-        .main-contact-left ul {
-            text-align: left; /* Alinea la lista a la izquierda */
-            margin-bottom: 20px; /* Añade un poco de espacio debajo de la lista */
-        }
+.main-contact-left h2 {
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--dark-pink);
+    font-size: 2.5em;
+}
 
-        .main-contact-left .whatsapp-button {
-            margin-left: 0; /* Asegura que el botón de WhatsApp se alinee a la izquierda */
-            display: inline-flex; /* Permite que el contenido interno de flex se alinee */
-        }
+.main-contact-left p {
+    text-align: left;
+    max-width: unset;
+    margin: 0 0 20px 0;
+}
 
+.main-contact-left ul {
+    text-align: left;
+    margin-bottom: 20px;
+}
 
-        .main-contact-right {
-            flex: 1; /* Ocupa el espacio disponible */
-            min-width: 300px; /* Ancho mínimo para esta columna */
-            max-width: 600px; /* Limita el ancho del formulario para que no se estire demasiado */
-        }
+.main-contact-left .whatsapp-button {
+    margin-left: 0;
+    display: inline-flex;
+}
 
-        /* Media Queries para Responsividad (ajusta los puntos de quiebre si es necesario) */
-        @media (max-width: 900px) { /* Cambia el punto de quiebre para cuando las columnas deben apilarse */
-            .main-contact-section-layout {
-                flex-direction: column; /* Apila las columnas verticalmente */
-                align-items: center; /* Centra los elementos apilados */
-                gap: 30px;
-            }
+.main-contact-right {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+}
 
-            .main-contact-left,
-            .main-contact-right {
-                min-width: unset; /* Quita el mínimo para que ocupen todo el ancho disponible */
-                width: 100%;
-                max-width: 100%; /* Asegura que no se desborde */
-                padding: 15px; /* Ajusta el padding para móviles */
-            }
+/* Media Queries for Responsiveness */
 
-            /* En pantallas pequeñas, el contenido de main-contact-left vuelve a centrarse */
-            .main-contact-left h2,
-            .main-contact-left p,
-            .main-contact-left ul,
-            .main-contact-left .whatsapp-button {
-                text-align: center; /* Centra todo en la columna izquierda cuando está apilado */
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .main-contact-left .whatsapp-button { /* Asegúrate de que el botón se centre */
-                display: flex; /* Cambia a flex para centrarlo con margin: auto */
-                justify-content: center; /* Centra el contenido del botón */
-            }
-        }
+/* Extra small devices (phones, 600px and down) */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2em; /* Smaller title on very small screens */
+    }
+
+    .author-signature {
+        font-size: 0.9rem;
+        text-align: center; /* Centrar firma en móviles */
+        max-width: 100%;
+        margin-right: 0;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    nav ul {
+        flex-direction: column; /* Apilar ítems de navegación */
+        gap: 10px; /* Reducir espacio entre ellos */
+        padding: 10px 0;
+    }
+
+    nav ul li a {
+        font-size: 1em;
+        padding: 8px 15px;
+        width: calc(100% - 30px); /* Ocupar casi todo el ancho */
+        display: block; /* Para que el padding y ancho funcionen */
+        margin: 0 auto; /* Centrar los enlaces */
+    }
+
+    .container {
+        width: 95%; /* Usar más ancho en móviles */
+        padding: 15px;
+        margin: 20px auto; /* Reducir margen superior/inferior */
+    }
+
+    h2 {
+        font-size: 1.8em; /* Más pequeño en móviles */
+    }
+
+    .categories {
+        grid-template-columns: 1fr; /* Una sola columna para categorías */
+        gap: 20px; /* Reducir espacio entre tarjetas */
+    }
+
+    .category-card img {
+        height: 180px; /* Ajustar altura de imagen */
+    }
+
+    .modal-content {
+        width: 95%; /* Más ancho para el modal en móviles */
+        padding: 20px;
+    }
+
+    .modal-products-grid {
+        grid-template-columns: 1fr; /* Una columna para productos dentro del modal */
+    }
+
+    .main-contact-section-layout {
+        flex-direction: column; /* Apilar las columnas de contacto */
+        align-items: center; /* Centrar elementos apilados */
+        gap: 20px; /* Espacio entre las columnas apiladas */
+        padding: 10px;
+    }
+
+    .main-contact-left,
+    .main-contact-right {
+        min-width: unset;
+        width: 100%;
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .main-contact-left h2,
+    .main-contact-left p,
+    .main-contact-left ul,
+    .main-contact-left .whatsapp-button {
+        text-align: center; /* Centrar contenido en la columna izquierda cuando apilado */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .main-contact-left .whatsapp-button {
+        display: flex;
+        justify-content: center;
+    }
+
+    footer {
+        padding: 15px 10px;
+        font-size: 0.8em;
+    }
+}
+
+/* Small devices (tablets, 601px and up to 900px) */
+@media (min-width: 601px) and (max-width: 900px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    .author-signature {
+        font-size: 1rem;
+        text-align: center; /* Centrar en tabletas */
+        max-width: 100%;
+        margin-right: 0;
+    }
+
+    nav ul {
+        gap: 20px; /* Reducir un poco el espacio */
+    }
+
+    .categories {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 2 o 3 columnas */
+        gap: 25px;
+    }
+
+    .modal-content {
+        max-width: 600px;
+    }
+
+    .modal-products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Ajustar productos en modal */
+    }
+
+    .main-contact-section-layout {
+        flex-direction: column; /* Apilar columnas de contacto en tabletas también */
+        align-items: center;
+        gap: 30px;
+    }
+
+    .main-contact-left,
+    .main-contact-right {
+        min-width: unset;
+        width: 90%; /* Un poco menos ancho que en móvil puro */
+        max-width: 600px; /* Limitar el ancho */
+        padding: 20px;
+    }
+
+    .main-contact-left h2,
+    .main-contact-left p,
+    .main-contact-left ul,
+    .main-contact-left .whatsapp-button {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .main-contact-left .whatsapp-button {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* Medium to large devices (901px and up) - Desktop first, so these are minimal */
+@media (min-width: 901px) {
+    /* Styles for larger screens, where the default layout applies well */
+    .main-contact-section-layout {
+        flex-direction: row; /* Mantener en fila en escritorio */
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .main-contact-left {
+        text-align: left; /* Alineación a la izquierda en escritorio */
+        margin-right: 20px; /* Pequeño margen para separar */
+    }
+
+    .main-contact-left h2,
+    .main-contact-left p,
+    .main-contact-left ul {
+        text-align: left;
+    }
+
+    .main-contact-left .whatsapp-button {
+        display: inline-flex; /* Mantener como inline-flex en escritorio */
+        margin-left: 0; /* Asegurar que no haya margen auto */
+    }
+}
