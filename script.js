@@ -1,192 +1,453 @@
 // Script para la funcionalidad de la página (modales, botones, etc.)
-        const productsData = {
-            anchetas: [
-                { name: "Ancheta Deluxe", image: "/images/ANCHETA.jpeg" },
-                { name: "Ancheta Romántica", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Ancheta+Romantica" },
-                { name: "Ancheta Frutal", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Ancheta+Frutal" },
-                { name: "Ancheta Chocolates", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Ancheta+Chocolates" },
-                { name: "Ancheta Personalizada", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Ancheta+Personalizada" },
-                { name: "Ancheta de Cumpleaños", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Ancheta+Cumpleaños" },
-                { name: "Ancheta de Aniversario", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Ancheta+Aniversario" },
-                { name: "Ancheta Gourmet", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Ancheta+Gourmet" },
-                { name: "Ancheta Infantil", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Ancheta+Infantil" },
-                { name: "Ancheta Relax", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Ancheta+Relax" }
-            ],
-            ramos: [
-                { name: "Ramo de Rosas Rojas", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Rosas+Rojas" },
-                { name: "Ramo de Girasoles", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Girasoles" },
-                { name: "Ramo Variado Pastel", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Variado+Pastel" },
-                { name: "Ramo de Lirios", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Lirios" },
-                { name: "Ramo de Orquídeas", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Orquideas" },
-                { name: "Ramo de Tulipanes", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Tulipanes" },
-                { name: "Ramo de Margaritas", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Margaritas" },
-                { name: "Ramo Silvestre", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Silvestre" },
-                { name: "Ramo Elegancia Blanca", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Elegancia+Blanca" },
-                { name: "Ramo Exótico", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Exotico" }
-            ],
-            ramilletes: [
-                { name: "Ramillete de Mini Rosas", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Mini+Rosas" },
-                { name: "Ramillete de Claveles", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Claveles" },
-                { name: "Ramillete Mixto Pequeño", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Mixto+Pequeño" },
-                { name: "Ramillete de Lavanda", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Lavanda" },
-                { name: "Ramillete de Alstroemerias", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Alstroemerias" },
-                { name: "Ramillete de Eucalipto y Rosas", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Eucalipto+Rosas" },
-                { name: "Ramillete de Crisantemos", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Crisantemos" },
-                { name: "Ramillete Alegría", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Alegria" },
-                { name: "Ramillete Suave", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Suave" },
-                { name: "Ramillete de Campo", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Campo" }
-            ],
-            peluches: [
-                { name: "Oso de Peluche Grande", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Oso+Grande" },
-                { name: "Conejo de Peluche Suave", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Conejo" },
-                { name: "Corazón de Peluche", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Corazon" },
-                { name: "Perro de Peluche Tierno", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Perro" },
-                { name: "Elefante de Peluche", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Elefante" },
-                { name: "Peluches de Personajes", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Personajes" },
-                { name: "Set de Mini Peluches", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Mini+Peluches" },
-                { name: "Peluches con Mensaje", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Mensaje" },
-                { name: "Peluches Musicales", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Musicales" },
-                { name: "Peluches Temáticos", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Tematicos" }
-            ],
-            cajas: [
-                { name: "Caja Sorpresa Dulce", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Caja+Dulce" },
-                { name: "Caja con Rosas y Chocolates", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Rosas+Chocolates" },
-                { name: "Caja de Experiencias", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Caja+Experiencias" },
-                { name: "Caja Relax y Spa", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Caja+Relax" },
-                { name: "Caja de Té y Galletas", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Caja+Te" },
-                { name: "Caja de Maquillaje", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Maquillaje" },
-                { name: "Caja de Vinos y Quesos", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Vinos+Quesos" },
-                { name: "Caja de Cervezas Artesanales", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Cervezas" },
-                { name: "Caja de Desayuno Especial", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Desayuno+Especial" },
-                { name: "Caja de Regalo de Lujo", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Regalo+Lujo" }
-            ],
-            desayunos: [
-                { name: "Desayuno Clásico", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Desayuno+Clasico" },
-                { name: "Desayuno Saludable", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Desayuno+Saludable" },
-                { name: "Desayuno Romántico", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Desayuno+Romantico" },
-                { name: "Desayuno Infantil Temático", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Desayuno+Infantil" },
-                { name: "Desayuno con Frutas y Jugo", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Frutas+Jugo" },
-                { name: "Desayuno Americano", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Americano" },
-                { name: "Desayuno Sorpresa de Cumpleaños", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Cumpleaños" },
-                { name: "Desayuno de Aniversario", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Aniversario" },
-                { name: "Desayuno Vegano", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Vegano" },
-                { name: "Desayuno Premium", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Premium" }
-            ],
-            decoraciones: [
-                { name: "Decoración Fiesta Cumpleaños", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Fiesta+Cumpleaños" },
-                { name: "Decoración Romántica Habitación", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Habitacion+Romantica" },
-                { name: "Decoración Jacuzzi con Pétalos", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Jacuzzi+Petalos" },
-                { name: "Kit Decoración Aniversario", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Kit+Aniversario" },
-                { name: "Globos Personalizados Fiesta", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Globos+Personalizados" },
-                { name: "Luces LED para Ambiente", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Luces+Ambiente" },
-                { name: "Velas Flotantes para Jacuzzi", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Velas+Jacuzzi" },
-                { name: "Cortinas de Luces para Eventos", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Cortinas+Luces" },
-                { name: "Guirnaldas Temáticas", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Guirnaldas+Tematicas" },
-                { name: "Set de Accesorios para Jacuzzi", image: "https://via.placeholder.com/300x200/FFD1DC/666666?text=Accesorios+Jacuzzi" }
-            ]
-        };
+const productsData = {
+    anchetas: [
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+    ],
+    ramos: [
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+    ],
+    peluches: [
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+    ],
+    cajas: [
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+    ],
+    desayunos: [
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+    ],
+    decoraciones: [
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+    ]
+};
 
-        const modal = document.getElementById("productModal");
-        const closeButton = document.querySelector(".close-button");
-        const modalCategoryTitle = document.getElementById("modalCategoryTitle");
-        const modalProductGrid = document.getElementById("modalProductGrid");
-        const whatsappNumber = "573001234567"; // Asegúrate de que este número sea el correcto de WhatsApp
-        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+// --- Variables DOM (se inicializan dentro de DOMContentLoaded) ---
+let productContainer;
+let filterButtons;
+let categoryCards;
+let paginationContainer;
+const whatsappNumber = "573192523075"; // Tu número de WhatsApp
 
-        window.onscroll = function() {scrollFunction()};
+// --- Modal de Detalles del Producto ---
+let productDetailModal;
+let modalDetailImage;
+let modalDetailName;
+let modalDetailPrice;
+let modalDetailDescription;
+let modalDetailWhatsappBtn;
+let closeModalButton;
 
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                scrollToTopBtn.style.display = "block";
-            } else {
-                scrollToTopBtn.style.display = "none";
-            }
+// --- Funcionalidad Scroll To Top ---
+let scrollToTopBtn;
+
+// --- Variables de Paginación y Filtrado ---
+const productsPerPage = 12; // Número de productos por página
+let currentCategory = 'all'; // Categoría actualmente seleccionada
+let currentPage = 1; // Página actual
+
+// --- Funciones de Carga y Filtrado ---
+function getFilteredProducts(filter) {
+    if (filter === 'all') {
+        let allProducts = [];
+        for (const category in productsData) {
+            allProducts = allProducts.concat(productsData[category]);
         }
+        return allProducts;
+    } else {
+        return productsData[filter] || [];
+    }
+}
 
-        function topFunction() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
+function displayProducts(products, page) {
+    if (!productContainer) {
+        console.error("Error: productContainer no encontrado.");
+        return;
+    }
+
+    productContainer.innerHTML = ''; // Limpiar el contenedor antes de cargar
+    const startIndex = (page - 1) * productsPerPage;
+    const endIndex = startIndex + productsPerPage;
+    const productsToDisplay = products.slice(startIndex, endIndex);
+
+    productsToDisplay.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+        productCard.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p style="display:none;" class="product-price">${product.price}</p>
+            <div class="product-actions">
+                <button class="btn-detail" data-product-json='${JSON.stringify(product)}'>Ver Detalles</button>
+                <button class="whatsapp-icon-btn" data-name="${product.name}" data-price="${product.price}">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon">
+                </button>
+            </div>
+        `;
+        productContainer.appendChild(productCard);
+    });
+
+    // Añadir listeners después de que los productos estén en el DOM
+    addEventListenersToProductButtons();
+}
+
+function setupPagination(products, selectedFilter) {
+    if (!paginationContainer) {
+        console.error("Error: paginationContainer no encontrado.");
+        return;
+    }
+
+    paginationContainer.innerHTML = ''; // Limpiar la paginación existente
+    const totalPages = Math.ceil(products.length / productsPerPage);
+
+    if (totalPages <= 1) return; // No mostrar paginación si solo hay una página
+
+    for (let i = 1; i <= totalPages; i++) {
+        const pageButton = document.createElement('button');
+        pageButton.textContent = i;
+        if (i === currentPage) {
+            pageButton.classList.add('active');
         }
-
-        document.querySelectorAll('.btn-view-more').forEach(button => {
-            button.addEventListener('click', function() {
-                const category = this.dataset.category;
-                const categoryName = this.parentNode.querySelector('h3').textContent;
-                modalCategoryTitle.textContent = `Productos en ${categoryName}`;
-                loadProductsIntoModal(category);
-                modal.style.display = "flex";
-            });
-        });
-
-        closeButton.addEventListener('click', function() {
-            modal.style.display = "none";
-        });
-
-        window.addEventListener('click', function(event) {
-            if (event.target === modal) {
-                modal.style.display = "none";
-            }
-        });
-
-        function loadProductsIntoModal(category) {
-            modalProductGrid.innerHTML = '';
-            const products = productsData[category];
-            if (products) {
-                products.forEach(product => {
-                    const productCard = document.createElement('div');
-                    productCard.classList.add('modal-product-card');
-                    productCard.innerHTML = `
-                        <img src="${product.image}" alt="${product.name}">
-                        <h5>${product.name}</h5>
-                        <button class="btn-select-product" data-name="${product.name}" data-image="${product.image}">Me interesa</button>
-                    `;
-                    modalProductGrid.appendChild(productCard);
-                });
-                addWhatsAppListeners();
-            }
-        }
-
-        function addWhatsAppListeners() {
-            document.querySelectorAll('.btn-select-product').forEach(button => {
-                button.addEventListener('click', function() {
-                    const productName = this.dataset.name;
-                    sendToWhatsApp(productName);
-                });
-            });
-        }
-
-        function sendToWhatsApp(productName) {
-            let message = `¡Hola! Estoy interesado/a en el siguiente producto de Detalles Laurel Medellín:\n\n*Producto:* ${productName}\n`;
-            let whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+        pageButton.addEventListener('click', () => {
+            currentPage = i; // Actualiza la página actual
+            displayProducts(products, currentPage); // Muestra los productos de la nueva página
             
-            alert(`Serás redirigido a WhatsApp para pedir información sobre "${productName}".`);
-            window.open(whatsappUrl, '_blank');
-        }
+            // Actualizar el estado activo de los botones de paginación
+            paginationContainer.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
+            pageButton.classList.add('active');
+            
+            // Scroll asegurado a la sección de productos
+            setTimeout(() => {
+                const productosSection = document.getElementById('productos');
+                if (productosSection) {
+                    productosSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100); 
+        }, { passive: true });
+        paginationContainer.appendChild(pageButton);
+    }
+}
+
+function loadAndFilterProducts(filter, page = 1) {
+    currentCategory = filter;
+    currentPage = page;
+    const filteredProducts = getFilteredProducts(filter);
+    displayProducts(filteredProducts, currentPage);
+    setupPagination(filteredProducts, filter);
+}
+
+// --- Event Listeners para los botones de producto (WhatsApp y Detalles) ---
+function addEventListenersToProductButtons() {
+    // Selector actualizado para el icono de WhatsApp en las tarjetas de producto
+    document.querySelectorAll('.product-card .whatsapp-icon-btn').forEach(button => {
+        // Asegúrate de que no haya listeners duplicados
+        button.removeEventListener('click', handleWhatsAppClick); 
+        button.addEventListener('click', handleWhatsAppClick, { passive: true });
+    });
+
+    // Listener para el botón "Ver Detalles" en las tarjetas de producto
+    document.querySelectorAll('.product-card .btn-detail').forEach(button => {
+        // Asegúrate de que no haya listeners duplicados
+        button.removeEventListener('click', handleDetailClick); 
+        button.addEventListener('click', handleDetailClick, { passive: true });
+    });
+}
+
+// Funciones para manejar clics y evitar duplicados de listeners
+function handleWhatsAppClick() {
+    const productName = this.dataset.name;
+    const productPrice = this.dataset.price;
+    sendToWhatsApp(productName, productPrice);
+}
+
+function handleDetailClick() {
+    // Parsear el JSON del dataset para obtener el objeto completo del producto
+    try {
+        const product = JSON.parse(this.dataset.productJson);
+        openProductDetailModal(product);
+    } catch (e) {
+        console.error("Error al parsear el JSON del producto:", e);
+    }
+}
+
+function sendToWhatsApp(productName, productPrice) {
+    let message = `¡Hola! Estoy interesado/a en el siguiente producto de Detalles Laurel Medellín:\n\n*Producto:* ${productName}\n*Precio:* ${productPrice}\n`;
+    let whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+}
+
+function openProductDetailModal(product) {
+    if (!modalDetailImage || !modalDetailName || !modalDetailPrice || !modalDetailDescription || !modalDetailWhatsappBtn || !productDetailModal) {
+        console.error("Error: Elementos del modal no encontrados.");
+        return;
+    }
+    modalDetailImage.src = product.image;
+    modalDetailImage.alt = product.name;
+    modalDetailName.textContent = product.name;
+    modalDetailPrice.textContent = product.price; 
+    modalDetailDescription.textContent = product.description;
     
-        // Deshabilitar el menú contextual (clic derecho)
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
+    // Actualizar los atributos data- para el botón de WhatsApp del modal
+    modalDetailWhatsappBtn.setAttribute('data-name', product.name);
+    modalDetailWhatsappBtn.setAttribute('data-price', product.price);
+
+    productDetailModal.style.display = "flex"; 
+}
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        scrollToTopBtn.style.display = "block";
+    } else {
+        scrollToTopBtn.style.display = "none";
+    }
+}
+
+function topFunction() {
+    document.body.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+
+// --- INICIALIZACIÓN DE TODO AL CARGAR EL DOM ---
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Eliminar el hash de la URL si existe
+    if (window.location.hash) {
+        window.history.replaceState('', document.title, window.location.pathname + window.location.search);
+    }
+    // 2. Intentar forzar el scroll al inicio de la página con un pequeño retraso
+    // Esto permite que el navegador primero aplique su propio scroll si lo tiene,
+    // y luego nuestro script lo sobreescriba.
+    setTimeout(() => {
+        window.scrollTo(0, 0); 
+        // También puedes probar con:
+        // document.body.scrollIntoView({ behavior: 'auto', block: 'start' });
+        // O si tienes un elemento con id="top" en la primera sección:
+        // document.getElementById('top').scrollIntoView({ behavior: 'auto', block: 'start' });
+    }, 10); // Retraso de 10 milisegundos
+
+    // 3. Inicializar referencias a elementos del DOM
+    productContainer = document.getElementById("product-container");
+    filterButtons = document.querySelectorAll(".filter-btn");
+    categoryCards = document.querySelectorAll(".category-card"); 
+    paginationContainer = document.getElementById("pagination-container");
+
+    // Modal elements
+    productDetailModal = document.getElementById("productModal"); 
+    modalDetailImage = document.getElementById("modalDetailImage");
+    modalDetailName = document.getElementById("modalDetailName");
+    modalDetailPrice = document.getElementById("modalDetailPrice");
+    modalDetailDescription = document.getElementById("modalDetailDescription");
+    modalDetailWhatsappBtn = document.getElementById("modalDetailWhatsappBtn");
+    closeModalButton = productDetailModal.querySelector(".close-button");
+
+    // Scroll to top button
+    scrollToTopBtn = document.getElementById("scrollToTopBtn");
+    if (scrollToTopBtn) {
+        scrollToTopBtn.addEventListener('click', topFunction);
+        window.onscroll = function() { scrollFunction() };
+    }
+
+
+    // 4. Añadir Event Listeners para el modal (una vez)
+    if (productDetailModal && closeModalButton) {
+        closeModalButton.addEventListener('click', () => {
+            productDetailModal.style.display = "none";
         });
 
-        // Deshabilitar teclas específicas para inspección
-        document.addEventListener('keydown', function(e) {
-            // Deshabilitar F12
-            if (e.key === "F12") {
-                e.preventDefault();
-            }
-            
-            // Deshabilitar Ctrl+Shift+I (Inspeccionar)
-            if (e.ctrlKey && e.shiftKey && e.key.toUpperCase() === 'I') {
-                e.preventDefault();
-            }
-
-            // Deshabilitar Ctrl+Shift+J (Consola)
-            if (e.ctrlKey && e.shiftKey && e.key.toUpperCase() === 'J') {
-                e.preventDefault();
-            }
-
-            // Deshabilitar Ctrl+U (Ver código fuente)
-            if (e.ctrlKey && e.key.toUpperCase() === 'U') {
-                e.preventDefault();
+        window.addEventListener('click', (event) => {
+            if (event.target == productDetailModal) {
+                productDetailModal.style.display = "none";
             }
         });
+    }
+
+    // Listener para el botón de WhatsApp dentro del modal (una vez)
+    if (modalDetailWhatsappBtn) {
+        modalDetailWhatsappBtn.addEventListener('click', function() {
+            const productName = this.dataset.name;
+            const productPrice = this.dataset.price;
+            sendToWhatsApp(productName, productPrice);
+        }, { passive: true });
+    }
+
+
+    // 5. Añadir Event Listeners para los botones de filtro (una vez)
+    if (filterButtons.length > 0) {
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                const filter = this.dataset.filter;
+                loadAndFilterProducts(filter); 
+                
+                setTimeout(() => {
+                    const productosSection = document.getElementById('productos');
+                    if (productosSection) {
+                        productosSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
+            }, { passive: true });
+        });
+    }
+
+
+    // 6. Añadir Event Listeners para las tarjetas de categoría (una vez)
+    if (categoryCards.length > 0) {
+        categoryCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const category = this.dataset.category;
+
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset.filter === category) {
+                        btn.classList.add('active');
+                    }
+                });
+                loadAndFilterProducts(category); 
+
+                setTimeout(() => {
+                    const productosSection = document.getElementById('productos');
+                    if (productosSection) {
+                        productosSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
+            }, { passive: true });
+        });
+    }
+
+    // 7. Cargar todos los productos al cargar la página inicialmente
+    loadAndFilterProducts('all');
+});
+
+// --- Deshabilitar herramientas de desarrollador (funcionalidad de protección) ---
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && e.key.toUpperCase() === 'I') ||
+        (e.ctrlKey && e.shiftKey && e.key.toUpperCase() === 'J') ||
+        (e.ctrlKey && e.key.toUpperCase() === 'U')) {
+        e.preventDefault();
+    }
+});

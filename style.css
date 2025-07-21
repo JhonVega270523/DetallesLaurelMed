@@ -1,489 +1,726 @@
 :root {
-            --primary-pink: #FFC0CB; /* Rosa claro */
-            --dark-pink: #FF69B4;   /* Rosa fuerte */
-            --white: #FFFFFF;
-            --gray: #F8F8F8;
-            --dark-gray: #333333;
-            --text-color: #555555;
-        }
+    --primary-pink: #FFC0CB; /* Rosa claro */
+    --dark-pink: #FF69B4;    /* Rosa fuerte */
+    --white: #FFFFFF;
+    --gray: #F8F8F8;
+    --dark-gray: #333333;
+    --text-color: #555555;
+}
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background-color: var(--gray);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
+/* Desplazamiento suave para todos los anclajes internos */
+html {
+    scroll-behavior: smooth;
+}
 
-        header {
-            background-color: var(--dark-pink);
-            color: var(--white);
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--gray);
+    color: var(--text-color);
+    line-height: 1.6;
+}
 
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            margin: 0;
-            font-size: 3em;
-            letter-spacing: 2px;
-        }
+header {
+    background-color: var(--dark-pink);
+    color: var(--white);
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-        /* Estilo añadido para "By: Laura López" */
-        .author-signature {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem; /* Tamaño de fuente pequeño */
-            font-style: italic;
-            text-align: right; /* Alineación a la derecha */
-            max-width: 580px; /* Ancho máximo para alinear con el título */
-            margin: -5px auto 10px; /* Margen para ajustar la posición vertical */
-            padding-right: 5px; /* Pequeño ajuste a la derecha */
-            color: rgba(255, 255, 255, 0.9);
-        }
+header h1 {
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    font-size: 3em;
+    letter-spacing: 2px;
+}
 
-        header p {
-            font-size: 1.2em;
-            margin-top: 5px;
-        }
+.author-signature {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    text-align: right;
+    max-width: 580px;
+    margin: -5px auto 10px;
+    padding-right: 5px;
+    color: rgba(255, 255, 255, 0.9);
+}
 
-        /* Navbar Styles */
-        nav {
-            background-color: var(--primary-pink);
-            padding: 10px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
+header p {
+    font-size: 1.2em;
+    margin-top: 5px;
+}
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            gap: 30px; /* Space between nav items */
-        }
+/* Navbar Styles */
+nav {
+    background-color: var(--primary-pink);
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
 
-        nav ul li a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1em;
-            padding: 5px 10px;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
 
-        nav ul li a:hover {
-            color: var(--dark-pink);
-            transform: scale(1.05);
-        }
+nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-        }
+nav ul li a:hover {
+    color: var(--dark-pink);
+    transform: scale(1.05);
+}
 
-        /* Regla general para h2: Centrado por defecto */
-        h2 {
-            font-family: 'Playfair Display', serif;
-            text-align: center; /* ESTO CENTRA TODOS LOS H2 POR DEFECTO */
-            color: var(--dark-pink);
-            margin-bottom: 30px;
-            font-size: 2.5em;
-        }
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
 
-        .categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
+/* Regla general para h2: Centrado por defecto */
+h2 {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    color: var(--dark-pink);
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
 
-        .category-card {
-            background-color: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+/* Nuevos estilos para la sección de categorías */
+.categories {
+    margin-top: 40px;
+}
 
-        .category-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
+.section-title {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    color: var(--dark-pink);
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
 
-        .category-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-bottom: 1px solid var(--primary-pink);
-        }
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
 
-        .category-card h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--dark-pink);
-            margin: 20px 0 10px;
-            font-size: 1.8em;
-        }
+.category-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    height: auto; /* Asegura que la tarjeta se adapte a su contenido */
+}
 
-        .category-card p {
-            padding: 0 20px;
-            font-size: 0.95em;
-            color: var(--text-color);
-            flex-grow: 1;
-        }
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
 
-        .category-card .btn-view-more {
-            display: inline-block;
-            background-color: var(--dark-pink);
-            color: var(--white);
-            padding: 12px 25px;
-            margin: 20px auto;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-            border: none;
-        }
+/* Contenedor para la relación de aspecto de la imagen de categoría */
+.category-card-image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 125%; /* Relación de aspecto 4:5 (alto = 1.25 * ancho) */
+    overflow: hidden;
+    background-color: var(--white); /* Fondo para los espacios si object-fit: contain los deja */
+    border-bottom: 1px solid var(--primary-pink); /* Borde debajo del wrapper de imagen */
+}
 
-        .category-card .btn-view-more:hover {
-            background-color: #e04a9e; /* Un rosa un poco más oscuro al hover */
-        }
+.category-card-image-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* La imagen se ajusta sin recortar dentro de la proporción 4:5 */
+}
 
-        /* WhatsApp Button in Contact Section */
-        .whatsapp-button {
-            display: inline-flex; /* Use flex to align icon and text */
-            align-items: center;
-            gap: 10px; /* Space between icon and text */
-            background-color: #25D366; /* WhatsApp Green */
-            color: var(--white);
-            padding: 15px 30px;
-            border-radius: 50px; /* Pill shape */
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2em;
-            margin-top: 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
+.category-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--dark-pink);
+    margin: 20px 0;
+    font-size: 1.8em;
+}
 
-        .whatsapp-button:hover {
-            background-color: #1DA851; /* Darker green on hover */
-            transform: translateY(-3px); /* Slight lift effect */
-        }
+/* Nuevos estilos para la sección de productos */
+.products {
+    margin-top: 60px;
+}
 
-        .whatsapp-button img {
-            width: 24px; /* Icon size */
-            height: 24px;
-        }
+.filter-buttons {
+    text-align: center;
+    margin-bottom: 30px;
+}
 
-        /* Scroll to Top Button */
-        #scrollToTopBtn {
-            display: none; /* Hidden by default */
-            position: fixed; /* Fixed position */
-            bottom: 20px; /* 20px from the bottom */
-            right: 20px; /* 20px from the right */
-            z-index: 99; /* Higher z-index to be on top */
-            border: none; /* Remove borders */
-            outline: none; /* Remove outline */
-            background-color: var(--dark-pink); /* Background color */
-            color: white; /* Text color */
-            cursor: pointer; /* Add a mouse pointer on hover */
-            padding: 15px; /* Some padding */
-            border-radius: 50%; /* Rounded shape */
-            font-size: 20px; /* Increase font size */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s, transform 0.3s;
-        }
+.filter-btn {
+    background-color: var(--primary-pink);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
-        #scrollToTopBtn:hover {
-            background-color: #e04a9e; /* Darker pink on hover */
-            transform: translateY(-3px);
-        }
+.filter-btn:hover, .filter-btn.active {
+    background-color: var(--dark-pink);
+    transform: translateY(-2px);
+}
 
-        footer {
-            background-color: var(--dark-pink);
-            color: var(--white);
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 50px;
-            font-size: 0.9em;
-        }
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
 
-        /* Modal Styles */
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1000; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+.product-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+    min-height: unset;
+    padding-bottom: 10px;
+}
 
-        .modal-content {
-            background-color: var(--white);
-            margin: auto;
-            padding: 30px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 700px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            position: relative;
-            animation: fadeIn 0.3s ease-out;
-        }
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+.product-card img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    padding: 0;
+    border-bottom: 1px solid var(--primary-pink);
+}
 
-        .close-button {
-            color: var(--dark-gray);
-            font-size: 28px;
-            font-weight: bold;
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
+.product-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--dark-pink);
+    margin: 10px 0 5px;
+    font-size: 1.4em;
+    padding: 0 10px;
+}
 
-        .close-button:hover,
-        .close-button:focus {
-            color: var(--dark-pink);
-            text-decoration: none;
-        }
+.product-card p {
+    padding: 0 10px;
+    font-size: 0.85em;
+    color: var(--text-color);
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
 
-        .modal-content h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--dark-pink);
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 2.2em;
-        }
+.product-card .product-price {
+    display: none;
+}
 
-        /* Products in Modal */
-        .modal-products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            max-height: 70vh; /* Limit height for scroll */
-            overflow-y: auto; /* Enable scrolling */
-            padding-right: 10px; /* Space for scrollbar */
-        }
+.product-card .product-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: auto;
+    margin-bottom: 0;
+    padding-top: 10px;
+}
 
-        .modal-product-card {
-            background-color: var(--gray);
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-            text-align: center;
-            padding-bottom: 10px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
+/* ESTILOS DEL BOTÓN "VER DETALLES" (modificado para ser más pequeño) */
+.product-card .btn-detail {
+    display: flex; /* Usar flex para centrar el texto verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    background-color: var(--primary-pink);
+    color: var(--white);
+    border: none;
+    padding: 6px 10px; /* Reducido para hacerlo más pequeño */
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-size: 0.75em; /* Fuente aún más pequeña */
+    min-width: 35px; /* Un ancho mínimo para que no se haga demasiado pequeño */
+    height: 35px; /* Una altura fija similar al icono de WhatsApp */
+}
 
-        .modal-product-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
+.product-card .btn-detail:hover {
+    background-color: var(--dark-pink);
+}
 
-        .modal-product-card img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-bottom: 1px solid var(--primary-pink);
-        }
+.product-card .whatsapp-icon-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.2s ease;
+}
 
-        .modal-product-card h5 {
-            font-family: 'Playfair Display', serif;
-            color: var(--dark-gray);
-            margin: 10px 0 5px;
-            font-size: 1.2em;
-            padding: 0 10px;
-        }
-        
-        .modal-product-card .btn-select-product {
-            display: inline-block;
-            background-color: var(--dark-pink);
-            color: var(--white);
-            padding: 8px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-            cursor: pointer;
-            border: none;
-            font-size: 0.9em;
-        }
+.product-card .whatsapp-icon-btn:hover {
+    transform: scale(1.1);
+}
 
-         .modal-product-card .btn-select-product:hover {
-            background-color: #e04a9e;
-        }
+.product-card .whatsapp-icon-btn img {
+    width: 35px;
+    height: 35px;
+    border: none;
+}
 
-        /* Estilos para el Formulario de Contacto */
-        .contact-form {
-            max-width: 600px;
-            margin: 0; /* Ajustado para el nuevo layout */
-            padding: 15px;
-            background-color: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-        }
+/* Estilos para la paginación */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 10px;
+}
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+.pagination button {
+    background-color: var(--primary-pink);
+    color: var(--white);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
 
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: var(--dark-gray);
-            font-size: 1.05em;
-        }
+.pagination button:hover:not(.active) {
+    background-color: var(--dark-pink);
+}
 
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1em;
-            box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
-            transition: border-color 0.3s ease;
-        }
+.pagination button.active {
+    background-color: var(--dark-pink);
+    cursor: default;
+}
 
-        .form-group input[type="text"]:focus,
-        .form-group input[type="email"]:focus,
-        .form-group textarea:focus {
-            border-color: var(--dark-pink);
-            outline: none;
-            box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
-        }
+/* WhatsApp Button in Contact Section */
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #25D366;
+    color: var(--white);
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
-        .form-group textarea {
-            resize: vertical; /* Permite redimensionar verticalmente */
-        }
+.whatsapp-button:hover {
+    background-color: #1DA851;
+    transform: translateY(-3px);
+}
 
-        .submit-button {
-            display: block;
-            width: 100%;
-            background-color: var(--dark-pink);
-            color: var(--white);
-            padding: 15px 25px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.2em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
+.whatsapp-button img {
+    width: 24px;
+    height: 24px;
+}
 
-        .submit-button:hover {
-            background-color: #e04a9e; /* Un rosa un poco más oscuro al hover */
-            transform: translateY(-2px);
-        }
+/* Scroll to Top Button */
+#scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: var(--dark-pink);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
 
-        /* Nuevo: Estilos para el layout principal de la sección de Contacto (dos columnas grandes) */
-        .main-contact-section-layout {
-            display: flex;
-            flex-wrap: wrap; /* Permite que las columnas se apilen en pantallas pequeñas */
-            gap: 40px; /* Espacio entre las dos columnas principales */
-            justify-content: center; /* Centra las columnas horizontalmente */
-            align-items: flex-start; /* Alinea los elementos en la parte superior */
-            margin-top: 40px;
-            padding: 20px; /* Un poco de padding para que no se pegue a los bordes del .container */
-        }
+#scrollToTopBtn:hover {
+    background-color: #e04a9e;
+    transform: translateY(-3px);
+}
 
-        .main-contact-left {
-            flex: 1; /* Ocupa el espacio disponible */
-            min-width: 300px; /* Ancho mínimo para esta columna */
-            padding: 20px;
-            background-color: var(--white); /* Para que tenga un fondo similar */
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.03);
-            text-align: left; /* Alinea el texto a la izquierda en esta columna */
-        }
+footer {
+    background-color: var(--dark-pink);
+    color: var(--white);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    font-size: 0.9em;
+}
 
-        /* Ahora el h2 dentro de main-contact-left: ALINEADO A LA IZQUIERDA */
-        .main-contact-left h2 { 
-            text-align: left; /* Alinea a la izquierda */
-            margin-top: 0; /* Asegura que no tenga margen superior extra si no lo deseas */
-            margin-bottom: 20px; /* Ajusta el margen inferior */
-            color: var(--dark-pink); /* Mantiene el color */
-            font-size: 2.5em; /* Mantiene el tamaño */
-        }
-        
-        /* Ahora el p dentro de main-contact-left: ALINEADO A LA IZQUIERDA */
-        .main-contact-left p { 
-            text-align: left; /* Alinea a la izquierda */
-            max-width: unset; /* Permite que ocupe el ancho disponible */
-            margin: 0 0 20px 0; /* Ajusta márgenes para que no tenga auto y esté pegado al h2 */
-        }
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
 
-        .main-contact-left ul {
-            text-align: left; /* Alinea la lista a la izquierda */
-            margin-bottom: 20px; /* Añade un poco de espacio debajo de la lista */
-        }
+/* Contenido del modal ahora con display flex para columnas */
+.modal-content {
+    background-color: var(--white);
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 700px; /* Aumentado el ancho máximo para acomodar las dos columnas */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+    animation: fadeIn 0.3s ease-out;
+    display: flex; /* Habilita Flexbox para las columnas */
+    flex-direction: row; /* Columnas en fila por defecto */
+    align-items: flex-start; /* Alinea los elementos en la parte superior */
+    gap: 25px; /* Espacio entre la imagen y la información */
+}
 
-        .main-contact-left .whatsapp-button {
-            margin-left: 0; /* Asegura que el botón de WhatsApp se alinee a la izquierda */
-            display: inline-flex; /* Permite que el contenido interno de flex se alinee */
-        }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
+.close-button {
+    color: var(--dark-gray);
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
 
-        .main-contact-right {
-            flex: 1; /* Ocupa el espacio disponible */
-            min-width: 300px; /* Ancho mínimo para esta columna */
-            max-width: 600px; /* Limita el ancho del formulario para que no se estire demasiado */
-        }
+.close-button:hover,
+.close-button:focus {
+    color: var(--dark-pink);
+    text-decoration: none;
+}
 
-        /* Media Queries para Responsividad (ajusta los puntos de quiebre si es necesario) */
-        @media (max-width: 900px) { /* Cambia el punto de quiebre para cuando las columnas deben apilarse */
-            .main-contact-section-layout {
-                flex-direction: column; /* Apila las columnas verticalmente */
-                align-items: center; /* Centra los elementos apilados */
-                gap: 30px;
-            }
+/* NUEVO: Estilos para el contenedor de la imagen en el modal */
+.modal-image-wrapper {
+    flex: 1; /* Permite que ocupe una porción del espacio disponible */
+    max-width: 40%; /* Limita el ancho de la imagen */
+    display: flex; /* Para centrar la imagen dentro de su contenedor si es necesario */
+    justify-content: center;
+    align-items: flex-start; /* Alinea la imagen en la parte superior */
+}
 
-            .main-contact-left,
-            .main-contact-right {
-                min-width: unset; /* Quita el mínimo para que ocupen todo el ancho disponible */
-                width: 100%;
-                max-width: 100%; /* Asegura que no se desborde */
-                padding: 15px; /* Ajusta el padding para móviles */
-            }
+#modalDetailImage {
+    max-width: 100%; /* La imagen no se desborda de su contenedor */
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 0; /* No necesitamos margen inferior aquí */
+}
 
-            /* En pantallas pequeñas, el contenido de main-contact-left vuelve a centrarse */
-            .main-contact-left h2,
-            .main-contact-left p,
-            .main-contact-left ul,
-            .main-contact-left .whatsapp-button {
-                text-align: center; /* Centra todo en la columna izquierda cuando está apilado */
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .main-contact-left .whatsapp-button { /* Asegúrate de que el botón se centre */
-                display: flex; /* Cambia a flex para centrarlo con margin: auto */
-                justify-content: center; /* Centra el contenido del botón */
-            }
-        }
+/* NUEVO: Estilos para el contenedor de la información en el modal */
+.modal-info-wrapper {
+    flex: 2; /* Permite que ocupe una porción mayor del espacio disponible */
+    display: flex;
+    flex-direction: column;
+    text-align: left; /* Alinea el texto a la izquierda en esta columna */
+}
+
+#modalDetailName {
+    font-family: 'Playfair Display', serif;
+    color: var(--dark-pink);
+    margin-bottom: 8px;
+    font-size: 1.6em;
+}
+
+#modalDetailPrice {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--dark-gray);
+    margin-bottom: 10px;
+    display: block !important;
+}
+
+#modalDetailDescription {
+    font-size: 0.95em;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    flex-grow: 1; /* Permite que la descripción crezca y empuje el botón hacia abajo */
+    overflow-y: auto; /* Añade scroll si la descripción es muy larga */
+    max-height: 150px; /* Limita la altura de la descripción para que no sea muy larga */
+    line-height: 1.5; /* Mejora la legibilidad */
+}
+
+#modalDetailWhatsappBtn {
+    background-color: #25D366;
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: auto; /* Empuja el botón al final del contenedor de información */
+    align-self: flex-start; /* Alinea el botón a la izquierda dentro de su columna */
+}
+
+#modalDetailWhatsappBtn:hover {
+    background-color: #1DA851;
+}
+
+/* Estilos para el Formulario de Contacto */
+.contact-form {
+    max-width: 600px;
+    margin: 0;
+    padding: 15px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--dark-gray);
+    font-size: 1.05em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: var(--dark-pink);
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    background-color: var(--dark-pink);
+    color: var(--white);
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+    background-color: #e04a9e;
+    transform: translateY(-2px);
+}
+
+/* Estilos para el layout principal de la sección de Contacto (dos columnas grandes) */
+.main-contact-section-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.main-contact-left {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.03);
+    text-align: left;
+}
+
+.main-contact-left h2 {
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--dark-pink);
+    font-size: 2.5em;
+}
+
+.main-contact-left p {
+    text-align: left;
+    max-width: unset;
+    margin: 0 0 20px 0;
+}
+
+.main-contact-left ul {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.main-contact-left .whatsapp-button {
+    margin-left: 0;
+    display: inline-flex;
+}
+
+.main-contact-right {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 900px) {
+    .main-contact-section-layout {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .main-contact-left,
+    .main-contact-right {
+        min-width: unset;
+        width: 100%;
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .main-contact-left h2,
+    .main-contact-left p,
+    .main-contact-left ul,
+    .main-contact-left .whatsapp-button {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .main-contact-left .whatsapp-button {
+        display: flex;
+        justify-content: center;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    .filter-btn {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 15px;
+    }
+
+    .product-card {
+        height: auto;
+        min-height: unset;
+    }
+
+    /* MEDIA QUERY PARA EL MODAL EN MÓVILES */
+    .modal-content {
+        flex-direction: column; /* Apila la imagen y la info verticalmente */
+        max-width: 320px; /* Vuelve a un ancho más adecuado para una sola columna */
+        padding: 20px;
+        gap: 15px; /* Espacio reducido entre los elementos apilados */
+        align-items: center; /* Centra los elementos apilados */
+    }
+
+    .modal-image-wrapper {
+        max-width: 100%; /* La imagen ocupa todo el ancho disponible */
+        width: 100%; /* Asegura que la imagen ocupe todo el ancho */
+    }
+
+    .modal-info-wrapper {
+        text-align: center; /* Centra el texto en móviles */
+        padding-left: 0; /* Remueve el padding izquierdo */
+        width: 100%;
+    }
+
+    #modalDetailWhatsappBtn {
+        align-self: center; /* Centra el botón en móviles */
+    }
+}
+
+@media (max-width: 480px) {
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .product-card {
+        height: auto;
+        min-height: unset;
+    }
+
+    .product-card img {
+        height: auto;
+    }
+}

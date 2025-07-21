@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalles Laurel Medellín - Floristería</title>
+    <title>Detalles Laurel Medellín</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -29,59 +29,61 @@
         <p style="text-align: center; font-size: 1.1em; max-width: 800px; margin: 20px auto;">En Detalles Laurel Medellín, transformamos tus sentimientos en hermosos arreglos florales y detalles únicos. Explora nuestra variedad de productos y encuentra el regalo perfecto para cada ocasión especial.</p>
     </div>
 
-    <div class="container" id="productos">
-        <h2>Nuestras Categorías de Productos</h2>
-        <div class="categories">
-            <div class="category-card">
-                <img src="images/ANCHETA.jpeg" alt="Categoría Ancheta">
-                <h3>Anchetas</h3>
-                <p>Sorprende con una selección curada de delicias y detalles.</p>
-                <button class="btn-view-more" data-category="anchetas">Ver más</button>
-            </div>
-
-            <div class="category-card">
-                <img src="images/RAMO.jpeg" alt="Categoría Ramos">
-                <h3>Ramos</h3>
-                <p>La belleza de las flores frescas, cuidadosamente armadas para cada ocasión.</p>
-                <button class="btn-view-more" data-category="ramos">Ver más</button>
-            </div>
-
-            <div class="category-card">
-                <img src="images/RAMILLETE.jpeg" alt="Categoría Ramilletes">
-                <h3>Ramilletes</h3>
-                <p>Pequeños arreglos florales, perfectos para un detalle espontáneo.</p>
-                <button class="btn-view-more" data-category="ramilletes">Ver más</button>
-            </div>
-
-            <div class="category-card">
-                <img src="images/PELUCHE.jpeg" alt="Categoría Peluches">
-                <h3>Peluches</h3>
-                <p>El complemento tierno y abrazable para cualquier regalo.</p>
-                <button class="btn-view-more" data-category="peluches">Ver más</button>
-            </div>
-
-            <div class="category-card">
-                <img src="images/CAJA.jpeg" alt="Categoría Cajas">
-                <h3>Cajas Sorpresa</h3>
-                <p>Empaques elegantes llenos de sorpresas y alegría.</p>
-                <button class="btn-view-more" data-category="cajas">Ver más</button>
-            </div>
-
-            <div class="category-card">
-                <img src="images/DESAYUNO.jpeg" alt="Categoría Desayunos">
-                <h3>Desayunos Sorpresa</h3>
-                <p>Comienza el día con una sonrisa y un delicioso desayuno a domicilio.</p>
-                <button class="btn-view-more" data-category="desayunos">Ver más</button>
-            </div>
-
-            <div class="category-card">
-                <img src="images/DECORACION.jpeg" alt="Categoría Decoraciones">
-                <h3>Decoraciones</h3>
-                <p>Elementos para fiestas, habitaciones de hotel y jacuzzis, creando ambientes inolvidables.</p>
-                <button class="btn-view-more" data-category="decoraciones">Ver más</button>
+    <section class="categories" id="categorias-productos">
+        <div class="container">
+            <h2 class="section-title">Nuestras Categorías</h2>
+            <div class="category-grid">
+                <div class="category-card" data-category="anchetas">
+                    <div class="category-card-image-wrapper"> <img src="images/ANCHETA.jpeg" alt="Anchetas">
+                    </div>
+                    <h3>Anchetas</h3>
+                </div>
+                <div class="category-card" data-category="desayunos">
+                    <div class="category-card-image-wrapper"> <img src="images/DESAYUNO.jpeg" alt="Desayunos Sorpresa">
+                    </div>
+                    <h3>Desayunos Sorpresa</h3>
+                </div>
+                <div class="category-card" data-category="cajas">
+                    <div class="category-card-image-wrapper"> <img src="images/CAJA.jpeg" alt="Cajas Sorpresa">
+                    </div>
+                    <h3>Cajas Sorpresa</h3>
+                </div>
+                <div class="category-card" data-category="decoraciones">
+                    <div class="category-card-image-wrapper"> <img src="images/DECORACION.jpeg" alt="Decoraciones">
+                    </div>
+                    <h3>Decoraciones</h3>
+                </div>
+                <div class="category-card" data-category="ramos">
+                    <div class="category-card-image-wrapper"> <img src="images/RAMO.jpeg" alt="Ramos y Ramilletes">
+                    </div>
+                    <h3>Ramos y Ramilletes</h3>
+                </div>
+                <div class="category-card" data-category="peluches">
+                    <div class="category-card-image-wrapper"> <img src="images/PELUCHE.jpeg" alt="Peluches">
+                    </div>
+                    <h3>Peluches</h3>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <section class="products" id="productos">
+        <div class="container">
+            <h2 class="section-title">Nuestros Productos</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="anchetas">Anchetas</button>
+                <button class="filter-btn" data-filter="desayunos">Desayunos Sorpresa</button>
+                <button class="filter-btn" data-filter="cajas">Cajas Sorpresa</button>
+                <button class="filter-btn" data-filter="decoraciones">Decoraciones</button>
+                <button class="filter-btn" data-filter="ramos">Ramos y Ramilletes</button>
+                <button class="filter-btn" data-filter="peluches">Peluches</button>
+            </div>
+            <div class="product-grid" id="product-container"> </div>
+            <div class="pagination" id="pagination-container">
+                </div>
+        </div>
+    </section>
 
     <div class="container" id="nosotros">
         <h2>Sobre Nosotros</h2>
@@ -144,8 +146,12 @@
     <div id="productModal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <h3 id="modalCategoryTitle"></h3>
-            <div id="modalProductGrid" class="modal-products-grid">
+            <div class="modal-image-wrapper"> <img id="modalDetailImage" src="" alt="">
+            </div>
+            <div class="modal-info-wrapper"> <h3 id="modalDetailName"></h3>
+                <p id="modalDetailPrice"></p>
+                <p id="modalDetailDescription"></p>
+                <a id="modalDetailWhatsappBtn" href="#" target="_blank">Contactar por WhatsApp</a>
             </div>
         </div>
     </div>
