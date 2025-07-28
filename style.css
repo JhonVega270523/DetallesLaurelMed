@@ -407,11 +407,9 @@ footer {
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    /* REMOVIDO: overflow: auto; */ /* Quitamos esto para que Flexbox gestione el centrado */
     background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
     justify-content: center; /* Centra horizontalmente el contenido del modal */
     align-items: center; /* Centra verticalmente el contenido del modal */
-    /* REMOVIDO: padding: 20px; */ /* El padding se aplica mejor al contenido interno */
 }
 
 /* Contenido del modal ahora con display flex para columnas */
@@ -421,7 +419,7 @@ footer {
     padding: 20px;
     border-radius: 10px;
     width: 90%;
-    max-width: 700px; /* Aumentado el ancho máximo para acomodar las dos columnas */
+    max-width: 700px; /* Ancho máximo para escritorio */
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     position: relative;
     animation: fadeIn 0.3s ease-out;
@@ -648,22 +646,23 @@ footer {
         gap: 30px;
     }
 
+    /* MODIFICADO: Centrado de los contenedores main-contact-left y main-contact-right */
     .main-contact-left,
     .main-contact-right {
         min-width: unset;
-        width: 100%;
-        max-width: 100%;
+        width: 90%; /* Le damos un ancho porcentual */
+        max-width: 500px; /* Para que no se hagan demasiado anchos en tabletas */
         padding: 15px;
-        /* Asegura que la caja completa se centre */
-        margin-left: auto;
-        margin-right: auto;
+        margin-left: auto; /* CRUCIAL: Esto centrará la caja del div */
+        margin-right: auto; /* CRUCIAL: Esto centrará la caja del div */
+        box-sizing: border-box; /* Asegura que padding no cause desborde */
     }
 
     .main-contact-left h2,
     .main-contact-left p,
     .main-contact-left ul,
     .main-contact-left .whatsapp-button {
-        text-align: center; /* Reafirmamos el centrado del texto */
+        text-align: center; /* Reafirmamos el centrado del texto interno */
         margin-left: auto;
         margin-right: auto;
     }
@@ -703,37 +702,54 @@ footer {
     /* MODIFICADO: Media query para el modal en móviles */
     .modal-content {
         flex-direction: column; /* Apila la imagen y la info verticalmente */
-        width: 90%; /* Ajustado a 90% para dejar un poco de espacio en los bordes */
-        max-width: 400px; /* Mantiene un tamaño máximo razonable */
-        padding: 15px; /* Reduce el padding para más espacio interior */
-        gap: 15px; /* Espacio reducido entre los elementos apilados */
+        width: 95%; /* Ajustado para ocupar casi todo el ancho */
+        max-width: 350px; /* REDUCIDO: Ancho máximo más pequeño para móviles */
+        height: auto; /* Permite que la altura se ajuste al contenido */
+        max-height: 90vh; /* AÑADIDO: Limita la altura máxima al 90% del viewport height */
+        padding: 10px; /* REDUCIDO: Menos padding para más espacio de contenido */
+        gap: 10px; /* REDUCIDO: Menos espacio entre elementos */
         align-items: center; /* Centra los elementos apilados */
-        margin: auto; /* Usar 'auto' asegura el centrado con el width y max-width */
+        margin: auto; /* Asegura el centrado con el width y max-width */
         box-sizing: border-box; /* Crucial para que padding y border se incluyan en el ancho total */
-        left: 50%; /* Propiedad para centrado */
-        transform: translateX(-50%); /* Propiedad para centrado */
-        position: relative; /* Necesario para que `left` y `transform` funcionen correctamente */
+        left: 50%; /* Centrado horizontal robusto */
+        transform: translateX(-50%); /* Centrado horizontal robusto */
+        position: relative; /* Necesario para que `left` y `transform` funcionen */
+        overflow-y: auto; /* AÑADIDO: Si aun así excede la altura de la pantalla, permite scroll en el modal mismo */
     }
 
-    /* Aseguramos que la imagen y la info tomen el ancho completo del modal-content */
-    .modal-image-wrapper,
-    .modal-info-wrapper {
+    /* Ajustes específicos de elementos dentro del modal para que quepan */
+    .modal-image-wrapper {
+        max-width: 100%; /* La imagen ocupa todo el ancho disponible */
         width: 100%;
-        max-width: 100%;
+        padding-top: 100%; /* MODIFICADO: Relación 1:1 para la imagen para hacerla más compacta */
     }
 
-    .modal-info-wrapper {
-        text-align: center; /* Centra el texto en móviles */
-        padding-left: 0;
+    #modalDetailImage {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* Asegura que la imagen se vea completa */
+    }
+
+    #modalDetailName {
+        font-size: 1.2em; /* REDUCIDO: Tamaño de fuente más pequeño para el nombre */
+        margin-bottom: 5px;
+    }
+
+    #modalDetailPrice {
+        font-size: 1em; /* REDUCIDO: Tamaño de fuente más pequeño para el precio */
+        margin-bottom: 8px;
     }
 
     #modalDetailDescription {
-        max-height: 100px; /* Limita un poco más la altura de la descripción */
-        overflow-y: auto;
+        font-size: 0.8em; /* REDUCIDO: Tamaño de fuente más pequeño para la descripción */
+        max-height: 80px; /* REDUCIDO: Altura máxima más pequeña para la descripción */
+        overflow-y: auto; /* Permite scroll solo en la descripción si es muy larga */
+        line-height: 1.4;
     }
 
     #modalDetailWhatsappBtn {
-        align-self: center; /* Centra el botón en móviles */
+        padding: 8px 15px; /* REDUCIDO: Menos padding para el botón de WhatsApp del modal */
+        font-size: 0.9em; /* REDUCIDO: Fuente más pequeña para el botón */
     }
 }
 
