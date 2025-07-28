@@ -407,11 +407,11 @@ footer {
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
+    /* REMOVIDO: overflow: auto; */ /* Quitamos esto para que Flexbox gestione el centrado */
     background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+    justify-content: center; /* Centra horizontalmente el contenido del modal */
+    align-items: center; /* Centra verticalmente el contenido del modal */
+    /* REMOVIDO: padding: 20px; */ /* El padding se aplica mejor al contenido interno */
 }
 
 /* Contenido del modal ahora con display flex para columnas */
@@ -429,6 +429,7 @@ footer {
     flex-direction: row; /* Columnas en fila por defecto */
     align-items: flex-start; /* Alinea los elementos en la parte superior */
     gap: 25px; /* Espacio entre la imagen y la información */
+    box-sizing: border-box; /* Asegura que padding y border se incluyan en el ancho total */
 }
 
 @keyframes fadeIn {
@@ -643,7 +644,7 @@ footer {
 @media (max-width: 900px) {
     .main-contact-section-layout {
         flex-direction: column;
-        align-items: center;
+        align-items: center; /* Asegura que las columnas se centren */
         gap: 30px;
     }
 
@@ -653,13 +654,16 @@ footer {
         width: 100%;
         max-width: 100%;
         padding: 15px;
+        /* Asegura que la caja completa se centre */
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .main-contact-left h2,
     .main-contact-left p,
     .main-contact-left ul,
     .main-contact-left .whatsapp-button {
-        text-align: center;
+        text-align: center; /* Reafirmamos el centrado del texto */
         margin-left: auto;
         margin-right: auto;
     }
@@ -675,7 +679,7 @@ footer {
         justify-content: center;
     }
 
-    /* MODIFICADO: Ajuste para 3 columnas en categoría y productos */
+    /* Ajuste para 3 columnas en categoría y productos */
     .category-grid {
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* 3 columnas */
         gap: 15px;
@@ -685,7 +689,7 @@ footer {
         font-size: 0.9em;
     }
 
-    /* MODIFICADO: Ajuste para 3 columnas en categoría y productos */
+    /* Ajuste para 3 columnas en categoría y productos */
     .product-grid {
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* 3 columnas */
         gap: 15px;
@@ -699,20 +703,23 @@ footer {
     /* MODIFICADO: Media query para el modal en móviles */
     .modal-content {
         flex-direction: column; /* Apila la imagen y la info verticalmente */
-        width: 95%; /* Usa un porcentaje alto para que ocupe casi todo el ancho */
-        max-width: 400px; /* Establece un ancho máximo razonable para móviles */
+        width: 90%; /* Ajustado a 90% para dejar un poco de espacio en los bordes */
+        max-width: 400px; /* Mantiene un tamaño máximo razonable */
         padding: 15px; /* Reduce el padding para más espacio interior */
         gap: 15px; /* Espacio reducido entre los elementos apilados */
         align-items: center; /* Centra los elementos apilados */
-        margin: 20px auto; /* Esto lo centrará horizontalmente */
-        box-sizing: border-box; /* Asegura que padding y border se incluyan en el ancho total */
+        margin: auto; /* Usar 'auto' asegura el centrado con el width y max-width */
+        box-sizing: border-box; /* Crucial para que padding y border se incluyan en el ancho total */
+        left: 50%; /* Propiedad para centrado */
+        transform: translateX(-50%); /* Propiedad para centrado */
+        position: relative; /* Necesario para que `left` y `transform` funcionen correctamente */
     }
 
     /* Aseguramos que la imagen y la info tomen el ancho completo del modal-content */
     .modal-image-wrapper,
     .modal-info-wrapper {
         width: 100%;
-        max-width: 100%; /* Asegura que no haya límites autoimpuestos */
+        max-width: 100%;
     }
 
     .modal-info-wrapper {
@@ -759,13 +766,13 @@ footer {
         font-size: 1em;
     }
 
-    /* MODIFICADO: Vuelve a 2 columnas en pantallas muy pequeñas para mejor legibilidad */
+    /* Vuelve a 2 columnas en pantallas muy pequeñas para mejor legibilidad */
     .category-grid {
         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Vuelve a 2 columnas */
         gap: 10px;
     }
 
-    /* MODIFICADO: Vuelve a 2 columnas en pantallas muy pequeñas para mejor legibilidad */
+    /* Vuelve a 2 columnas en pantallas muy pequeñas para mejor legibilidad */
     .product-grid {
         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Vuelve a 2 columnas */
         gap: 10px;
@@ -786,7 +793,7 @@ footer {
     
     /* Ajuste para el modal en pantallas muy pequeñas */
     .modal-content {
-        width: 98%; /* Ocupa casi todo el ancho */
+        width: 95%; /* Ocupa casi todo el ancho */
         padding: 10px;
         gap: 10px;
     }
