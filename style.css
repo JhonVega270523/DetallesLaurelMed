@@ -646,16 +646,16 @@ footer {
         gap: 30px;
     }
 
-    /* MODIFICADO: Centrado de los contenedores main-contact-left y main-contact-right */
+    /* MODIFICADO: Centrado y tamaño de los contenedores main-contact-left y main-contact-right */
     .main-contact-left,
     .main-contact-right {
         min-width: unset;
-        width: 90%; /* Le damos un ancho porcentual */
-        max-width: 500px; /* Para que no se hagan demasiado anchos en tabletas */
-        padding: 15px;
-        margin-left: auto; /* CRUCIAL: Esto centrará la caja del div */
-        margin-right: auto; /* CRUCIAL: Esto centrará la caja del div */
-        box-sizing: border-box; /* Asegura que padding no cause desborde */
+        width: 95%; /* AUMENTADO: Le damos un ancho del 95% para que sean más grandes */
+        max-width: 600px; /* AUMENTADO: Permite que crezcan un poco más en tabletas */
+        padding: 20px; /* Aumenta un poco el padding interno para más espacio */
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
     }
 
     .main-contact-left h2,
@@ -703,53 +703,69 @@ footer {
     .modal-content {
         flex-direction: column; /* Apila la imagen y la info verticalmente */
         width: 95%; /* Ajustado para ocupar casi todo el ancho */
-        max-width: 350px; /* REDUCIDO: Ancho máximo más pequeño para móviles */
-        height: auto; /* Permite que la altura se ajuste al contenido */
-        max-height: 90vh; /* AÑADIDO: Limita la altura máxima al 90% del viewport height */
-        padding: 10px; /* REDUCIDO: Menos padding para más espacio de contenido */
-        gap: 10px; /* REDUCIDO: Menos espacio entre elementos */
+        max-width: 320px; /* REDUCIDO AÚN MÁS: Ancho máximo más pequeño para móviles */
+        height: auto;
+        max-height: 90vh; /* Limita la altura máxima al 90% del viewport height */
+        padding: 10px; /* Menos padding general */
+        gap: 8px; /* REDUCIDO: Menos espacio entre elementos */
         align-items: center; /* Centra los elementos apilados */
-        margin: auto; /* Asegura el centrado con el width y max-width */
-        box-sizing: border-box; /* Crucial para que padding y border se incluyan en el ancho total */
-        left: 50%; /* Centrado horizontal robusto */
-        transform: translateX(-50%); /* Centrado horizontal robusto */
-        position: relative; /* Necesario para que `left` y `transform` funcionen */
-        overflow-y: auto; /* AÑADIDO: Si aun así excede la altura de la pantalla, permite scroll en el modal mismo */
+        margin: auto; /* Mantiene el margen automático para centrar */
+        box-sizing: border-box;
+
+        /* CRUCIAL PARA EL CENTRADO Y ESPACIO SUPERIOR: */
+        position: fixed; /* Cambiado a fixed para un centrado absoluto respecto al viewport */
+        top: 50%; /* Lo posiciona a la mitad de la altura del viewport */
+        left: 50%; /* Lo posiciona a la mitad del ancho del viewport */
+        transform: translate(-50%, -50%); /* CENTRA COMPLETAMENTE el elemento en su propio tamaño */
+        /* FIN DE CAMBIOS CRUCIALES */
+
+        overflow-y: auto; /* Si aun así excede la altura de la pantalla, permite scroll en el modal mismo */
     }
 
     /* Ajustes específicos de elementos dentro del modal para que quepan */
     .modal-image-wrapper {
-        max-width: 100%; /* La imagen ocupa todo el ancho disponible */
+        max-width: 100%;
         width: 100%;
-        padding-top: 100%; /* MODIFICADO: Relación 1:1 para la imagen para hacerla más compacta */
+        padding-top: 80%; /* MODIFICADO: Relación de aspecto 5:4 para hacer la imagen más pequeña verticalmente */
+        margin-bottom: 0; /* Asegura que no haya margen superior adicional aquí */
+        border-bottom: 1px solid var(--primary-pink); /* Mantener el borde inferior */
+        background-color: var(--white); /* Asegura fondo blanco si la imagen no cubre todo el espacio */
+        display: flex; /* Para centrar la imagen dentro de este wrapper */
+        justify-content: center;
+        align-items: center;
     }
-
-    #modalDetailImage {
+    
+    .modal-image-wrapper img {
+        position: absolute; /* Para que ocupe el 100% del padding-top */
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
         object-fit: contain; /* Asegura que la imagen se vea completa */
     }
 
     #modalDetailName {
-        font-size: 1.2em; /* REDUCIDO: Tamaño de fuente más pequeño para el nombre */
+        font-size: 1.1em; /* REDUCIDO: Tamaño de fuente más pequeño para el nombre */
+        margin-top: 5px; /* Pequeño margen superior para separar de la imagen */
         margin-bottom: 5px;
     }
 
     #modalDetailPrice {
-        font-size: 1em; /* REDUCIDO: Tamaño de fuente más pequeño para el precio */
+        font-size: 0.9em; /* REDUCIDO: Tamaño de fuente más pequeño para el precio */
         margin-bottom: 8px;
     }
 
     #modalDetailDescription {
-        font-size: 0.8em; /* REDUCIDO: Tamaño de fuente más pequeño para la descripción */
-        max-height: 80px; /* REDUCIDO: Altura máxima más pequeña para la descripción */
-        overflow-y: auto; /* Permite scroll solo en la descripción si es muy larga */
-        line-height: 1.4;
+        font-size: 0.75em; /* REDUCIDO: Tamaño de fuente más pequeño para la descripción */
+        max-height: 70px; /* REDUCIDO: Altura máxima más pequeña para la descripción */
+        overflow-y: auto;
+        line-height: 1.3;
     }
 
     #modalDetailWhatsappBtn {
-        padding: 8px 15px; /* REDUCIDO: Menos padding para el botón de WhatsApp del modal */
-        font-size: 0.9em; /* REDUCIDO: Fuente más pequeña para el botón */
+        padding: 7px 12px; /* REDUCIDO: Menos padding para el botón de WhatsApp del modal */
+        font-size: 0.8em; /* REDUCIDO: Fuente más pequeña para el botón */
+        margin-top: 10px; /* Pequeño margen superior para separar de la descripción */
     }
 }
 
