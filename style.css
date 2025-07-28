@@ -410,6 +410,8 @@ footer {
     background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
     justify-content: center; /* Centra horizontalmente el contenido del modal */
     align-items: center; /* Centra verticalmente el contenido del modal */
+    /* TRANSITION para el fondo del modal al aparecer/desaparecer */
+    transition: background-color 0.3s ease;
 }
 
 /* Contenido del modal ahora con display flex para columnas */
@@ -422,18 +424,24 @@ footer {
     max-width: 700px; /* Ancho máximo para escritorio */
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     position: relative;
-    animation: fadeIn 0.3s ease-out;
+    /* Eliminamos la animación 'fadeIn' aquí para controlarla en la media query */
     display: flex; /* Habilita Flexbox para las columnas */
     flex-direction: row; /* Columnas en fila por defecto */
     align-items: flex-start; /* Alinea los elementos en la parte superior */
     gap: 25px; /* Espacio entre la imagen y la información */
     box-sizing: border-box; /* Asegura que padding y border se incluyan en el ancho total */
+    
+    /* Centrado inicial para evitar brinco en escritorio (ya estaba, reafirmamos) */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed; /* Asegura que se posicione con respecto al viewport */
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+/* @keyframes fadeIn { /* Mantemos la animación original para el futuro si es necesario, pero la deshabilitaremos en el modal-content general */
+/* from { opacity: 0; transform: translateY(-20px); }
+/* to { opacity: 1; transform: translateY(0); }
+/* } */
 
 .close-button {
     color: var(--dark-gray);
@@ -699,81 +707,127 @@ footer {
         min-height: unset;
     }
 
-    /* MODIFICADO: Media query para el modal en móviles */
+    /* INICIO DE CAMBIOS EN MODAL Y SCROLL TO TOP PARA MÓVILES */
+
+    /* MODIFICADO: Modal Content para evitar el brinco y transiciones más lentas */
     .modal-content {
-        flex-direction: column; /* Apila la imagen y la info verticalmente */
-        width: 95%; /* Ajustado para ocupar casi todo el ancho */
-        max-width: 380px; /* Un poco más de ancho para la imagen si es necesario */
-        height: auto; /* CRUCIAL: Asegura que el modal se estire verticalmente */
-        max-height: 98vh; /* Permite que el modal sea casi tan alto como la pantalla */
-        padding: 15px; /* Aumentamos el padding general para dar más aire */
-        gap: 15px; /* Aumentamos el espacio entre la imagen y la información */
-        align-items: center; /* Centra los elementos apilados horizontalmente */
+        flex-direction: column;
+        width: 95%;
+        max-width: 380px;
+        height: auto;
+        max-height: 98vh;
+        padding: 15px;
+        gap: 15px;
+        align-items: center;
         box-sizing: border-box;
         position: fixed;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
-        overflow-y: auto; /* Permite scroll *dentro* del modal si el contenido es demasiado largo */
+        /* CAMBIO CLAVE: Transición para el modal content y centrado */
+        transform: translate(-50%, -50%) scale(0.9); /* Empieza un poco más pequeño */
+        opacity: 0; /* Oculto al inicio */
+        transition: transform 0.4s ease-out, opacity 0.4s ease-out; /* Animación más lenta y suave */
+        
+        /* Asegurarse de que al mostrarse, se apliquen las propiedades finales */
+        &.show { /* Esta clase se agregaría con JavaScript cuando el modal es visible */
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
     }
 
-    /* CAMBIO CLAVE AQUÍ: Ajustes de la imagen del modal */
+    /* IMPORTANTE: Tu JavaScript necesitará añadir y remover la clase `show` */
+    /* Ejemplo de cómo se vería tu JavaScript (NO lo pegues en CSS):
+       function openModal() {
+           const modal = document.getElementById('productModal');
+           const modalContent = document.querySelector('.modal-content');
+           modal.style.display = 'flex'; // O 'block' si no usas flex para centrar el modal en sí
+           setTimeout(() => { // Pequeño retardo para que la transición se aplique
+               modalContent.classList.add('show');
+           }, 10);
+       }
+
+       function closeModal() {
+           const modal = document.getElementById('productModal');
+           const modalContent = document.querySelector('.modal-content');
+           modalContent.classList.remove('show');
+           modalContent.addEventListener('transitionend', function handler() {
+               modal.style.display = 'none';
+               modalContent.removeEventListener('transitionend', handler);
+           });
+       }
+    */
+
+
+    /* Ajustes de la imagen del modal (ya estaban correctos) */
     .modal-image-wrapper {
-        width: 100%; /* Ocupa el 100% del ancho del modal-content */
-        max-width: 280px; /* Aumentamos el tamaño máximo para la imagen */
-        height: auto; /* MUY IMPORTANTE: Permite que la altura se ajuste libremente */
-        /* ELIMINADO: aspect-ratio: 1 / 1;  <-- Esta línea ha sido eliminada o comentada */
+        width: 100%;
+        max-width: 280px;
+        height: auto;
         display: flex;
         justify-content: center;
         align-items: center;
         border-bottom: 1px solid var(--primary-pink);
-        margin-bottom: 10px; /* Aseguramos un margen inferior claro para separar la imagen del texto */
-        overflow: hidden; /* Asegura que no haya desbordamiento inesperado */
+        margin-bottom: 10px;
+        overflow: hidden;
     }
 
     .modal-image-wrapper img {
-        width: 100%; /* La imagen toma el 100% del ancho de su wrapper */
-        height: 100%; /* La imagen toma el 100% de la altura de su wrapper */
-        object-fit: contain; /* CRUCIAL: Asegura que la imagen se escala sin recortarse */
-        display: block; /* Elimina cualquier espacio adicional debajo de la imagen */
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
     }
 
-    /* MODIFICADO: Ajustes del contenedor de información del modal */
+    /* Ajustes del contenedor de información del modal */
     .modal-info-wrapper {
-        width: 100%; /* Asegura que la info ocupe todo el ancho disponible */
+        width: 100%;
         display: flex;
         flex-direction: column;
-        text-align: center; /* Centra el texto de la información */
-        flex-grow: 1; /* Permite que este contenedor use el espacio restante */
-        padding: 0 5px; /* Pequeño padding horizontal para el texto */
+        text-align: center;
+        flex-grow: 1;
+        padding: 0 5px;
     }
 
     #modalDetailName {
-        font-size: 1.2em; /* Incrementamos un poco el tamaño del nombre */
-        margin-top: 5px; /* Mantiene un pequeño margen superior si es necesario */
-        margin-bottom: 8px; /* Espacio debajo del nombre */
+        font-size: 1.2em;
+        margin-top: 5px;
+        margin-bottom: 8px;
         line-height: 1.2;
     }
 
     #modalDetailPrice {
-        font-size: 1em; /* Incrementamos un poco el tamaño del precio */
-        margin-bottom: 10px; /* Espacio debajo del precio */
+        font-size: 1em;
+        margin-bottom: 10px;
     }
 
     #modalDetailDescription {
-        font-size: 0.85em; /* Incrementamos un poco el tamaño de la descripción */
-        max-height: 90px; /* Aumentamos la altura máxima de la descripción si es necesario */
+        font-size: 0.85em;
+        max-height: 90px;
         overflow-y: auto;
         line-height: 1.4;
-        margin-bottom: 15px; /* Espacio debajo de la descripción antes del botón */
+        margin-bottom: 15px;
     }
 
     #modalDetailWhatsappBtn {
-        padding: 8px 15px; /* Ajuste el padding del botón */
-        font-size: 0.9em; /* Ajuste el tamaño de la fuente del botón */
-        margin-top: auto; /* Empuja el botón al final del contenedor de información */
-        align-self: center; /* Centra el botón horizontalmente */
+        padding: 8px 15px;
+        font-size: 0.9em;
+        margin-top: auto;
+        align-self: center;
     }
+
+    /* MODIFICADO: Scroll to Top Button para ser circular en móviles */
+    #scrollToTopBtn {
+        padding: 12px; /* Reducimos el padding para un círculo más compacto */
+        width: 45px;  /* Fija un ancho y alto para asegurar un círculo perfecto */
+        height: 45px;
+        border-radius: 50%; /* Esto ya estaba, pero lo reiteramos para énfasis */
+        display: flex; /* Usamos flexbox para centrar el icono/texto */
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2em; /* Ajusta el tamaño del icono o flecha */
+    }
+
+    /* FIN DE CAMBIOS EN MODAL Y SCROLL TO TOP PARA MÓVILES */
 }
 
 @media (max-width: 600px) { /* Breakpoint adicional para la navegación */
