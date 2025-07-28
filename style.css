@@ -218,7 +218,7 @@ h2 {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-.product-card img {
+.product-card > img { /* El ">" selecciona solo hijos directos */
     width: 100%;
     height: auto;
     object-fit: contain;
@@ -274,8 +274,8 @@ h2 {
     transition: background-color 0.3s ease;
     cursor: pointer;
     font-size: 0.75em; /* Fuente aún más pequeña */
-    min-width: 35px; /* Un ancho mínimo para que no se haga demasiado pequeño */
-    height: 35px; /* Una altura fija similar al icono de WhatsApp */
+    min-width: 40px; /* Un ancho mínimo para que no se haga demasiado pequeño */
+    height: 40px; /* Una altura fija similar al icono de WhatsApp */
 }
 
 .product-card .btn-detail:hover {
@@ -291,16 +291,12 @@ h2 {
     cursor: pointer;
     padding: 5px;
     transition: transform 0.2s ease;
+    width: 40px;
+    height: 40px;
 }
 
 .product-card .whatsapp-icon-btn:hover {
     transform: scale(1.1);
-}
-
-.product-card .whatsapp-icon-btn img {
-    width: 35px;
-    height: 35px;
-    border: none;
 }
 
 /* Estilos para la paginación */
@@ -705,7 +701,35 @@ footer {
     }
 }
 
+@media (max-width: 600px) { /* Breakpoint adicional para la navegación */
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 0;
+    }
+    nav ul li a {
+        padding: 8px 15px;
+        font-size: 1em;
+    }
+}
+
 @media (max-width: 480px) {
+    .container {
+        padding: 15px; /* Ajuste para pantallas muy pequeñas */
+    }
+
+    header h1 {
+        font-size: 2.2em; /* Reduce el tamaño del título en pantallas muy pequeñas */
+    }
+
+    .author-signature {
+        font-size: 1rem;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
     .category-grid {
         grid-template-columns: 1fr;
     }
@@ -722,5 +746,9 @@ footer {
 
     .product-card img {
         height: auto;
+    }
+
+    h2 {
+        font-size: 2em; /* Ajusta el tamaño de los títulos de sección */
     }
 }
