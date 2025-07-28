@@ -703,42 +703,39 @@ footer {
     .modal-content {
         flex-direction: column; /* Apila la imagen y la info verticalmente */
         width: 95%; /* Ajustado para ocupar casi todo el ancho */
-        max-width: 320px; /* Ancho máximo más pequeño para móviles */
-        height: auto;
-        max-height: 90vh; /* Limita la altura máxima al 90% del viewport height */
-        padding: 10px; /* Menos padding general */
-        gap: 8px; /* Menos espacio entre elementos */
-        align-items: center; /* Centra los elementos apilados */
-        margin: auto; /* Mantiene el margen automático para centrar */
+        max-width: 380px; /* Un poco más de ancho para la imagen si es necesario */
+        height: auto; /* CRUCIAL: Asegura que el modal se estire verticalmente */
+        max-height: 98vh; /* Permite que el modal sea casi tan alto como la pantalla */
+        padding: 15px; /* Aumentamos el padding general para dar más aire */
+        gap: 15px; /* Aumentamos el espacio entre la imagen y la información */
+        align-items: center; /* Centra los elementos apilados horizontalmente */
         box-sizing: border-box;
-
-        /* CRUCIAL PARA EL CENTRADO Y ESPACIO SUPERIOR: */
-        position: fixed; /* Cambiado a fixed para un centrado absoluto respecto al viewport */
-        top: 50%; /* Lo posiciona a la mitad de la altura del viewport */
-        left: 50%; /* Lo posiciona a la mitad del ancho del viewport */
-        transform: translate(-50%, -50%); /* CENTRA COMPLETAMENTE el elemento en su propio tamaño */
-        /* FIN DE CAMBIOS CRUCIALES */
-
-        overflow-y: auto; /* Si aun así excede la altura de la pantalla, permite scroll en el modal mismo */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        overflow-y: auto; /* Permite scroll *dentro* del modal si el contenido es demasiado largo */
     }
 
-    /* Ajustes específicos de elementos dentro del modal para que quepan */
+    /* CAMBIO CLAVE AQUÍ: Ajustes de la imagen del modal */
     .modal-image-wrapper {
         width: 100%; /* Ocupa el 100% del ancho del modal-content */
-        max-width: 200px; /* Limita el ancho real de la imagen para que sea más pequeña */
-        height: auto; /* Asegura que la altura se ajuste */
-        aspect-ratio: 1 / 1; /* Define una relación de aspecto cuadrada para la imagen, más controlable */
-        display: flex; /* Para centrar la imagen dentro de su wrapper */
+        max-width: 280px; /* Aumentamos el tamaño máximo para la imagen */
+        height: auto; /* MUY IMPORTANTE: Permite que la altura se ajuste libremente */
+        /* ELIMINADO: aspect-ratio: 1 / 1;  <-- Esta línea ha sido eliminada o comentada */
+        display: flex;
         justify-content: center;
         align-items: center;
         border-bottom: 1px solid var(--primary-pink);
-        margin-bottom: 5px; /* Pequeño margen para separar de la info */
+        margin-bottom: 10px; /* Aseguramos un margen inferior claro para separar la imagen del texto */
+        overflow: hidden; /* Asegura que no haya desbordamiento inesperado */
     }
 
     .modal-image-wrapper img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain; /* Ajusta la imagen dentro del contenedor sin recortar */
+        width: 100%; /* La imagen toma el 100% del ancho de su wrapper */
+        height: 100%; /* La imagen toma el 100% de la altura de su wrapper */
+        object-fit: contain; /* CRUCIAL: Asegura que la imagen se escala sin recortarse */
+        display: block; /* Elimina cualquier espacio adicional debajo de la imagen */
     }
 
     /* MODIFICADO: Ajustes del contenedor de información del modal */
@@ -752,29 +749,29 @@ footer {
     }
 
     #modalDetailName {
-        font-size: 1.1em;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        line-height: 1.2; /* Ajusta el interlineado si es necesario */
+        font-size: 1.2em; /* Incrementamos un poco el tamaño del nombre */
+        margin-top: 5px; /* Mantiene un pequeño margen superior si es necesario */
+        margin-bottom: 8px; /* Espacio debajo del nombre */
+        line-height: 1.2;
     }
 
     #modalDetailPrice {
-        font-size: 0.9em;
-        margin-bottom: 8px;
+        font-size: 1em; /* Incrementamos un poco el tamaño del precio */
+        margin-bottom: 10px; /* Espacio debajo del precio */
     }
 
     #modalDetailDescription {
-        font-size: 0.75em;
-        max-height: 70px;
+        font-size: 0.85em; /* Incrementamos un poco el tamaño de la descripción */
+        max-height: 90px; /* Aumentamos la altura máxima de la descripción si es necesario */
         overflow-y: auto;
-        line-height: 1.3;
-        margin-bottom: 10px; /* Margen para separar del botón */
+        line-height: 1.4;
+        margin-bottom: 15px; /* Espacio debajo de la descripción antes del botón */
     }
 
     #modalDetailWhatsappBtn {
-        padding: 7px 12px;
-        font-size: 0.8em;
-        margin-top: auto; /* Asegura que el botón se empuje hacia abajo */
+        padding: 8px 15px; /* Ajuste el padding del botón */
+        font-size: 0.9em; /* Ajuste el tamaño de la fuente del botón */
+        margin-top: auto; /* Empuja el botón al final del contenedor de información */
         align-self: center; /* Centra el botón horizontalmente */
     }
 }
