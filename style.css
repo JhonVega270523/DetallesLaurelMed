@@ -130,7 +130,7 @@ h2 {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0 0.3s ease, box-shadow 0.3s ease; /* Transición solo para box-shadow y transform fuera de card*/
     cursor: pointer;
     height: auto; /* Asegura que la tarjeta se adapte a su contenido */
 }
@@ -410,7 +410,6 @@ footer {
     background-color: rgba(0,0,0,0.6);
     justify-content: center;
     align-items: center;
-    /* Removed opacity and visibility transitions here to ensure immediate display */
 }
 
 .modal-content {
@@ -433,9 +432,6 @@ footer {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* Siempre centrado por defecto */
-    
-    /* IMPORTANT: Removed opacity and transform animation properties here.
-       This ensures the content is immediately visible when modal is 'display:flex'. */
     transition: none; /* Reset any lingering transitions */
 }
 
@@ -650,12 +646,12 @@ footer {
         gap: 30px;
     }
 
-    /* MODIFICADO: Centrado y tamaño de los contenedores main-contact-left y main-contact-right */
+    /* Centrado y tamaño de los contenedores main-contact-left y main-contact-right */
     .main-contact-left,
     .main-contact-right {
         min-width: unset;
-        width: 95%; /* AUMENTADO: Le damos un ancho del 95% para que sean más grandes */
-        max-width: 600px; /* AUMENTADO: Permite que crezcan un poco más en tabletas */
+        width: 95%; /* Le damos un ancho del 95% para que sean más grandes */
+        max-width: 600px; /* Permite que crezcan un poco más en tabletas */
         padding: 20px; /* Aumenta un poco el padding interno para más espacio */
         margin-left: auto;
         margin-right: auto;
@@ -675,6 +671,13 @@ footer {
     .main-contact-left ul {
         list-style-position: inside;
         padding-left: 0;
+    }
+
+    .main-contact-left ul li {
+        margin-bottom: 10px;
+        /* --- Ajuste de tamaño de fuente para Email, Teléfono/WhatsApp y Horario --- */
+        font-size: 0.9em; /* Tamaño de fuente por defecto para esta media query (900px) */
+        text-align: center; /* Asegura que el texto de la lista se centre */
     }
 
     .main-contact-left .whatsapp-button {
@@ -715,7 +718,6 @@ footer {
         align-items: center;
         box-sizing: border-box;
         
-        /* Ensure no extra animation properties for immediate display */
         transition: none; /* Make sure there's no transition delaying visibility */
     }
 
@@ -799,6 +801,11 @@ footer {
         padding: 8px 15px;
         font-size: 1em;
     }
+
+    /* Ajuste para pantallas más pequeñas para el correo, teléfono y horario */
+    .main-contact-left ul li {
+        font-size: 0.8em; /* Un poco más pequeño para 600px */
+    }
 }
 
 @media (max-width: 480px) {
@@ -858,5 +865,10 @@ footer {
     #modalDetailDescription {
         font-size: 0.9em;
         max-height: 80px; /* Aún más pequeño si es necesario */
+    }
+
+    /* Aún más ajuste para pantallas muy pequeñas para el correo, teléfono y horario */
+    .main-contact-left ul li {
+        font-size: 0.7em; /* Aún más pequeño para 480px y abajo */
     }
 }
