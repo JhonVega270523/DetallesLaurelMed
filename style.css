@@ -92,6 +92,7 @@ nav ul li a:hover {
     background-color: var(--white);
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    text-align: center; /* MODIFICADO: Añadido para centrar el texto por defecto */
 }
 
 /* Regla general para h2: Centrado por defecto */
@@ -299,23 +300,33 @@ h2 {
     transform: scale(1.1);
 }
 
+/* MODIFICADO: Regla para la imagen dentro del botón de WhatsApp */
+.product-card .whatsapp-icon-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 /* Estilos para la paginación */
 .pagination {
     display: flex;
     justify-content: center;
     margin-top: 30px;
-    gap: 10px;
+    gap: 8px; /* MODIFICADO: Espacio reducido entre botones */
+    flex-wrap: wrap; /* MODIFICADO: Permite que los botones se envuelvan */
+    padding: 0 10px; /* MODIFICADO: Añade un pequeño padding para los bordes */
 }
 
 .pagination button {
     background-color: var(--primary-pink);
     color: var(--white);
     border: none;
-    padding: 10px 15px;
+    padding: 8px 12px; /* MODIFICADO: Padding ajustado */
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s ease;
+    font-size: 0.9em; /* MODIFICADO: Tamaño de fuente ajustado */
 }
 
 .pagination button:hover:not(.active) {
@@ -646,12 +657,19 @@ footer {
 
     .main-contact-left h2,
     .main-contact-left p,
-    .main-contact-left ul,
+    .main-contact-left ul, /* MODIFICADO: Añadido para centrar la lista */
     .main-contact-left .whatsapp-button {
         text-align: center;
         margin-left: auto;
         margin-right: auto;
     }
+
+    /* NUEVO: Asegura que la lista se centre correctamente */
+    .main-contact-left ul {
+        list-style-position: inside; 
+        padding-left: 0; 
+    }
+
     .main-contact-left .whatsapp-button {
         display: flex;
         justify-content: center;
@@ -679,10 +697,12 @@ footer {
     /* MEDIA QUERY PARA EL MODAL EN MÓVILES */
     .modal-content {
         flex-direction: column; /* Apila la imagen y la info verticalmente */
-        max-width: 320px; /* Vuelve a un ancho más adecuado para una sola columna */
+        max-width: 90%; /* MODIFICADO: Ajustado para ser más responsivo */
+        width: calc(100% - 40px); /* MODIFICADO: Un ancho más flexible */
         padding: 20px;
         gap: 15px; /* Espacio reducido entre los elementos apilados */
         align-items: center; /* Centra los elementos apilados */
+        margin: 20px auto; /* MODIFICADO: Asegura el centrado horizontal */
     }
 
     .modal-image-wrapper {
@@ -750,5 +770,12 @@ footer {
 
     h2 {
         font-size: 2em; /* Ajusta el tamaño de los títulos de sección */
+    }
+    
+    /* MODIFICADO: Ajuste para el modal en pantallas muy pequeñas */
+    .modal-content {
+        max-width: 95%; /* Un poco más de espacio en pantallas muy pequeñas */
+        padding: 15px;
+        gap: 10px;
     }
 }
