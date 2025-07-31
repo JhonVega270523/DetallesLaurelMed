@@ -68,7 +68,7 @@ nav::before {
     content: '';
     position: absolute;
     top: 0;
-    left: -30%; /* Comienza fuera de la vista a la izquierda (negativo del ancho) */
+    left: -30%; /* Comienza fuera de la vista a la izquierda (negativo del ancho de la luz) */
     width: 30%; /* Ancho de la franja de luz, ajusta si quieres que sea más ancha/estrecha */
     height: 100%;
     /* Degradado lineal para crear un efecto de "luz" suave y difusa */
@@ -668,17 +668,20 @@ footer {
     background-color: var(--white);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.03);
-    text-align: left;
+    text-align: left; /* Por defecto, alineado a la izquierda en pantallas grandes */
 }
 
 .main-contact-left h2 {
-    text-align: left;
+    font-family: 'Playfair Display', serif;
     margin-top: 0;
     margin-bottom: 20px;
     color: var(--dark-pink);
     font-size: 2.5em;
-    /* Aplica la animación al título Contáctanos en main-contact-left */
-    animation: bounceIn 1s ease-out forwards; /* Aplica la animación */
+    /* La animación se mantiene */
+    animation: bounceIn 1s ease-out forwards; 
+    
+    /* Por defecto, alineado a la izquierda en pantallas grandes */
+    text-align: left; 
 }
 
 .main-contact-left p {
@@ -754,11 +757,16 @@ footer {
         box-sizing: border-box;
     }
 
-    .main-contact-left h2,
+    .main-contact-left h2 {
+        /* Centrado solo para pantallas pequeñas */
+        text-align: center; /* Esto centrará el título en pantallas <= 900px */
+    }
+
+    /* También es importante centrar el texto dentro de main-contact-left si es necesario */
     .main-contact-left p,
     .main-contact-left ul,
     .main-contact-left .whatsapp-button {
-        text-align: center; /* Reafirmamos el centrado del texto interno */
+        text-align: center; 
         margin-left: auto;
         margin-right: auto;
     }
