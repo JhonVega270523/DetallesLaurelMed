@@ -59,6 +59,36 @@ nav {
     padding: 10px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
+    position: relative; /* Asegura que el nav sea el contexto para el pseudo-elemento */
+    overflow: hidden;   /* Importante para que la luz solo se vea dentro del nav */
+}
+
+/* Pseudo-elemento para la luz que ilumina todo el nav */
+nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -30%; /* Comienza fuera de la vista a la izquierda (negativo del ancho) */
+    width: 30%; /* Ancho de la franja de luz, ajusta si quieres que sea más ancha/estrecha */
+    height: 100%;
+    /* Degradado lineal para crear un efecto de "luz" suave y difusa */
+    background: linear-gradient(to right, 
+                rgba(255, 255, 255, 0) 0%,      /* Completamente transparente al inicio */
+                rgba(255, 255, 255, 0.5) 50%,   /* Más opacidad en el centro (la parte más brillante de la luz) */
+                rgba(255, 255, 255, 0) 100%);   /* Vuelve a ser transparente al final */
+    z-index: 0; /* Asegura que la luz esté detrás del contenido de navegación */
+    animation: sweepLight 3s infinite linear alternate; /* Animación continua, ida y vuelta */
+    pointer-events: none; /* Permite que los clics pasen a los enlaces debajo */
+}
+
+/* Keyframes para la animación de la luz */
+@keyframes sweepLight {
+    0% {
+        left: -30%; /* Inicia fuera por la izquierda (ajústalo según el width de la luz) */
+    }
+    100% {
+        left: 100%; /* Termina fuera por la derecha */
+    }
 }
 
 nav ul {
@@ -68,6 +98,8 @@ nav ul {
     display: flex;
     justify-content: center;
     gap: 30px;
+    position: relative; /* Muy importante para que los enlaces estén encima de la luz */
+    z-index: 2; /* Asegura que el contenido del nav esté por encima de nav::before */
 }
 
 nav ul li a {
@@ -83,6 +115,7 @@ nav ul li a:hover {
     color: var(--dark-pink);
     transform: scale(1.05);
 }
+
 
 .container {
     width: 90%;
@@ -102,6 +135,34 @@ h2 {
     color: var(--dark-pink);
     margin-bottom: 30px;
     font-size: 2.5em;
+    position: relative; /* Necesario para posicionar el pseudo-elemento */
+    overflow: hidden;   /* Para contener la barra */
+    padding-bottom: 10px; /* Espacio para la barra */
+    display: inline-block; /* Para que la barra se ajuste al ancho del texto si el h2 no es block */
+    z-index: 0;
+}
+
+h2::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0; /* Ancho inicial cero */
+    height: 4px;
+    background-color: var(--dark-pink);
+    transform: translateX(-50%);
+    z-index: -1;
+    animation: fillAndEmpty 2s infinite alternate ease-in-out; /* 2s, infinito, alternado, suave */
+}
+
+/* Define los keyframes para la animación de la barra */
+@keyframes fillAndEmpty {
+    0% {
+        width: 0; /* Empieza vacía */
+    }
+    100% {
+        width: 100%; /* Se llena completamente */
+    }
 }
 
 /* Nuevos estilos para la sección de categorías */
@@ -130,7 +191,7 @@ h2 {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     text-align: center;
-    transition: transform 0 0.3s ease, box-shadow 0.3s ease; /* Transición solo para box-shadow y transform fuera de card*/
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     height: auto; /* Asegura que la tarjeta se adapte a su contenido */
 }
@@ -190,7 +251,7 @@ h2 {
 
 .filter-btn:hover, .filter-btn.active {
     background-color: var(--dark-pink);
-    transform: translateY(-2px);
+    transform: translateY(-5px); /* Elevado un poco más que los demás */
 }
 
 .product-grid {
@@ -353,6 +414,8 @@ h2 {
     margin-top: 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease, transform 0.3s ease;
+    /* Animación para el botón de WhatsApp (efecto de pulso) */
+    animation: pulse 2s infinite ease-in-out; /* Aplica la animación de pulso */
 }
 
 .whatsapp-button:hover {
@@ -614,6 +677,8 @@ footer {
     margin-bottom: 20px;
     color: var(--dark-pink);
     font-size: 2.5em;
+    /* Aplica la animación al título Contáctanos en main-contact-left */
+    animation: bounceIn 1s ease-out forwards; /* Aplica la animación */
 }
 
 .main-contact-left p {
@@ -637,6 +702,37 @@ footer {
     min-width: 300px;
     max-width: 600px;
 }
+
+/* Animaciones */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.03);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+}
+
 
 /* Media Queries para Responsividad */
 @media (max-width: 900px) {
@@ -804,7 +900,7 @@ footer {
 
     /* Ajuste para pantallas más pequeñas para el correo, teléfono y horario */
     .main-contact-left ul li {
-        font-size: 0.8em; /* Un poco más pequeño para 600px */
+        font-size: 0.8em; /* Tamaño de fuente por defecto para esta media query (600px) */
     }
 }
 
