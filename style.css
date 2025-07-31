@@ -128,7 +128,7 @@ nav ul li a:hover {
     text-align: center; /* Añadido para centrar el texto por defecto */
 }
 
-/* Regla general para h2: Centrado por defecto */
+/* Regla general para h2: Centrado por defecto (para otros h2 que no sean el de Contacto) */
 h2 {
     font-family: 'Playfair Display', serif;
     text-align: center;
@@ -682,6 +682,9 @@ footer {
     
     /* Por defecto, alineado a la izquierda en pantallas grandes */
     text-align: left; 
+    /* Aseguramos que ocupe todo el ancho disponible para centrar su contenido */
+    width: 100%; 
+    display: block; /* Aseguramos que sea un elemento de bloque para que text-align funcione */
 }
 
 .main-contact-left p {
@@ -760,6 +763,8 @@ footer {
     .main-contact-left h2 {
         /* Centrado solo para pantallas pequeñas */
         text-align: center; /* Esto centrará el título en pantallas <= 900px */
+        width: 100%; /* Asegura que ocupe todo el ancho para el centrado */
+        display: block; /* Vuelve a confirmar que es un bloque */
     }
 
     /* También es importante centrar el texto dentro de main-contact-left si es necesario */
