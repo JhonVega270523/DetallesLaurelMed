@@ -35,6 +35,61 @@ header h1 {
     margin: 0;
     font-size: 3em;
     letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Estilos para la animación de escritura */
+#typewriter-title {
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    opacity: 0; /* Initially hidden but space reserved */
+    transition: opacity 0.3s ease;
+    /* Fijar altura mínima para evitar cambios de tamaño */
+    min-height: 1.2em;
+    line-height: 1.2;
+    display: block;
+}
+
+/* Cursor parpadeante */
+#typewriter-title::after {
+    content: '';
+    position: absolute;
+    right: -3px;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--white);
+    animation: blink-caret 0.75s step-end infinite;
+    opacity: var(--cursor-opacity, 1);
+}
+
+/* Animación del cursor parpadeante */
+@keyframes blink-caret {
+    from, to {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+    #typewriter-title {
+        font-size: 2.2em;
+        min-height: 1.2em;
+        line-height: 1.2;
+    }
+}
+
+@media (max-width: 480px) {
+    #typewriter-title {
+        font-size: 1.8em;
+        min-height: 1.2em;
+        line-height: 1.2;
+    }
 }
 
 .author-signature {
@@ -188,7 +243,7 @@ h2::before {
 .category-card {
     background-color: var(--white);
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
     overflow: hidden;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -198,7 +253,7 @@ h2::before {
 
 .category-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
 }
 
 /* Contenedor para la relación de aspecto de la imagen de categoría */
@@ -263,7 +318,7 @@ h2::before {
 .product-card {
     background-color: var(--white);
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
     overflow: hidden;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -277,7 +332,7 @@ h2::before {
 
 .product-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
 }
 
 .product-card > img { /* El ">" selecciona solo hijos directos */
@@ -428,11 +483,44 @@ h2::before {
     height: 24px;
 }
 
+/* Botón flotante de WhatsApp */
+#floatingWhatsAppBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #25D366;
+    color: white;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#floatingWhatsAppBtn:hover {
+    background-color: #128C7E;
+    transform: translateY(-3px);
+}
+
+#floatingWhatsAppBtn svg {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+    display: block;
+}
+
 /* Scroll to Top Button */
 #scrollToTopBtn {
     display: none;
     position: fixed;
-    bottom: 20px;
+    bottom: 80px;
     right: 20px;
     z-index: 99;
     border: none;
@@ -440,11 +528,15 @@ h2::before {
     background-color: var(--dark-pink);
     color: white;
     cursor: pointer;
-    padding: 15px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    font-size: 20px;
+    font-size: 18px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s, transform 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #scrollToTopBtn:hover {
@@ -482,7 +574,7 @@ footer {
     border-radius: 10px;
     width: 90%;
     max-width: 700px; /* Ancho máximo para escritorio */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
     position: relative;
     display: flex;
     flex-direction: row;
@@ -657,7 +749,7 @@ footer {
     gap: 40px;
     justify-content: center;
     align-items: flex-start;
-    margin-top: 40px;
+    margin-top: 0;
     padding: 20px;
 }
 
@@ -669,12 +761,13 @@ footer {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.03);
     text-align: left; /* Por defecto, alineado a la izquierda en pantallas grandes */
+    margin-top: 0;
 }
 
 .main-contact-left h2 {
     font-family: 'Playfair Display', serif;
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     color: var(--dark-pink);
     font-size: 2.5em;
     /* La animación se mantiene */
@@ -685,6 +778,22 @@ footer {
     /* Aseguramos que ocupe todo el ancho disponible para centrar su contenido */
     width: 100%; 
     display: block; /* Aseguramos que sea un elemento de bloque para que text-align funcione */
+    position: relative; /* Necesario para posicionar el pseudo-elemento */
+    overflow: hidden;   /* Para contener la barra */
+    padding-bottom: 10px; /* Espacio para la barra */
+}
+
+.main-contact-left h2::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0; /* Ancho inicial cero */
+    height: 4px;
+    background-color: var(--dark-pink);
+    transform: translateX(-50%);
+    z-index: -1;
+    animation: fillAndEmpty 2s infinite alternate ease-in-out; /* 2s, infinito, alternado, suave */
 }
 
 .main-contact-left p {
@@ -727,15 +836,15 @@ footer {
 @keyframes pulse {
     0% {
         transform: scale(1);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
     }
     50% {
         transform: scale(1.03);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 6px 15px rgba(255, 105, 180, 0.4);
     }
     100% {
         transform: scale(1);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
     }
 }
 
@@ -887,9 +996,19 @@ footer {
         align-self: center;
     }
 
+    /* Botón flotante de WhatsApp para móviles */
+    #floatingWhatsAppBtn {
+        width: 45px;
+        height: 45px;
+    }
+    
+    #floatingWhatsAppBtn svg {
+        width: 20px;
+        height: 20px;
+    }
+    
     /* MODIFICADO: Scroll to Top Button para ser circular en móviles */
     #scrollToTopBtn {
-        padding: 12px;
         width: 45px;
         height: 45px;
         border-radius: 50%;
@@ -897,6 +1016,7 @@ footer {
         justify-content: center;
         align-items: center;
         font-size: 1.2em;
+        bottom: 70px;
     }
 }
 
@@ -979,5 +1099,93 @@ footer {
     /* Aún más ajuste para pantallas muy pequeñas para el correo, teléfono y horario */
     .main-contact-left ul li {
         font-size: 0.7em; /* Aún más pequeño para 480px y abajo */
+    }
+}
+
+/* Estilos para los mensajes del formulario */
+.form-message {
+    padding: 20px 25px;
+    margin: 25px 0;
+    border-radius: 15px;
+    font-weight: 600;
+    text-align: center;
+    animation: slideInDown 0.5s ease-out;
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.15);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-message::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0;
+    height: 4px;
+    background-color: var(--dark-pink);
+    transform: translateX(-50%);
+    animation: fillAndEmpty 2s infinite alternate ease-in-out;
+}
+
+.form-message-success {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    color: var(--dark-pink);
+    border: 2px solid var(--dark-pink);
+    position: relative;
+}
+
+.form-message-success::after {
+    content: '✓';
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5em;
+    color: var(--dark-pink);
+    font-weight: bold;
+}
+
+.form-message-error {
+    background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+    color: #e53e3e;
+    border: 2px solid #e53e3e;
+    position: relative;
+}
+
+.form-message-error::after {
+    content: '⚠';
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5em;
+    color: #e53e3e;
+    font-weight: bold;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos responsivos para los mensajes del formulario */
+@media (max-width: 600px) {
+    .form-message {
+        padding: 15px 20px;
+        margin: 20px 0;
+        font-size: 1em;
+        border-radius: 12px;
+    }
+    
+    .form-message::after {
+        top: 12px;
+        right: 15px;
+        font-size: 1.3em;
     }
 }
