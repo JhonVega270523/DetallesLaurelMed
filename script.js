@@ -243,19 +243,13 @@ function setupPagination(products, selectedFilter) {
             paginationContainer.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
             pageButton.classList.add('active');
             
-            // Hacer el scroll DESPUÉS de actualizar el contenido pero con la altura fija
+            // Hacer el scroll DESPUÉS de actualizar el contenido
             setTimeout(() => {
-                const productGrid = document.querySelector('.product-grid');
-                if (productGrid) {
-                    const headerHeight = document.querySelector('header').offsetHeight;
-                    const navHeight = document.querySelector('nav').offsetHeight;
-                    const offset = headerHeight + navHeight + 10;
-                    
-                    const targetPosition = productGrid.offsetTop - offset;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
+                const productsSection = document.querySelector('.products');
+                if (productsSection) {
+                    productsSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
                     });
                 }
             }, 50);
@@ -530,19 +524,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const filter = this.dataset.filter;
                 loadAndFilterProducts(filter); 
                 
-                // Hacer el scroll DESPUÉS de actualizar el contenido pero con la altura fija
+                // Hacer el scroll DESPUÉS de actualizar el contenido
                 setTimeout(() => {
-                    const productGrid = document.querySelector('.product-grid');
-                    if (productGrid) {
-                        const headerHeight = document.querySelector('header').offsetHeight;
-                        const navHeight = document.querySelector('nav').offsetHeight;
-                        const offset = headerHeight + navHeight + 10;
-                        
-                        const targetPosition = productGrid.offsetTop - offset;
-                        
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
+                    const productsSection = document.querySelector('.products');
+                    if (productsSection) {
+                        productsSection.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
                         });
                     }
                 }, 50);
@@ -565,19 +553,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 loadAndFilterProducts(category); 
                 
-                // Hacer el scroll DESPUÉS de actualizar el contenido pero con la altura fija
+                // Hacer el scroll DESPUÉS de actualizar el contenido
                 setTimeout(() => {
-                    const productGrid = document.querySelector('.product-grid');
-                    if (productGrid) {
-                        const headerHeight = document.querySelector('header').offsetHeight;
-                        const navHeight = document.querySelector('nav').offsetHeight;
-                        const offset = headerHeight + navHeight + 10;
-                        
-                        const targetPosition = productGrid.offsetTop - offset;
-                        
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
+                    const productsSection = document.querySelector('.products');
+                    if (productsSection) {
+                        productsSection.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
                         });
                     }
                 }, 50);
