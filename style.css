@@ -310,7 +310,7 @@ h2::before {
     width: 100%;
     padding-top: 125%; /* Más alta para mostrar más de la imagen */
     overflow: hidden;
-    background-color: transparent; /* Evita bandas visibles cuando la imagen cubre */
+    background: linear-gradient(135deg, #FFE4E9 0%, #FFF0F5 100%); /* Placeholder rosa claro */
     border-bottom: 1px solid var(--primary-pink); /* Borde debajo del wrapper de imagen */
 }
 
@@ -321,6 +321,12 @@ h2::before {
     width: 100%;
     height: 100%;
     object-fit: cover; /* Llena el ancho sin dejar bordes blancos laterales */
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.category-card-image-wrapper img.loaded {
+    opacity: 1;
 }
 
 .category-card h3 {
@@ -390,6 +396,14 @@ h2::before {
     object-fit: contain;
     padding: 0;
     border-bottom: 1px solid var(--primary-pink);
+    background: linear-gradient(135deg, #FFE4E9 0%, #FFF0F5 100%); /* Placeholder rosa claro */
+    min-height: 200px; /* Altura mínima mientras carga */
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.product-card > img.loaded {
+    opacity: 1;
 }
 
 .product-card h3 {
@@ -706,6 +720,14 @@ footer {
     object-fit: contain;
     border-radius: 8px;
     margin-bottom: 0;
+    background: linear-gradient(135deg, #FFE4E9 0%, #FFF0F5 100%);
+    min-height: 150px;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+#modalDetailImage.loaded {
+    opacity: 1;
 }
 
 /* Estilos para el contenedor de la información en el modal */

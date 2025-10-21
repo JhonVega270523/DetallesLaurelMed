@@ -1,4 +1,41 @@
 // Script para la funcionalidad de la página (modales, botones, etc.)
+
+// ============================================
+// LAZY LOADING DE IMÁGENES CON INTERSECTION OBSERVER
+// ============================================
+const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const img = entry.target;
+            const src = img.dataset.src;
+            if (src) {
+                img.src = src;
+                img.onload = () => {
+                    img.classList.add('loaded');
+                };
+                img.removeAttribute('data-src');
+                observer.unobserve(img);
+            }
+        }
+    });
+}, {
+    rootMargin: '50px', // Comenzar a cargar 50px antes de que sea visible
+    threshold: 0.01
+});
+
+// Función para observar una imagen con lazy loading
+function observeImage(img) {
+    if ('IntersectionObserver' in window) {
+        imageObserver.observe(img);
+    } else {
+        // Fallback para navegadores antiguos
+        const src = img.dataset.src;
+        if (src) {
+            img.src = src;
+            img.classList.add('loaded');
+        }
+    }
+}
 const productsData = {
     anchetas: [
         { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
@@ -191,8 +228,8 @@ const categoryKeyToImage = {
     decoraciones: 'images/Decoración de Fiestas.jpeg'
 };
 
-// Establece la imagen de un elemento <img> usando varias rutas de respaldo
-function setImageSrcWithFallback(imgEl, product) {
+// Establece la imagen de un elemento <img> usando varias rutas de respaldo con lazy loading
+function setImageSrcWithFallback(imgEl, product, useLazyLoading = false) {
     const candidates = [];
     if (product && product.image) candidates.push(product.image);
     if (product && product.categoryTitle) {
@@ -210,8 +247,20 @@ function setImageSrcWithFallback(imgEl, product) {
     function loadNext() {
         if (idx >= uniqueCandidates.length) return;
         const src = uniqueCandidates[idx++];
-        imgEl.onerror = loadNext;
-        imgEl.src = src;
+        
+        if (useLazyLoading) {
+            // Usar data-src para lazy loading
+            imgEl.dataset.src = src;
+            imgEl.onerror = loadNext;
+            observeImage(imgEl);
+        } else {
+            // Carga inmediata (para imágenes críticas)
+            imgEl.onerror = loadNext;
+            imgEl.src = src;
+            imgEl.onload = () => {
+                imgEl.classList.add('loaded');
+            };
+        }
     }
     loadNext();
 }
@@ -270,12 +319,12 @@ let contactForm;
 // --- Funcionalidad de Animación de Escritura ---
 let typewriterTitle;
 
-// --- Asignar imágenes a categorías por nombre exacto ---
+// --- Asignar imágenes a categorías por nombre exacto con lazy loading ---
 function assignCategoryImagesByExactTitle() {
     const cards = document.querySelectorAll('.category-card');
     if (!cards || cards.length === 0) return;
 
-    cards.forEach(card => {
+    cards.forEach((card, cardIndex) => {
         const wrapper = card.querySelector('.category-card-image-wrapper');
         const titleEl = card.querySelector('h3');
         if (!wrapper || !titleEl) return;
@@ -295,12 +344,31 @@ function assignCategoryImagesByExactTitle() {
             probe.onload = () => {
                 let existingImg = wrapper.querySelector('img');
                 if (existingImg) {
-                    existingImg.src = candidateSrc;
-                    existingImg.alt = exactTitle;
+                    // Usar lazy loading solo para categorías después de las primeras 5
+                    if (cardIndex >= 5) {
+                        existingImg.dataset.src = candidateSrc;
+                        existingImg.alt = exactTitle;
+                        observeImage(existingImg);
+                    } else {
+                        existingImg.src = candidateSrc;
+                        existingImg.alt = exactTitle;
+                        existingImg.onload = () => {
+                            existingImg.classList.add('loaded');
+                        };
+                    }
                 } else {
                     const img = document.createElement('img');
-                    img.src = candidateSrc;
                     img.alt = exactTitle;
+                    // Usar lazy loading solo para categorías después de las primeras 5
+                    if (cardIndex >= 5) {
+                        img.dataset.src = candidateSrc;
+                        observeImage(img);
+                    } else {
+                        img.src = candidateSrc;
+                        img.onload = () => {
+                            img.classList.add('loaded');
+                        };
+                    }
                     wrapper.appendChild(img);
                 }
             };
@@ -356,14 +424,16 @@ function displayProducts(products, page) {
     const endIndex = startIndex + productsPerPage;
     const productsToDisplay = products.slice(startIndex, endIndex);
 
-    productsToDisplay.forEach(product => {
+    productsToDisplay.forEach((product, index) => {
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
 
         // Imagen con estrategia de fallbacks robusta
         const imgEl = document.createElement('img');
         imgEl.alt = product.name;
-        setImageSrcWithFallback(imgEl, product);
+        // Lazy loading para productos después de los primeros 4 (primera fila)
+        const useLazyLoading = index >= 4;
+        setImageSrcWithFallback(imgEl, product, useLazyLoading);
 
         const titleEl = document.createElement('h3');
         titleEl.textContent = product.name;
@@ -534,10 +604,11 @@ function openProductDetailModal(product) {
         console.error("Error: Elementos del modal no encontrados.");
         return;
     }
-    // Fallbacks para la imagen del modal
+    // Fallbacks para la imagen del modal - carga inmediata sin lazy loading
     modalDetailImage.removeAttribute('src');
+    modalDetailImage.classList.remove('loaded');
     modalDetailImage.alt = product.name;
-    setImageSrcWithFallback(modalDetailImage, product);
+    setImageSrcWithFallback(modalDetailImage, product, false); // false = carga inmediata
     modalDetailName.textContent = product.name;
     modalDetailPrice.textContent = product.price; 
     modalDetailDescription.textContent = product.description;
