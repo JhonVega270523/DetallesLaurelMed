@@ -28,6 +28,7 @@ header {
     padding: 20px 0;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 header h1 {
@@ -106,6 +107,50 @@ header h1 {
 header p {
     font-size: 1.2em;
     margin-top: 5px;
+}
+
+/* Estilos para los iconos de redes sociales en el header */
+.social-icons {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.social-icon svg {
+    width: 18px;
+    height: 18px;
+    color: var(--white);
+}
+
+/* Texto "Tienda Virtual" en la esquina inferior derecha del header */
+.tienda-virtual {
+    position: absolute;
+    bottom: 10px; /* Igual que .social-icons para alinear horizontalmente */
+    right: 15px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--white);
+    z-index: 10;
 }
 
 /* Navbar Styles */
@@ -192,22 +237,13 @@ h2 {
     font-size: 2.5em;
     position: relative; /* Necesario para posicionar el pseudo-elemento */
     overflow: hidden;   /* Para contener la barra */
-    padding-bottom: 5px; /* Espacio para la barra */
+    padding-bottom: 0; /* Sin barra inferior */
     display: inline-block; /* Para que la barra se ajuste al ancho del texto si el h2 no es block */
     z-index: 0;
 }
 
 h2::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0; /* Ancho inicial cero */
-    height: 4px;
-    background-color: var(--dark-pink);
-    transform: translateX(-50%);
-    z-index: -1;
-    animation: fillAndEmpty 2s infinite alternate ease-in-out; /* 2s, infinito, alternado, suave */
+    content: none; /* Quitar barra animada */
 }
 
 /* Define los keyframes para la animación de la barra */
@@ -222,22 +258,34 @@ h2::before {
 
 /* Nuevos estilos para la sección de categorías */
 .categories {
-    margin-top: 40px;
+    margin-top: 8px; /* Reduce espacio por encima del título */
+}
+
+/* Compactar padding interno solo para la sección de categorías */
+.categories .container {
+    padding-top: 6px;
+    padding-bottom: 12px;
 }
 
 .section-title {
     font-family: 'Playfair Display', serif;
     text-align: center;
     color: var(--dark-pink);
-    margin-bottom: 15px;
+    margin: 6px 0 10px; /* Reduce espacio arriba y abajo del título */
+    padding-bottom: 2px; /* Reduce la separación de la barra inferior */
     font-size: 2.5em;
+}
+
+/* Título más compacto específicamente en la sección de categorías */
+.categories .section-title {
+    margin: 0 0 8px;
 }
 
 .category-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 40px;
+    grid-template-columns: repeat(5, 1fr); /* 5 tarjetas por fila en escritorio */
+    gap: 24px;
+    margin-top: 15px; /* Acerca las tarjetas al título */
 }
 
 .category-card {
@@ -252,17 +300,17 @@ h2::before {
 }
 
 .category-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
+    transform: none; /* Sin movimiento en hover */
+    box-shadow: 0 10px 20px rgba(255, 105, 180, 0.25);
 }
 
 /* Contenedor para la relación de aspecto de la imagen de categoría */
 .category-card-image-wrapper {
     position: relative;
     width: 100%;
-    padding-top: 125%; /* Relación de aspecto 4:5 (alto = 1.25 * ancho) */
+    padding-top: 125%; /* Más alta para mostrar más de la imagen */
     overflow: hidden;
-    background-color: var(--white); /* Fondo para los espacios si object-fit: contain los deja */
+    background-color: transparent; /* Evita bandas visibles cuando la imagen cubre */
     border-bottom: 1px solid var(--primary-pink); /* Borde debajo del wrapper de imagen */
 }
 
@@ -272,14 +320,15 @@ h2::before {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain; /* La imagen se ajusta sin recortar dentro de la proporción 4:5 */
+    object-fit: cover; /* Llena el ancho sin dejar bordes blancos laterales */
 }
 
 .category-card h3 {
     font-family: 'Playfair Display', serif;
     color: var(--dark-pink);
-    margin: 20px 0;
-    font-size: 1.4em;
+    margin: 8px 0 10px; /* Menos espacio arriba y abajo del título */
+    font-size: 1.1em; /* Título un poco más pequeño */
+    line-height: 1.2;
 }
 
 /* Nuevos estilos para la sección de productos */
@@ -301,17 +350,17 @@ h2::before {
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.2s ease; /* Sin movimiento */
 }
 
-.filter-btn:hover, .filter-btn.active {
-    background-color: var(--dark-pink);
-    transform: translateY(-5px); /* Elevado un poco más que los demás */
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: var(--dark-pink); /* Solo cambio de color */
 }
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(4, 1fr); /* 4 tarjetas por fila en escritorio */
     gap: 20px;
 }
 
@@ -331,8 +380,8 @@ h2::before {
 }
 
 .product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
+    transform: none; /* Sin movimiento en hover */
+    box-shadow: 0 10px 20px rgba(255, 105, 180, 0.25);
 }
 
 .product-card > img { /* El ">" selecciona solo hijos directos */
@@ -368,12 +417,20 @@ h2::before {
 }
 
 .product-card .product-actions {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+    display: grid; /* Usar grid para poder centrar el precio en el espacio restante */
+    grid-template-columns: auto 1fr; /* 1ª col: acciones izq; 2ª col: espacio flexible */
+    align-items: center;
+    gap: 14px;
     margin-top: auto;
     margin-bottom: 0;
-    padding-top: 10px;
+    padding: 10px 16px; /* espacio lateral igual a ambos lados */
+    width: 100%;
+}
+
+.product-actions-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 /* ESTILOS DEL BOTÓN "VER DETALLES" (modificado para ser más pequeño) */
@@ -421,6 +478,16 @@ h2::before {
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+
+/* Precio visible a la derecha de los botones en la tarjeta */
+.product-price-tag {
+    margin-left: -30px; /* Evita sesgo hacia la derecha */
+    justify-self: center; /* Centra el precio entre el botón de WhatsApp y el borde derecho */
+    font-weight: 700;
+    color: var(--dark-gray);
+    font-size: 0.95em;
+    white-space: nowrap; /* Evita cortes del precio */
 }
 
 /* Estilos para la paginación */
@@ -595,7 +662,7 @@ footer {
     position: relative;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: stretch; /* Estira columnas para misma altura */
     gap: 25px;
     box-sizing: border-box;
     
@@ -647,6 +714,8 @@ footer {
     display: flex;
     flex-direction: column;
     text-align: left;
+    position: relative; /* Para posicionar el botón al fondo */
+    padding-bottom: 60px; /* Espacio para el botón fijo al fondo */
 }
 
 #modalDetailName {
@@ -685,8 +754,12 @@ footer {
     border: none;
     cursor: pointer;
     font-size: 1em;
-    margin-top: auto;
-    align-self: flex-start;
+    position: absolute;
+    left: 50%;
+    bottom: 15px; /* Pegado al fondo del modal */
+    transform: translateX(-50%);
+    white-space: nowrap; /* Evita salto de línea en el texto */
+    display: inline-block; /* Mantiene el ancho natural del botón */
 }
 
 #modalDetailWhatsappBtn:hover {
@@ -797,20 +870,11 @@ footer {
     display: block; /* Aseguramos que sea un elemento de bloque para que text-align funcione */
     position: relative; /* Necesario para posicionar el pseudo-elemento */
     overflow: hidden;   /* Para contener la barra */
-    padding-bottom: 10px; /* Espacio para la barra */
+    padding-bottom: 0; /* Sin barra bajo el título */
 }
 
 .main-contact-left h2::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0; /* Ancho inicial cero */
-    height: 4px;
-    background-color: var(--dark-pink);
-    transform: translateX(-50%);
-    z-index: -1;
-    animation: fillAndEmpty 2s infinite alternate ease-in-out; /* 2s, infinito, alternado, suave */
+    content: none; /* Quitar barra animada */
 }
 
 .main-contact-left p {
@@ -932,7 +996,7 @@ footer {
 
     /* Ajuste para 3 columnas en categoría y productos */
     .product-grid {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* 3 columnas */
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en tablet */
         gap: 15px;
     }
 
@@ -954,6 +1018,16 @@ footer {
         box-sizing: border-box;
         
         transition: none; /* Make sure there's no transition delaying visibility */
+    }
+    /* Botón del modal en móvil: flujo normal, centrado, sin posición absoluta */
+    #modalDetailWhatsappBtn {
+        position: static;
+        transform: none;
+        margin-top: 10px;
+        align-self: center;
+    }
+    .modal-info-wrapper {
+        padding-bottom: 10px;
     }
 
     /* Ajustes de la imagen del modal (ya estaban correctos) */
@@ -1061,6 +1135,30 @@ footer {
     }
 }
 
+@media (max-width: 768px) {
+    .social-icons {
+        bottom: 8px;
+        left: 10px;
+        gap: 8px;
+    }
+
+    .social-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .social-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .tienda-virtual {
+        bottom: 8px; /* Mantiene alineación horizontal con .social-icons */
+        right: 10px;
+        font-size: 0.95rem;
+    }
+}
+
 @media (max-width: 480px) {
     .container {
         padding: 10px; /* Ajuste para pantallas muy pequeñas */
@@ -1069,6 +1167,28 @@ footer {
 
     header h1 {
         font-size: 2.2em; /* Reduce el tamaño del título en pantallas muy pequeñas */
+    }
+    
+    .social-icons {
+        bottom: 5px;
+        left: 8px;
+        gap: 6px;
+    }
+
+    .social-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .social-icon svg {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .tienda-virtual {
+        bottom: 5px; /* Mantiene alineación horizontal con .social-icons */
+        right: 8px;
+        font-size: 0.9rem;
     }
     
     /* Ajustes adicionales para navegación en pantallas muy pequeñas */
@@ -1091,14 +1211,50 @@ footer {
 
     /* Vuelve a 2 columnas en pantallas muy pequeñas para mejor legibilidad */
     .category-grid {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Vuelve a 2 columnas */
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en móvil */
         gap: 10px;
     }
 
-    /* Vuelve a 2 columnas en pantallas muy pequeñas para mejor legibilidad */
+    /* 3 columnas en productos en pantallas muy pequeñas */
     .product-grid {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Vuelve a 2 columnas */
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en móvil */
         gap: 10px;
+    }
+
+    /* 1) Títulos más pequeños e iguales en categorías y productos */
+    .category-card h3,
+    .product-card h3 {
+        font-size: 0.95em;
+        margin: 6px 0 8px;
+    }
+
+    /* 2) Reacomodo de acciones para que botones y precio siempre se vean */
+    .product-card .product-actions {
+        grid-template-columns: 1fr; /* una sola columna en móvil */
+        justify-items: center;
+        gap: 6px;
+        padding: 8px 10px;
+    }
+    .product-actions-left {
+        gap: 8px;
+        justify-content: center; /* centra los dos botones en la misma línea */
+        width: 100%; /* ocupa todo el ancho de la fila */
+    }
+    .product-card .btn-detail {
+        height: 34px;
+        min-width: 36px;
+        padding: 5px 8px;
+        font-size: 0.7em;
+    }
+    .product-card .whatsapp-icon-btn {
+        width: 34px;
+        height: 34px;
+        padding: 4px;
+    }
+    .product-price-tag {
+        justify-self: center;
+        font-size: 0.9em;
+        margin-left: 0;
     }
 
     .product-card {

@@ -128,6 +128,117 @@ const productsData = {
     ]
 };
 
+// --- Lista completa de categorías (títulos visibles) ---
+const categoryTitles = [
+    '15 años',
+    'Anchetas',
+    'Aniversario',
+    'Arreglos con Peluches',
+    'Bouquet',
+    'Cajas de Dulces',
+    'Cajas de Lujo',
+    'Decoración de Fiestas',
+    'Decoración de Habitaciones',
+    'Desayunos Sorpresa',
+    'Detalles con Virgenes',
+    'Detalles Empresariales',
+    'Detalles Premium',
+    'Fúnebres',
+    'Nacimiento',
+    'Oso Teddy',
+    'Plantas de Orquídea',
+    'Ramos',
+    'Ramos con Dinero'
+];
+
+function slugify(text) {
+    return text
+        .toString()
+        .normalize('NFD').replace(/\p{Diacritic}/gu, '')
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .trim()
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-');
+}
+
+// Mapa de título de categoría -> archivo de imagen existente en /images
+const categoryTitleToImage = {
+    'Anchetas': 'Anchetas.jpeg',
+    'Ramos': 'Ramos.jpeg',
+    'Bouquet': 'Bouquet.jpeg',
+    'Desayunos Sorpresa': 'Desayunos Sorpresa.jpeg',
+    'Cajas de Dulces': 'Cajas de Dulces.jpeg',
+    'Cajas de Lujo': 'Cajas de Lujo.jpeg',
+    'Decoración de Fiestas': 'Decoración de Fiestas.jpeg',
+    'Decoración de Habitaciones': 'Decoración de Habitaciones.jpeg',
+    'Arreglos con Peluches': 'Arreglos con Peluches.jpeg',
+    'Oso Teddy': 'Oso Teddy.jpeg'
+};
+
+function resolveCategoryImageByTitle(title) {
+    const file = categoryTitleToImage[title];
+    return file ? `images/${file}` : undefined;
+}
+
+// Mapa por clave de categoría existente
+const categoryKeyToImage = {
+    anchetas: 'images/Anchetas.jpeg',
+    ramos: 'images/Ramos.jpeg',
+    peluches: 'images/Arreglos con Peluches.jpeg',
+    cajas: 'images/Cajas de Dulces.jpeg',
+    desayunos: 'images/Desayunos Sorpresa.jpeg',
+    decoraciones: 'images/Decoración de Fiestas.jpeg'
+};
+
+// Establece la imagen de un elemento <img> usando varias rutas de respaldo
+function setImageSrcWithFallback(imgEl, product) {
+    const candidates = [];
+    if (product && product.image) candidates.push(product.image);
+    if (product && product.categoryTitle) {
+        const mapped = resolveCategoryImageByTitle(product.categoryTitle);
+        if (mapped) candidates.push(mapped);
+        ['.jpeg', '.jpg', '.png', '.webp'].forEach(ext => {
+            candidates.push(`images/${encodeURIComponent(product.categoryTitle)}${ext}`);
+        });
+    }
+    if (product && product.category && categoryKeyToImage[product.category]) {
+        candidates.push(categoryKeyToImage[product.category]);
+    }
+    const uniqueCandidates = [...new Set(candidates.filter(Boolean))];
+    let idx = 0;
+    function loadNext() {
+        if (idx >= uniqueCandidates.length) return;
+        const src = uniqueCandidates[idx++];
+        imgEl.onerror = loadNext;
+        imgEl.src = src;
+    }
+    loadNext();
+}
+
+// Genera productos temporales para categorías que no existen aún
+function ensurePlaceholderProducts() {
+    categoryTitles.forEach((title) => {
+        const key = slugify(title);
+        if (!productsData[key]) {
+            // Crear 8 productos de prueba por categoría
+            const basePrice = 50000; // COP
+            productsData[key] = Array.from({ length: 12 }).map((_, idx) => {
+                const priceValue = basePrice + idx * 5000;
+                const priceStr = `$${priceValue.toLocaleString('es-CO')} COP`;
+                return {
+                    name: `${title} ${idx + 1}`,
+                    price: priceStr,
+                    description: `Producto temporal de la categoría ${title}.`,
+                    category: key,
+                    categoryTitle: title, // para resolver imagen según el nombre exacto
+                    image: resolveCategoryImageByTitle(title)
+                };
+            });
+        }
+    });
+}
+
 // --- Variables DOM (se inicializan dentro de DOMContentLoaded) ---
 let productContainer;
 let filterButtons;
@@ -158,6 +269,62 @@ let contactForm;
 
 // --- Funcionalidad de Animación de Escritura ---
 let typewriterTitle;
+
+// --- Asignar imágenes a categorías por nombre exacto ---
+function assignCategoryImagesByExactTitle() {
+    const cards = document.querySelectorAll('.category-card');
+    if (!cards || cards.length === 0) return;
+
+    cards.forEach(card => {
+        const wrapper = card.querySelector('.category-card-image-wrapper');
+        const titleEl = card.querySelector('h3');
+        if (!wrapper || !titleEl) return;
+
+        const exactTitle = titleEl.textContent.trim();
+        if (!exactTitle) return;
+
+        const extensionsToTry = ['.jpeg', '.jpg', '.png', '.webp'];
+        let extIndex = 0;
+        const probe = new Image();
+
+        function tryLoad() {
+            if (extIndex >= extensionsToTry.length) return; // No se encontró ninguna imagen
+            const encodedName = encodeURIComponent(exactTitle);
+            const candidateSrc = `images/${encodedName}${extensionsToTry[extIndex]}`;
+
+            probe.onload = () => {
+                let existingImg = wrapper.querySelector('img');
+                if (existingImg) {
+                    existingImg.src = candidateSrc;
+                    existingImg.alt = exactTitle;
+                } else {
+                    const img = document.createElement('img');
+                    img.src = candidateSrc;
+                    img.alt = exactTitle;
+                    wrapper.appendChild(img);
+                }
+            };
+            probe.onerror = () => {
+                extIndex++;
+                tryLoad();
+            };
+            probe.src = candidateSrc;
+        }
+
+        tryLoad();
+    });
+}
+
+// --- Actualiza el texto de los botones de detalle según el ancho de la ventana ---
+function updateDetailButtonLabels() {
+    const isMobile = window.innerWidth <= 480;
+    document.querySelectorAll('.product-card .btn-detail').forEach(btn => {
+        const shouldBe = isMobile ? 'Ver' : 'Ver Detalles';
+        if (btn.textContent !== shouldBe) {
+            btn.textContent = shouldBe;
+        }
+    });
+}
 
 // --- Funciones de Carga y Filtrado ---
 function getFilteredProducts(filter) {
@@ -192,22 +359,65 @@ function displayProducts(products, page) {
     productsToDisplay.forEach(product => {
         const productCard = document.createElement('div');
         productCard.classList.add('product-card');
-        productCard.innerHTML = `
-            <img src="${product.image}" alt="${product.name}">
-            <h3>${product.name}</h3>
-            <p style="display:none;" class="product-price">${product.price}</p>
-            <div class="product-actions">
-                <button class="btn-detail" data-product-json='${JSON.stringify(product)}'>Ver Detalles</button>
-                <button class="whatsapp-icon-btn" data-name="${product.name}" data-price="${product.price}">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon">
-                </button>
-            </div>
-        `;
+
+        // Imagen con estrategia de fallbacks robusta
+        const imgEl = document.createElement('img');
+        imgEl.alt = product.name;
+        setImageSrcWithFallback(imgEl, product);
+
+        const titleEl = document.createElement('h3');
+        titleEl.textContent = product.name;
+
+        const pricePEl = document.createElement('p');
+        pricePEl.className = 'product-price';
+        pricePEl.style.display = 'none';
+        pricePEl.textContent = product.price;
+
+        const actionsEl = document.createElement('div');
+        actionsEl.className = 'product-actions';
+
+        const detailBtn = document.createElement('button');
+        detailBtn.className = 'btn-detail';
+        detailBtn.textContent = 'Ver Detalles';
+        detailBtn.setAttribute('data-product-json', JSON.stringify(product));
+
+        const waBtn = document.createElement('button');
+        waBtn.className = 'whatsapp-icon-btn';
+        waBtn.setAttribute('data-name', product.name);
+        waBtn.setAttribute('data-price', product.price);
+        const waImg = document.createElement('img');
+        waImg.src = 'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg';
+        waImg.alt = 'WhatsApp Icon';
+        waBtn.appendChild(waImg);
+
+        // Grupo izquierdo: botón y WhatsApp juntos
+        const actionsLeft = document.createElement('div');
+        actionsLeft.className = 'product-actions-left';
+        actionsLeft.appendChild(detailBtn);
+        actionsLeft.appendChild(waBtn);
+
+        // Precio visible a la derecha de los botones
+        const priceTagEl = document.createElement('span');
+        priceTagEl.className = 'product-price-tag';
+        const displayPrice = String(product.price || '').replace(/\s*COP\s*$/i, '');
+        priceTagEl.textContent = displayPrice;
+
+        actionsEl.appendChild(actionsLeft);
+        actionsEl.appendChild(priceTagEl);
+
+        productCard.appendChild(imgEl);
+        productCard.appendChild(titleEl);
+        productCard.appendChild(pricePEl);
+        productCard.appendChild(actionsEl);
+
         productContainer.appendChild(productCard);
     });
 
     // Añadir listeners después de que los productos estén en el DOM
     addEventListenersToProductButtons();
+
+    // Ajustar etiquetas de botones según el tamaño de pantalla
+    updateDetailButtonLabels();
 
     // Remover la altura mínima después de que los productos se hayan renderizado
     setTimeout(() => {
@@ -261,7 +471,20 @@ function setupPagination(products, selectedFilter) {
 function loadAndFilterProducts(filter, page = 1) {
     currentCategory = filter;
     currentPage = page;
-    const filteredProducts = getFilteredProducts(filter);
+    let filteredProducts = getFilteredProducts(filter);
+
+    // Aplicar orden por precio si corresponde
+    const sortSelect = document.getElementById('priceSort');
+    if (sortSelect) {
+        const sortValue = sortSelect.value;
+        if (sortValue === 'asc' || sortValue === 'desc') {
+            filteredProducts = filteredProducts.slice().sort((a, b) => {
+                const priceA = parseInt(String(a.price || '0').replace(/\D/g, '')) || 0;
+                const priceB = parseInt(String(b.price || '0').replace(/\D/g, '')) || 0;
+                return sortValue === 'asc' ? priceA - priceB : priceB - priceA;
+            });
+        }
+    }
     displayProducts(filteredProducts, currentPage);
     setupPagination(filteredProducts, filter);
 }
@@ -311,8 +534,10 @@ function openProductDetailModal(product) {
         console.error("Error: Elementos del modal no encontrados.");
         return;
     }
-    modalDetailImage.src = product.image;
+    // Fallbacks para la imagen del modal
+    modalDetailImage.removeAttribute('src');
     modalDetailImage.alt = product.name;
+    setImageSrcWithFallback(modalDetailImage, product);
     modalDetailName.textContent = product.name;
     modalDetailPrice.textContent = product.price; 
     modalDetailDescription.textContent = product.description;
@@ -454,6 +679,12 @@ document.addEventListener('DOMContentLoaded', () => {
     categoryCards = document.querySelectorAll(".category-card"); 
     paginationContainer = document.getElementById("pagination-container");
 
+    // Cargar imágenes de categorías por nombre exacto si no tienen imagen
+    assignCategoryImagesByExactTitle();
+
+    // Asegurar productos temporales para todas las categorías
+    ensurePlaceholderProducts();
+
     // Modal elements
     productDetailModal = document.getElementById("productModal"); 
     modalDetailImage = document.getElementById("modalDetailImage");
@@ -491,6 +722,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typewriterTitle) {
         initTypewriterAnimation();
     }
+
+    // Ajustar etiquetas de "Ver"/"Ver Detalles" al cargar y al redimensionar
+    updateDetailButtonLabels();
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(updateDetailButtonLabels, 100);
+    });
 
     // 4. Añadir Event Listeners para el modal (una vez)
     if (productDetailModal && closeModalButton) {
@@ -535,6 +774,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }, 50);
             }, { passive: true });
+        });
+    }
+
+    // Listener de orden por precio
+    const sortSelect = document.getElementById('priceSort');
+    if (sortSelect) {
+        sortSelect.addEventListener('change', function() {
+            loadAndFilterProducts(currentCategory || 'all', 1);
         });
     }
 
