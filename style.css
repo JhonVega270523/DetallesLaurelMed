@@ -234,7 +234,7 @@ nav ul li a:hover {
 .container {
     width: 90%;
     max-width: 1200px;
-    margin: 20px auto;
+    margin: 10px auto; /* Reducido de 20px a 10px */
     padding: 15px;
     background-color: var(--white);
     border-radius: 10px;
@@ -242,11 +242,23 @@ nav ul li a:hover {
     text-align: center; /* Añadido para centrar el texto por defecto */
 }
 
+/* Reducir margen superior específicamente para Sobre Nosotros y Contáctanos */
+#nosotros,
+#contacto {
+    margin-top: 10px;
+}
+
+#nosotros .container,
+#contacto .container {
+    padding-top: 10px;
+}
+
 /* Regla general para h2: Centrado por defecto (para otros h2 que no sean el de Contacto) */
 h2 {
     font-family: 'Playfair Display', serif;
     text-align: center;
     color: var(--black);
+    margin-top: 5px; /* Reducir margen superior */
     margin-bottom: 10px;
     font-size: 2.5em;
     position: relative; /* Necesario para posicionar el pseudo-elemento */
@@ -295,11 +307,16 @@ h2::before {
     margin: 0 0 8px;
 }
 
+/* Título más compacto en la sección de productos */
+.products .section-title {
+    margin: 0 0 8px;
+}
+
 .category-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr); /* 5 tarjetas por fila en escritorio */
     gap: 24px;
-    margin-top: 15px; /* Acerca las tarjetas al título */
+    margin-top: 12px; /* Acerca las tarjetas al título */
 }
 
 .category-card {
@@ -356,6 +373,10 @@ h2::before {
 /* Nuevos estilos para la sección de productos */
 .products {
     margin-top: 60px;
+}
+
+.products .container {
+    padding-top: 15px;
 }
 
 .filter-buttons {
@@ -832,7 +853,7 @@ footer {
         max-width: none; /* Sin límite de ancho en móvil */
         border-radius: 0; /* Sin bordes redondeados en móvil */
         box-shadow: none; /* Sin sombra en móvil */
-        padding: 15px; /* Padding consistente */
+        padding: 10px 15px 5px; /* Reducir padding superior e inferior */
     }
 }
 
@@ -902,20 +923,20 @@ footer {
     justify-content: center;
     align-items: flex-start;
     margin-top: 0;
-    padding: 20px;
+    padding: 10px 20px; /* Reducir padding superior */
 }
 
 @media (max-width: 900px) {
     .main-contact-section-layout {
-        padding: 0; /* Sin padding en móvil para aprovechar todo el espacio */
-        gap: 0; /* Sin gap entre secciones */
+        padding: 5px; /* Reducir padding en móvil */
+        gap: 5px; /* Reducir gap entre secciones */
     }
 }
 
 .main-contact-left {
     flex: 1;
     min-width: 300px;
-    padding: 20px;
+    padding: 15px 20px; /* Reducir padding superior de 20px a 15px */
     background-color: var(--white);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.03);
@@ -927,14 +948,14 @@ footer {
     .main-contact-left {
         border-radius: 0; /* Sin bordes redondeados en móvil */
         box-shadow: none; /* Sin sombra en móvil */
-        padding: 15px; /* Padding reducido */
+        padding: 10px 15px; /* Reducir padding superior */
     }
 }
 
 .main-contact-left h2 {
     font-family: 'Playfair Display', serif;
     margin-top: 0;
-    margin-bottom: 30px;
+    margin-bottom: 20px; /* Reducido de 30px a 20px */
     color: var(--black);
     font-size: 2.5em;
     /* La animación se mantiene */
@@ -979,6 +1000,7 @@ footer {
 @media (max-width: 900px) {
     .main-contact-right {
         max-width: none; /* Sin límite de ancho en móvil */
+        padding-top: 5px; /* Reducir padding superior */
     }
 }
 
@@ -1027,7 +1049,24 @@ footer {
     .main-contact-section-layout {
         flex-direction: column;
         align-items: center; /* Asegura que las columnas se centren */
-        gap: 30px;
+        gap: 15px; /* Reducir gap entre las dos columnas de contacto */
+    }
+    
+    /* Reducir espacios en secciones */
+    .categories {
+        margin-top: 5px;
+    }
+    
+    .products {
+        margin-top: 10px;
+    }
+    
+    #nosotros {
+        margin-top: 10px;
+    }
+    
+    #contacto {
+        margin-top: 10px;
     }
 
     /* Centrado y tamaño de los contenedores main-contact-left y main-contact-right */
@@ -1275,33 +1314,108 @@ footer {
     
     /* 2. Reducir espacios entre títulos y parte superior/contenido en vista móvil */
     .container {
-        padding: 10px; /* Ajuste para pantallas muy pequeñas */
-        margin: 10px auto; /* Reducir margen en móvil */
+        padding: 8px; /* Reducir padding interno */
+        margin: 5px auto; /* Reducir margen superior e inferior */
     }
     
     /* Reducir espacio superior de las secciones */
     .categories {
-        margin-top: 5px;
+        margin-top: 2px;
     }
     
     .products {
-        margin-top: 15px;
+        margin-top: 5px;
     }
     
     /* Reducir padding de los containers de secciones */
     .categories .container {
+        padding-top: 2px;
+        padding-bottom: 5px;
+    }
+    
+    .products .container {
         padding-top: 3px;
         padding-bottom: 8px;
     }
     
-    .products .container {
-        padding-top: 5px;
+    /* Sección "Sobre Nosotros" */
+    #nosotros {
+        padding-top: 3px;
+        padding-bottom: 8px;
+        margin-top: 5px;
+    }
+    
+    #nosotros h2 {
+        margin-bottom: 8px !important; /* Reducir espacio entre título y párrafo */
+    }
+    
+    #nosotros p {
+        margin-top: 5px !important; /* Reducir espacio arriba del párrafo */
+    }
+    
+    /* Sección "Contáctanos" */
+    #contacto {
+        padding-top: 3px;
+        padding-bottom: 8px;
+        margin-top: 5px;
+    }
+    
+    /* Reducir espacio en el layout de contacto */
+    .main-contact-section-layout {
+        padding: 5px !important; /* Reducir padding superior */
+        gap: 5px !important; /* Reducir gap entre "Escribenos" y "Envíanos un Mensaje" */
+        margin-top: 0 !important;
     }
     
     /* 4. Igualar tamaño de todos los títulos al de "Sobre Nosotros" en móvil */
     h2, .section-title {
         font-size: 1.8em !important; /* Mismo tamaño para todos los títulos */
-        margin: 8px 0 10px !important; /* Reducir espacios arriba y abajo */
+        margin: 3px 0 8px !important; /* Reducir aún más los espacios arriba y abajo */
+    }
+    
+    /* Reducir espacio específicamente en el título "Contáctanos" */
+    .main-contact-left {
+        padding-top: 5px !important; /* Reducir padding superior */
+    }
+    
+    .main-contact-left h2 {
+        margin-top: 0 !important;
+        margin-bottom: 10px !important; /* Reducir espacio debajo del título */
+    }
+    
+    /* Reducir espacio del párrafo después de "Contáctanos" */
+    .main-contact-left > p:first-of-type {
+        margin-bottom: 15px !important;
+    }
+    
+    /* Reducir espacio de la lista de contacto */
+    .main-contact-left ul {
+        margin-bottom: 15px !important;
+    }
+    
+    /* Reducir espacio del botón WhatsApp "Escribenos" */
+    .main-contact-left .whatsapp-button {
+        margin-top: 10px !important;
+        margin-bottom: 5px !important; /* Reducir espacio debajo del botón */
+    }
+    
+    /* Reducir espacio en "Envíanos un Mensaje" */
+    .main-contact-right {
+        padding-top: 5px !important; /* Reducir padding superior */
+    }
+    
+    .main-contact-right h2 {
+        margin-top: 0 !important;
+        margin-bottom: 15px !important;
+    }
+    
+    /* Reducir espacio debajo del botón "Enviar Mensaje" */
+    .contact-form {
+        padding-bottom: 5px !important;
+    }
+    
+    .submit-button {
+        margin-bottom: 0 !important;
     }
     
     /* Reducir aún más el tamaño de párrafos justificados en pantallas muy pequeñas */
@@ -1387,12 +1501,19 @@ footer {
     .category-grid {
         grid-template-columns: repeat(3, 1fr); /* 3 columnas en móvil */
         gap: 10px;
+        margin-top: 5px !important; /* Reducir espacio entre título y grid */
     }
 
     /* 3 columnas en productos en pantallas muy pequeñas */
     .product-grid {
         grid-template-columns: repeat(3, 1fr); /* 3 columnas en móvil */
         gap: 10px;
+    }
+    
+    /* Reducir espacio en los filtros */
+    .filtros-categorias-container {
+        margin: 8px auto 10px !important;
+        padding: 12px !important;
     }
 
     /* 1) Títulos más pequeños e iguales en categorías y productos */
@@ -1790,4 +1911,5 @@ footer {
     #priceSort + .select2-container {
         width: 100% !important;
     }
+}
 }
