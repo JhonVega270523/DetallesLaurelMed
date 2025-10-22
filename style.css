@@ -1,10 +1,13 @@
 :root {
-    --primary-pink: #FFC0CB; /* Rosa claro */
-    --dark-pink: #FF69B4;    /* Rosa fuerte */
+    --primary-gold: #D4AF37; /* Dorado */
+    --dark-gold: #B8941E;    /* Dorado oscuro */
+    --light-gold: #F4E4C1;   /* Dorado claro */
     --white: #FFFFFF;
-    --gray: #F8F8F8;
+    --off-white: #FAFAFA;
+    --gray: #F5F5F5;
     --dark-gray: #333333;
-    --text-color: #555555;
+    --black: #000000;
+    --text-color: #2C2C2C;
 }
 
 /* Desplazamiento suave para todos los anclajes internos */
@@ -23,12 +26,13 @@ body {
 }
 
 header {
-    background-color: var(--dark-pink);
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     color: var(--white);
     padding: 20px 0;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     position: relative;
+    border-bottom: 3px solid var(--primary-gold);
 }
 
 header h1 {
@@ -155,15 +159,16 @@ header p {
 
 /* Navbar Styles */
 nav {
-    background-color: var(--primary-pink);
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
     padding: 10px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     text-align: center;
     position: relative; /* Asegura que el nav sea el contexto para el pseudo-elemento */
     overflow: hidden;   /* Importante para que la luz solo se vea dentro del nav */
+    border-bottom: 2px solid var(--primary-gold);
 }
 
-/* Pseudo-elemento para la luz que ilumina todo el nav */
+/* Pseudo-elemento para la luz dorada que ilumina todo el nav */
 nav::before {
     content: '';
     position: absolute;
@@ -171,11 +176,11 @@ nav::before {
     left: -30%; /* Comienza fuera de la vista a la izquierda (negativo del ancho de la luz) */
     width: 30%; /* Ancho de la franja de luz, ajusta si quieres que sea más ancha/estrecha */
     height: 100%;
-    /* Degradado lineal para crear un efecto de "luz" suave y difusa */
+    /* Degradado lineal para crear un efecto de "luz" dorada suave y difusa */
     background: linear-gradient(to right, 
-                rgba(255, 255, 255, 0) 0%,      /* Completamente transparente al inicio */
-                rgba(255, 255, 255, 0.5) 50%,   /* Más opacidad en el centro (la parte más brillante de la luz) */
-                rgba(255, 255, 255, 0) 100%);   /* Vuelve a ser transparente al final */
+                rgba(212, 175, 55, 0) 0%,      /* Completamente transparente al inicio */
+                rgba(212, 175, 55, 0.3) 50%,   /* Dorado en el centro */
+                rgba(212, 175, 55, 0) 100%);   /* Vuelve a ser transparente al final */
     z-index: 0; /* Asegura que la luz esté detrás del contenido de navegación */
     animation: sweepLight 3s infinite linear alternate; /* Animación continua, ida y vuelta */
     pointer-events: none; /* Permite que los clics pasen a los enlaces debajo */
@@ -209,10 +214,19 @@ nav ul li a {
     font-size: 1.1em;
     padding: 5px 10px;
     transition: color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+nav ul li a svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
 }
 
 nav ul li a:hover {
-    color: var(--dark-pink);
+    color: var(--primary-gold);
     transform: scale(1.05);
 }
 
@@ -232,7 +246,7 @@ nav ul li a:hover {
 h2 {
     font-family: 'Playfair Display', serif;
     text-align: center;
-    color: var(--dark-pink);
+    color: var(--black);
     margin-bottom: 10px;
     font-size: 2.5em;
     position: relative; /* Necesario para posicionar el pseudo-elemento */
@@ -270,7 +284,7 @@ h2::before {
 .section-title {
     font-family: 'Playfair Display', serif;
     text-align: center;
-    color: var(--dark-pink);
+    color: var(--black);
     margin: 6px 0 10px; /* Reduce espacio arriba y abajo del título */
     padding-bottom: 2px; /* Reduce la separación de la barra inferior */
     font-size: 2.5em;
@@ -291,17 +305,19 @@ h2::before {
 .category-card {
     background-color: var(--white);
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     height: auto; /* Asegura que la tarjeta se adapte a su contenido */
+    border: 2px solid var(--gray);
 }
 
 .category-card:hover {
     transform: none; /* Sin movimiento en hover */
-    box-shadow: 0 10px 20px rgba(255, 105, 180, 0.25);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+    border-color: var(--primary-gold);
 }
 
 /* Contenedor para la relación de aspecto de la imagen de categoría */
@@ -310,8 +326,8 @@ h2::before {
     width: 100%;
     padding-top: 125%; /* Más alta para mostrar más de la imagen */
     overflow: hidden;
-    background: linear-gradient(135deg, #FFE4E9 0%, #FFF0F5 100%); /* Placeholder rosa claro */
-    border-bottom: 1px solid var(--primary-pink); /* Borde debajo del wrapper de imagen */
+    background: linear-gradient(135deg, #F5F5F5 0%, #FAFAFA 100%); /* Placeholder gris claro */
+    border-bottom: 2px solid var(--primary-gold); /* Borde dorado debajo del wrapper de imagen */
 }
 
 .category-card-image-wrapper img {
@@ -331,7 +347,7 @@ h2::before {
 
 .category-card h3 {
     font-family: 'Playfair Display', serif;
-    color: var(--dark-pink);
+    color: var(--black);
     margin: 8px 0 10px; /* Menos espacio arriba y abajo del título */
     font-size: 1.1em; /* Título un poco más pequeño */
     line-height: 1.2;
@@ -348,20 +364,22 @@ h2::before {
 }
 
 .filter-btn {
-    background-color: var(--primary-pink);
+    background-color: var(--black);
     color: var(--white);
-    border: none;
+    border: 2px solid var(--black);
     padding: 10px 20px;
     margin: 5px;
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.2s ease; /* Sin movimiento */
+    transition: all 0.3s ease;
 }
 
 .filter-btn:hover,
 .filter-btn.active {
-    background-color: var(--dark-pink); /* Solo cambio de color */
+    background-color: var(--primary-gold);
+    border-color: var(--primary-gold);
+    color: var(--black);
 }
 
 .product-grid {
@@ -373,7 +391,7 @@ h2::before {
 .product-card {
     background-color: var(--white);
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -383,23 +401,25 @@ h2::before {
     height: auto;
     min-height: unset;
     padding-bottom: 10px;
+    border: 2px solid var(--gray);
 }
 
 .product-card:hover {
     transform: none; /* Sin movimiento en hover */
-    box-shadow: 0 10px 20px rgba(255, 105, 180, 0.25);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+    border-color: var(--primary-gold);
 }
 
 .product-card > img { /* El ">" selecciona solo hijos directos */
     width: 100%;
-    height: auto;
-    object-fit: contain;
+    height: 350px; /* Altura fija más grande para todas las imágenes */
+    object-fit: cover; /* Cubrir todo el espacio manteniendo proporción */
     padding: 0;
-    border-bottom: 1px solid var(--primary-pink);
-    background: linear-gradient(135deg, #FFE4E9 0%, #FFF0F5 100%); /* Placeholder rosa claro */
-    min-height: 200px; /* Altura mínima mientras carga */
+    border-bottom: 2px solid var(--primary-gold);
+    background: linear-gradient(135deg, #F5F5F5 0%, #FAFAFA 100%); /* Placeholder gris claro */
     opacity: 0;
     transition: opacity 0.4s ease-in-out;
+    cursor: pointer; /* Indicar que es clickeable */
 }
 
 .product-card > img.loaded {
@@ -408,7 +428,7 @@ h2::before {
 
 .product-card h3 {
     font-family: 'Playfair Display', serif;
-    color: var(--dark-pink);
+    color: var(--black);
     margin: 10px 0 5px;
     font-size: 1.4em;
     padding: 0 10px;
@@ -452,14 +472,14 @@ h2::before {
     display: flex; /* Usar flex para centrar el texto verticalmente */
     justify-content: center; /* Centrar horizontalmente */
     align-items: center; /* Centrar verticalmente */
-    background-color: var(--primary-pink);
+    background-color: var(--black);
     color: var(--white);
-    border: none;
+    border: 2px solid var(--black);
     padding: 6px 10px; /* Reducido para hacerlo más pequeño */
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
     cursor: pointer;
     font-size: 0.75em; /* Fuente aún más pequeña */
     min-width: 40px; /* Un ancho mínimo para que no se haga demasiado pequeño */
@@ -467,7 +487,9 @@ h2::before {
 }
 
 .product-card .btn-detail:hover {
-    background-color: var(--dark-pink);
+    background-color: var(--primary-gold);
+    border-color: var(--primary-gold);
+    color: var(--black);
 }
 
 .product-card .whatsapp-icon-btn {
@@ -515,23 +537,27 @@ h2::before {
 }
 
 .pagination button {
-    background-color: var(--primary-pink);
+    background-color: var(--black);
     color: var(--white);
-    border: none;
+    border: 2px solid var(--black);
     padding: 8px 12px; /* Padding ajustado */
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
     font-size: 0.9em; /* Tamaño de fuente ajustado */
 }
 
 .pagination button:hover:not(.active) {
-    background-color: var(--dark-pink);
+    background-color: var(--primary-gold);
+    border-color: var(--primary-gold);
+    color: var(--black);
 }
 
 .pagination button.active {
-    background-color: var(--dark-pink);
+    background-color: var(--primary-gold);
+    border-color: var(--primary-gold);
+    color: var(--black);
     cursor: default;
 }
 
@@ -604,17 +630,17 @@ h2::before {
     bottom: 80px;
     right: 20px;
     z-index: 99;
-    border: none;
+    border: 2px solid var(--primary-gold);
     outline: none;
-    background-color: var(--dark-pink);
-    color: white;
+    background-color: var(--black);
+    color: var(--primary-gold);
     cursor: pointer;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     font-size: 18px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -625,7 +651,8 @@ h2::before {
 }
 
 #scrollToTopBtn:hover {
-    background-color: #e04a9e;
+    background-color: var(--primary-gold);
+    color: var(--black);
     transform: translateY(-3px);
 }
 
@@ -643,12 +670,13 @@ h2::before {
 }
 
 footer {
-    background-color: var(--dark-pink);
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     color: var(--white);
     text-align: center;
     padding: 20px 0;
     margin-top: 50px;
     font-size: 0.9em;
+    border-top: 3px solid var(--primary-gold);
 }
 
 /* MODAL STYLES: Simplified for immediate visibility */
@@ -672,7 +700,8 @@ footer {
     border-radius: 10px;
     width: 90%;
     max-width: 700px; /* Ancho máximo para escritorio */
-    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+    border: 2px solid var(--primary-gold);
     position: relative;
     display: flex;
     flex-direction: row;
@@ -701,7 +730,7 @@ footer {
 
 .close-button:hover,
 .close-button:focus {
-    color: var(--dark-pink);
+    color: var(--primary-gold);
     text-decoration: none;
 }
 
@@ -715,13 +744,13 @@ footer {
 }
 
 #modalDetailImage {
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
+    width: 100%;
+    height: 350px; /* Misma altura que las imágenes de las tarjetas */
+    object-fit: cover; /* Mismo comportamiento que las imágenes de las tarjetas */
     border-radius: 8px;
     margin-bottom: 0;
-    background: linear-gradient(135deg, #FFE4E9 0%, #FFF0F5 100%);
-    min-height: 150px;
+    background: linear-gradient(135deg, #F5F5F5 0%, #FAFAFA 100%);
+    border: 2px solid var(--primary-gold);
     opacity: 0;
     transition: opacity 0.4s ease-in-out;
 }
@@ -742,7 +771,7 @@ footer {
 
 #modalDetailName {
     font-family: 'Playfair Display', serif;
-    color: var(--dark-pink);
+    color: var(--black);
     margin-bottom: 8px;
     font-size: 1.6em;
 }
@@ -798,6 +827,15 @@ footer {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
 }
 
+@media (max-width: 900px) {
+    .contact-form {
+        max-width: none; /* Sin límite de ancho en móvil */
+        border-radius: 0; /* Sin bordes redondeados en móvil */
+        box-shadow: none; /* Sin sombra en móvil */
+        padding: 15px; /* Padding consistente */
+    }
+}
+
 .form-group {
     margin-bottom: 20px;
 }
@@ -826,9 +864,9 @@ footer {
 .form-group input[type="text"]:focus,
 .form-group input[type="email"]:focus,
 .form-group textarea:focus {
-    border-color: var(--dark-pink);
+    border-color: var(--primary-gold);
     outline: none;
-    box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
 }
 
 .form-group textarea {
@@ -838,19 +876,21 @@ footer {
 .submit-button {
     display: block;
     width: 100%;
-    background-color: var(--dark-pink);
+    background-color: var(--black);
     color: var(--white);
     padding: 15px 25px;
-    border: none;
+    border: 2px solid var(--black);
     border-radius: 5px;
     font-size: 1.2em;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .submit-button:hover {
-    background-color: #e04a9e;
+    background-color: var(--primary-gold);
+    border-color: var(--primary-gold);
+    color: var(--black);
     transform: translateY(-2px);
 }
 
@@ -865,6 +905,13 @@ footer {
     padding: 20px;
 }
 
+@media (max-width: 900px) {
+    .main-contact-section-layout {
+        padding: 0; /* Sin padding en móvil para aprovechar todo el espacio */
+        gap: 0; /* Sin gap entre secciones */
+    }
+}
+
 .main-contact-left {
     flex: 1;
     min-width: 300px;
@@ -876,11 +923,19 @@ footer {
     margin-top: 0;
 }
 
+@media (max-width: 900px) {
+    .main-contact-left {
+        border-radius: 0; /* Sin bordes redondeados en móvil */
+        box-shadow: none; /* Sin sombra en móvil */
+        padding: 15px; /* Padding reducido */
+    }
+}
+
 .main-contact-left h2 {
     font-family: 'Playfair Display', serif;
     margin-top: 0;
     margin-bottom: 30px;
-    color: var(--dark-pink);
+    color: var(--black);
     font-size: 2.5em;
     /* La animación se mantiene */
     animation: bounceIn 1s ease-out forwards; 
@@ -921,6 +976,12 @@ footer {
     max-width: 600px;
 }
 
+@media (max-width: 900px) {
+    .main-contact-right {
+        max-width: none; /* Sin límite de ancho en móvil */
+    }
+}
+
 /* Animaciones */
 @keyframes bounceIn {
     0% {
@@ -939,15 +1000,15 @@ footer {
 @keyframes pulse {
     0% {
         transform: scale(1);
-        box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+        box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
     }
     50% {
         transform: scale(1.03);
-        box-shadow: 0 6px 15px rgba(255, 105, 180, 0.4);
+        box-shadow: 0 6px 15px rgba(212, 175, 55, 0.5);
     }
     100% {
         transform: scale(1);
-        box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+        box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
     }
 }
 
@@ -964,11 +1025,11 @@ footer {
     .main-contact-left,
     .main-contact-right {
         min-width: unset;
-        width: 95%; /* Le damos un ancho del 95% para que sean más grandes */
-        max-width: 600px; /* Permite que crezcan un poco más en tabletas */
+        width: 100%; /* Ocupa todo el ancho disponible */
+        max-width: none; /* Sin límite de ancho máximo */
         padding: 20px; /* Aumenta un poco el padding interno para más espacio */
-        margin-left: auto;
-        margin-right: auto;
+        margin-left: 0;
+        margin-right: 0;
         box-sizing: border-box;
     }
 
@@ -1027,6 +1088,10 @@ footer {
         min-height: unset;
     }
 
+    .product-card img {
+        height: 280px; /* Altura ajustada para tablets */
+    }
+
     /* MODAL CONTENT FOR MOBILE */
     .modal-content {
         flex-direction: column;
@@ -1052,23 +1117,23 @@ footer {
         padding-bottom: 10px;
     }
 
-    /* Ajustes de la imagen del modal (ya estaban correctos) */
+    /* Ajustes de la imagen del modal para móviles */
     .modal-image-wrapper {
         width: 100%;
-        max-width: 280px;
+        max-width: 100%;
         height: auto;
         display: flex;
         justify-content: center;
         align-items: center;
-        border-bottom: 1px solid var(--primary-pink);
-        margin-bottom: 10px;
+        border-bottom: 2px solid var(--primary-gold);
+        margin-bottom: 15px;
         overflow: hidden;
     }
 
-    .modal-image-wrapper img {
+    #modalDetailImage {
         width: 100%;
-        height: 100%;
-        object-fit: contain;
+        height: 450px; /* Altura aumentada para que el cliente vea mejor la foto completa */
+        object-fit: cover;
         display: block;
     }
 
@@ -1150,6 +1215,10 @@ footer {
         padding: 8px 12px;
         font-size: 0.9em;
     }
+    nav ul li a svg {
+        width: 16px;
+        height: 16px;
+    }
 
     /* Ajuste para pantallas más pequeñas para el correo, teléfono y horario */
     .main-contact-left ul li {
@@ -1222,6 +1291,11 @@ footer {
         padding: 6px 8px;
         font-size: 0.8em;
     }
+    
+    nav ul li a svg {
+        width: 14px;
+        height: 14px;
+    }
 
     .author-signature {
         font-size: 1rem;
@@ -1250,33 +1324,44 @@ footer {
         margin: 6px 0 8px;
     }
 
-    /* 2) Reacomodo de acciones para que botones y precio siempre se vean */
+    /* 2) Reacomodo de acciones para que botones y precio siempre se vean centrados */
     .product-card .product-actions {
-        grid-template-columns: 1fr; /* una sola columna en móvil */
-        justify-items: center;
-        gap: 6px;
-        padding: 8px 10px;
+        display: flex; /* Cambiar a flex para mejor control en móviles */
+        flex-direction: column; /* Apilar elementos verticalmente */
+        align-items: center; /* Centrar horizontalmente */
+        justify-content: center; /* Centrar verticalmente */
+        gap: 8px;
+        padding: 10px 0; /* Eliminar padding lateral para centrado perfecto */
+        width: 100%;
+        margin: 0 auto; /* Centrar el contenedor */
     }
     .product-actions-left {
-        gap: 8px;
-        justify-content: center; /* centra los dos botones en la misma línea */
-        width: 100%; /* ocupa todo el ancho de la fila */
+        display: flex;
+        gap: 10px;
+        justify-content: center; /* centra los dos botones */
+        align-items: center;
+        margin: 0 auto; /* Centrar la fila de botones */
     }
     .product-card .btn-detail {
-        height: 34px;
-        min-width: 36px;
-        padding: 5px 8px;
-        font-size: 0.7em;
+        height: 36px;
+        min-width: 40px;
+        padding: 6px 10px;
+        font-size: 0.75em;
+        margin: 0; /* Eliminar márgenes */
     }
     .product-card .whatsapp-icon-btn {
-        width: 34px;
-        height: 34px;
-        padding: 4px;
+        width: 36px;
+        height: 36px;
+        padding: 5px;
+        margin: 0; /* Eliminar márgenes */
     }
     .product-price-tag {
-        justify-self: center;
-        font-size: 0.9em;
-        margin-left: 0;
+        text-align: center;
+        font-size: 0.95em;
+        margin: 0 auto; /* Centrar completamente */
+        font-weight: 700;
+        display: block;
+        width: 100%;
     }
 
     .product-card {
@@ -1285,7 +1370,7 @@ footer {
     }
 
     .product-card img {
-        height: auto;
+        height: 200px; /* Altura más pequeña para móviles */
     }
 
     h2 {
@@ -1323,7 +1408,7 @@ footer {
     font-weight: 600;
     text-align: center;
     animation: slideInDown 0.5s ease-out;
-    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     font-family: 'Montserrat', sans-serif;
     font-size: 1.1em;
     position: relative;
@@ -1337,15 +1422,15 @@ footer {
     left: 50%;
     width: 0;
     height: 4px;
-    background-color: var(--dark-pink);
+    background-color: var(--primary-gold);
     transform: translateX(-50%);
     animation: fillAndEmpty 2s infinite alternate ease-in-out;
 }
 
 .form-message-success {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    color: var(--dark-pink);
-    border: 2px solid var(--dark-pink);
+    color: var(--black);
+    border: 2px solid var(--primary-gold);
     position: relative;
 }
 
@@ -1355,7 +1440,7 @@ footer {
     top: 15px;
     right: 20px;
     font-size: 1.5em;
-    color: var(--dark-pink);
+    color: var(--primary-gold);
     font-weight: bold;
 }
 
@@ -1400,5 +1485,226 @@ footer {
         top: 12px;
         right: 15px;
         font-size: 1.3em;
+    }
+}
+
+/* ============================================
+   ESTILOS PARA SELECT2 - FILTRO DE CATEGORÍAS
+   ============================================ */
+
+.filtros-categorias-container {
+    margin: 20px auto 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 2px solid var(--light-gold);
+    max-width: 900px;
+}
+
+.filter-select-wrapper {
+    width: 100%;
+}
+
+.filter-select-wrapper label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 1.1em;
+    color: var(--text-color);
+    font-family: 'Playfair Display', serif;
+}
+
+/* Estilos del contenedor principal de Select2 */
+.select2-container {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.select2-container--default .select2-selection--multiple {
+    border: 2px solid var(--light-gold);
+    border-radius: 10px;
+    min-height: 50px;
+    padding: 5px;
+    background: var(--white);
+    transition: all 0.3s ease;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+/* Placeholder del select */
+.select2-container--default .select2-selection--multiple .select2-selection__placeholder {
+    color: #999;
+    font-size: 0.95em;
+}
+
+/* Items seleccionados (chips/pills) */
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background: linear-gradient(135deg, var(--primary-gold) 0%, var(--dark-gold) 100%);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    padding: 4px 10px;
+    margin: 3px;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice:hover {
+    background: linear-gradient(135deg, var(--dark-gold) 0%, var(--primary-gold) 100%);
+    transform: scale(1.05);
+}
+
+/* Botón de eliminar en los items seleccionados */
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    color: var(--white);
+    margin-right: 6px;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
+    color: var(--black);
+}
+
+/* Dropdown (lista desplegable) */
+.select2-container--default .select2-results__option {
+    padding: 10px 15px;
+    font-size: 0.95em;
+    transition: all 0.2s ease;
+}
+
+/* Opción resaltada/hover en el dropdown */
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background: linear-gradient(135deg, var(--primary-gold) 0%, var(--dark-gold) 100%);
+    color: var(--white);
+}
+
+/* Opción seleccionada */
+.select2-container--default .select2-results__option[aria-selected=true] {
+    background-color: var(--light-gold);
+    color: var(--text-color);
+}
+
+.select2-container--default .select2-results__option[aria-selected=true]:hover {
+    background: linear-gradient(135deg, var(--primary-gold) 0%, var(--dark-gold) 100%);
+    color: var(--white);
+}
+
+/* Campo de búsqueda dentro del dropdown */
+.select2-search--dropdown .select2-search__field {
+    border: 2px solid var(--light-gold);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.95em;
+    transition: all 0.3s ease;
+}
+
+.select2-search--dropdown .select2-search__field:focus {
+    border-color: var(--primary-gold);
+    outline: none;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+}
+
+/* Dropdown container */
+.select2-dropdown {
+    border: 2px solid var(--primary-gold);
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    background: var(--white);
+}
+
+/* Mensaje de información de selección */
+.info-seleccion {
+    margin-top: 12px;
+    font-size: 0.9em;
+    color: #6c757d;
+    font-style: italic;
+    transition: all 0.3s ease;
+}
+
+.info-seleccion.active {
+    color: var(--dark-gold);
+    font-weight: 600;
+}
+
+/* Estilos específicos para el selector de precio */
+#priceSort + .select2-container {
+    max-width: fit-content;
+    min-width: 200px;
+}
+
+#priceSort + .select2-container .select2-selection--single {
+    border: 2px solid var(--light-gold);
+    border-radius: 10px;
+    min-height: 46px;
+    padding: 5px 10px;
+    background: var(--white);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+#priceSort + .select2-container--default.select2-container--focus .select2-selection--single {
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+#priceSort + .select2-container .select2-selection__rendered {
+    padding: 0;
+    line-height: normal;
+}
+
+#priceSort + .select2-container .select2-selection__arrow {
+    height: 100%;
+    right: 10px;
+}
+
+/* Ajustes responsivos para el select */
+@media (max-width: 768px) {
+    .filtros-categorias-container {
+        padding: 15px;
+        margin: 15px 10px 25px;
+    }
+    
+    .filter-select-wrapper label {
+        font-size: 1em;
+    }
+    
+    .select2-container--default .select2-selection--multiple {
+        min-height: 45px;
+    }
+    
+    .select2-container--default .select2-selection--multiple .select2-selection__choice {
+        font-size: 0.85em;
+        padding: 3px 8px;
+    }
+
+    #priceSort + .select2-container {
+        max-width: 100%;
+        min-width: auto;
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .filtros-categorias-container {
+        padding: 12px;
+        margin: 10px 5px 20px;
+    }
+    
+    .filter-select-wrapper label {
+        font-size: 0.95em;
+        margin-bottom: 10px;
+    }
+    
+    .select2-container--default .select2-selection--multiple {
+        min-height: 42px;
+    }
+
+    #priceSort + .select2-container {
+        width: 100% !important;
     }
 }

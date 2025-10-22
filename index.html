@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Select2 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -40,9 +42,24 @@
 
     <nav>
         <ul>
-            <li><a href="#productos">Productos</a></li>
-            <li><a href="#nosotros">Sobre Nosotros</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#productos">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm7 17H5V8h14v12zm-7-8c-1.66 0-3-1.34-3-3H7c0 2.76 2.24 5 5 5s5-2.24 5-5h-2c0 1.66-1.34 3-3 3z"/>
+                </svg>
+                Productos
+            </a></li>
+            <li><a href="#nosotros">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+                Sobre Nosotros
+            </a></li>
+            <li><a href="#contacto">
+                <svg viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                Contacto
+            </a></li>
         </ul>
     </nav>
 
@@ -53,79 +70,79 @@
             <h2 class="section-title">Nuestras Categorías</h2>
             <div class="category-grid">
                 <div class="category-card" data-category="15-anos">
-                    <div class="category-card-image-wrapper"></div>
+                    <div class="category-card-image-wrapper"> <img class="loaded" src="images/15 años.jpeg" alt="15 años"></div>
                     <h3>15 años</h3>
                 </div>
                 <div class="category-card" data-category="anchetas">
-                    <div class="category-card-image-wrapper"> <img src="images/ANCHETA.jpeg" alt="Anchetas"></div>
+                    <div class="category-card-image-wrapper"> <img class="loaded" src="images/Anchetas.jpeg" alt="Anchetas"></div>
                     <h3>Anchetas</h3>
                 </div>
                 <div class="category-card" data-category="aniversario">
-                    <div class="category-card-image-wrapper"></div>
+                    <div class="category-card-image-wrapper"> <img class="loaded" src="images/Aniversario.jpeg" alt="Aniversario"></div>
                     <h3>Aniversario</h3>
                 </div>
-                <div class="category-card" data-category="peluches">
-                    <div class="category-card-image-wrapper"> <img src="images/PELUCHE.jpeg" alt="Arreglos con Peluches"></div>
+                <div class="category-card" data-category="arreglos-con-peluches">
+                    <div class="category-card-image-wrapper"> <img class="loaded" src="images/Arreglos con Peluches.jpeg" alt="Arreglos con Peluches"></div>
                     <h3>Arreglos con Peluches</h3>
                 </div>
-                <div class="category-card" data-category="ramos">
-                    <div class="category-card-image-wrapper"> <img src="images/RAMILLETE.jpeg" alt="Bouquet"></div>
+                <div class="category-card" data-category="bouquet">
+                    <div class="category-card-image-wrapper"> <img class="loaded" src="images/Bouquet.jpeg" alt="Bouquet"></div>
                     <h3>Bouquet</h3>
                 </div>
-                <div class="category-card" data-category="cajas">
-                    <div class="category-card-image-wrapper"> <img src="images/CAJA.jpeg" alt="Cajas de Dulces"></div>
+                <div class="category-card" data-category="cajas-de-dulces">
+                    <div class="category-card-image-wrapper"> <img class="loaded" src="images/Cajas de Dulces.jpeg" alt="Cajas de Dulces"></div>
                     <h3>Cajas de Dulces</h3>
                 </div>
-                <div class="category-card" data-category="cajas">
-                    <div class="category-card-image-wrapper"> <img src="images/CAJA.jpeg" alt="Cajas de Lujo"></div>
+                <div class="category-card" data-category="cajas-de-lujo">
+                    <div class="category-card-image-wrapper"> <img class="loaded" src="images/Cajas de Lujo.jpeg" alt="Cajas de Lujo"></div>
                     <h3>Cajas de Lujo</h3>
                 </div>
-                <div class="category-card" data-category="decoraciones">
-                    <div class="category-card-image-wrapper"> <img src="images/DECORACION.jpeg" alt="Decoración de Fiestas"></div>
+                <div class="category-card" data-category="decoracion-de-fiestas">
+                    <div class="category-card-image-wrapper"> <img class="loaded" src="images/Decoración de Fiestas.jpeg" alt="Decoración de Fiestas"></div>
                     <h3>Decoración de Fiestas</h3>
                 </div>
-                <div class="category-card" data-category="decoraciones">
-                    <div class="category-card-image-wrapper"> <img src="images/DECORACION.jpeg" alt="Decoración de Habitaciones"></div>
+                <div class="category-card" data-category="decoracion-de-habitaciones">
+                    <div class="category-card-image-wrapper"> <img class="loaded" src="images/Decoración de Habitaciones.jpeg" alt="Decoración de Habitaciones"></div>
                     <h3>Decoración de Habitaciones</h3>
                 </div>
-                <div class="category-card" data-category="desayunos">
-                    <div class="category-card-image-wrapper"> <img src="images/DESAYUNO.jpeg" alt="Desayunos Sorpresa"></div>
+                <div class="category-card" data-category="desayunos-sorpresa">
+                    <div class="category-card-image-wrapper"> <img class="loaded" src="images/Desayunos Sorpresa.jpeg" alt="Desayunos Sorpresa"></div>
                     <h3>Desayunos Sorpresa</h3>
                 </div>
-                <div class="category-card" data-category="detalles-virgenes">
-                    <div class="category-card-image-wrapper"></div>
+                <div class="category-card" data-category="detalles-con-virgenes">
+                    <div class="category-card-image-wrapper"> <img class="loaded" src="images/Detalles con Virgenes.jpeg" alt="Detalles con Virgenes"></div>
                     <h3>Detalles con Virgenes</h3>
                 </div>
                 <div class="category-card" data-category="detalles-empresariales">
-                    <div class="category-card-image-wrapper"></div>
+                    <div class="category-card-image-wrapper"> <img class="loaded" src="images/Detalles Empresariales.jpeg" alt="Detalles Empresariales"></div>
                     <h3>Detalles Empresariales</h3>
                 </div>
                 <div class="category-card" data-category="detalles-premium">
-                    <div class="category-card-image-wrapper"></div>
+                    <div class="category-card-image-wrapper"> <img class="loaded" src="images/Detalles Premium.jpeg" alt="Detalles Premium"></div>
                     <h3>Detalles Premium</h3>
                 </div>
                 <div class="category-card" data-category="funebres">
-                    <div class="category-card-image-wrapper"></div>
+                    <div class="category-card-image-wrapper"> <img class="loaded" src="images/Fúnebres.png" alt="Fúnebres"></div>
                     <h3>Fúnebres</h3>
                 </div>
                 <div class="category-card" data-category="nacimiento">
-                    <div class="category-card-image-wrapper"></div>
+                    <div class="category-card-image-wrapper"> <img class="loaded" src="images/Nacimiento.jpeg" alt="Nacimiento"></div>
                     <h3>Nacimiento</h3>
                 </div>
-                <div class="category-card" data-category="peluches">
-                    <div class="category-card-image-wrapper"> <img src="images/PELUCHE.jpeg" alt="Oso Teddy"></div>
+                <div class="category-card" data-category="oso-teddy">
+                    <div class="category-card-image-wrapper"> <img class="loaded" src="images/Oso Teddy.jpeg" alt="Oso Teddy"></div>
                     <h3>Oso Teddy</h3>
                 </div>
-                <div class="category-card" data-category="plantas-orquidea">
-                    <div class="category-card-image-wrapper"></div>
+                <div class="category-card" data-category="plantas-de-orquidea">
+                    <div class="category-card-image-wrapper"> <img class="loaded" src="images/Plantas de Orquídea.png" alt="Plantas de Orquídea"></div>
                     <h3>Plantas de Orquídea</h3>
                 </div>
                 <div class="category-card" data-category="ramos">
-                    <div class="category-card-image-wrapper"> <img src="images/RAMO.jpeg" alt="Ramos"></div>
+                    <div class="category-card-image-wrapper"> <img class="loaded" src="images/Ramos.jpeg" alt="Ramos"></div>
                     <h3>Ramos</h3>
                 </div>
-                <div class="category-card" data-category="ramos">
-                    <div class="category-card-image-wrapper"> <img src="images/RAMO.jpeg" alt="Ramos con Dinero"></div>
+                <div class="category-card" data-category="ramos-con-dinero">
+                    <div class="category-card-image-wrapper"> <img class="loaded" src="images/Ramos con Dinero.jpeg" alt="Ramos con Dinero"></div>
                     <h3>Ramos con Dinero</h3>
                 </div>
             </div>
@@ -135,35 +152,44 @@
     <section class="products" id="productos">
         <div class="container">
             <h2 class="section-title">Nuestros Productos</h2>
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="15-anos">15 años</button>
-                <button class="filter-btn" data-filter="anchetas">Anchetas</button>
-                <button class="filter-btn" data-filter="aniversario">Aniversario</button>
-                <button class="filter-btn" data-filter="arreglos-con-peluches">Arreglos con Peluches</button>
-                <button class="filter-btn" data-filter="bouquet">Bouquet</button>
-                <button class="filter-btn" data-filter="cajas-de-dulces">Cajas de Dulces</button>
-                <button class="filter-btn" data-filter="cajas-de-lujo">Cajas de Lujo</button>
-                <button class="filter-btn" data-filter="decoracion-de-fiestas">Decoración de Fiestas</button>
-                <button class="filter-btn" data-filter="decoracion-de-habitaciones">Decoración de Habitaciones</button>
-                <button class="filter-btn" data-filter="desayunos-sorpresa">Desayunos Sorpresa</button>
-                <button class="filter-btn" data-filter="detalles-con-virgenes">Detalles con Virgenes</button>
-                <button class="filter-btn" data-filter="detalles-empresariales">Detalles Empresariales</button>
-                <button class="filter-btn" data-filter="detalles-premium">Detalles Premium</button>
-                <button class="filter-btn" data-filter="funebres">Fúnebres</button>
-                <button class="filter-btn" data-filter="nacimiento">Nacimiento</button>
-                <button class="filter-btn" data-filter="oso-teddy">Oso Teddy</button>
-                <button class="filter-btn" data-filter="plantas-de-orquidea">Plantas de Orquídea</button>
-                <button class="filter-btn" data-filter="ramos">Ramos</button>
-                <button class="filter-btn" data-filter="ramos-con-dinero">Ramos con Dinero</button>
+            <div class="filtros-categorias-container">
+                <div class="filter-select-wrapper">
+                    <label for="categoria-filtro"><strong>Filtrar por Categorías:</strong></label>
+                    <select id="categoria-filtro" multiple="multiple">
+                        <option value="15-anos">🎉 15 años</option>
+                        <option value="anchetas">🎁 Anchetas</option>
+                        <option value="aniversario">💑 Aniversario</option>
+                        <option value="arreglos-con-peluches">🧸 Arreglos con Peluches</option>
+                        <option value="bouquet">💐 Bouquet</option>
+                        <option value="cajas-de-dulces">🍬 Cajas de Dulces</option>
+                        <option value="cajas-de-lujo">🎀 Cajas de Lujo</option>
+                        <option value="decoracion-de-fiestas">🎈 Decoración de Fiestas</option>
+                        <option value="decoracion-de-habitaciones">🛏️ Decoración de Habitaciones</option>
+                        <option value="desayunos-sorpresa">☕ Desayunos Sorpresa</option>
+                        <option value="detalles-con-virgenes">🙏 Detalles con Virgenes</option>
+                        <option value="detalles-empresariales">💼 Detalles Empresariales</option>
+                        <option value="detalles-premium">✨ Detalles Premium</option>
+                        <option value="funebres">🕊️ Fúnebres</option>
+                        <option value="nacimiento">👶 Nacimiento</option>
+                        <option value="oso-teddy">🐻 Oso Teddy</option>
+                        <option value="plantas-de-orquidea">🌺 Plantas de Orquídea</option>
+                        <option value="ramos">🌹 Ramos</option>
+                        <option value="ramos-con-dinero">💵 Ramos con Dinero</option>
+                    </select>
+                    <div class="info-seleccion" id="info-seleccion">
+                        Mostrando todas las categorías
+                    </div>
+                </div>
             </div>
-            <div style="text-align:center; margin-bottom:15px;">
-                <label for="priceSort" style="margin-right:8px; font-weight:600;">Ordenar por precio:</label>
-                <select id="priceSort" style="padding:6px 10px; border-radius:6px; border:1px solid #ddd;">
-                    <option value="none">Sin orden</option>
-                    <option value="asc">Menor a mayor</option>
-                    <option value="desc">Mayor a menor</option>
-                </select>
+            <div class="filtros-categorias-container" style="margin-top: 20px;">
+                <div class="filter-select-wrapper">
+                    <label for="priceSort"><strong>Ordenar por precio:</strong></label>
+                    <select id="priceSort">
+                        <option value="none">Sin orden</option>
+                        <option value="asc">💰 Menor a mayor</option>
+                        <option value="desc">💎 Mayor a menor</option>
+                    </select>
+                </div>
             </div>
             <div class="product-grid" id="product-container"> </div>
             <div class="pagination" id="pagination-container">
@@ -223,7 +249,7 @@
 
     <footer>
         <p>&copy; 2025 Detalles Laurel Medellín. Todos los derechos reservados.</p>
-        <p>Contacto: +57 319 252 3075 | detalleslaurelmedellin@gmail.com</p>
+        <p>Contacto: <a href="tel:+573192523075" style="color: inherit; text-decoration: underline;">+57 319 252 3075</a> | <a href="mailto:detalleslaurelmedellin@gmail.com" style="color: inherit; text-decoration: underline;">detalleslaurelmedellin@gmail.com</a></p>
         <p>Desarrollado por Jhon Loaiza - Tecnólogo en Analisis y Desarrollado de Software</p>
         <p><a href="https://wa.me/573003024889?text=Hola,%20me%20interesa%20obtener%20más%20información%20de%20Detalles%20Laurel%20Medellín." target="_blank" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">📱 WhatsApp: 3003024889 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="filter: brightness(0) invert(1);"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg></a></p>
     </footer>
@@ -250,7 +276,13 @@
         </div>
     </div>
 
+    <!-- jQuery (requerido para Select2) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Select2 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <!-- Select2 en Español -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/i18n/es.min.js"></script>
+    
     <script src="script.js"></script>
 </body>
-</html>
 </html>

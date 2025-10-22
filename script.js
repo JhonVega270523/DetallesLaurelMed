@@ -38,130 +38,130 @@ function observeImage(img) {
 }
 const productsData = {
     anchetas: [
-        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
-        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
-        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
-        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
-        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
-        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
-        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
-        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
-        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
-        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
-        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
-        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
-        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
-        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
-        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
-        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
-        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
-        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
-        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/ANCHETA.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/Anchetas.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/Anchetas.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/Anchetas.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/Anchetas.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/Anchetas.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/Anchetas.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/Anchetas.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/Anchetas.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/Anchetas.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/Anchetas.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/Anchetas.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/Anchetas.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/Anchetas.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/Anchetas.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/Anchetas.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/Anchetas.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/Anchetas.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/Anchetas.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
+        { name: "Ancheta Deluxe", price: "$85.000 COP", image: "images/Anchetas.jpeg", description: "Una selección curada de delicias para sorprender con queso, galletas gourmet, vino y chocolates finos.", category: "anchetas" },
     ],
     ramos: [
-        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
-        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
-        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
-        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
-        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
-        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
-        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
-        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
-        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
-        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
-        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
-        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
-        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
-        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
-        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
-        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
-        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
-        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/RAMO.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/Ramos.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/Ramos.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/Ramos.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/Ramos.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/Ramos.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/Ramos.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/Ramos.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/Ramos.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/Ramos.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/Ramos.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/Ramos.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/Ramos.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/Ramos.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/Ramos.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/Ramos.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/Ramos.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/Ramos.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
+        { name: "Ramo de Rosas Rojas", price: "$75.000 COP", image: "images/Ramos.jpeg", description: "El clásico símbolo del amor eterno con 12 rosas rojas frescas y follaje verde.", category: "ramos" },
     ],
     peluches: [
-        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
-        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
-        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
-        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
-        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
-        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
-        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
-        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
-        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
-        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
-        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
-        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
-        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
-        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
-        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
-        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
-        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
-        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
-        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/PELUCHE.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/Oso Teddy.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/Oso Teddy.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/Oso Teddy.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/Oso Teddy.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/Oso Teddy.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/Oso Teddy.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/Oso Teddy.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/Oso Teddy.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/Oso Teddy.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/Oso Teddy.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/Oso Teddy.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/Oso Teddy.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/Oso Teddy.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/Oso Teddy.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/Oso Teddy.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/Oso Teddy.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/Oso Teddy.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/Oso Teddy.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
+        { name: "Oso de Peluche Gigante", price: "$120.000 COP", image: "images/Oso Teddy.jpeg", description: "El abrazo más tierno y grande, de 1.5 metros de altura.", category: "peluches" },
     ],
     cajas: [
-        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
-        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
-        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
-        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
-        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
-        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
-        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
-        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
-        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
-        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
-        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
-        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
-        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
-        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
-        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
-        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
-        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
-        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
-        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
-        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/CAJA.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/Cajas de Dulces.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/Cajas de Dulces.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/Cajas de Dulces.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/Cajas de Dulces.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/Cajas de Dulces.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/Cajas de Dulces.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/Cajas de Dulces.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/Cajas de Dulces.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/Cajas de Dulces.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/Cajas de Dulces.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/Cajas de Dulces.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/Cajas de Dulces.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/Cajas de Dulces.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/Cajas de Dulces.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/Cajas de Dulces.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/Cajas de Dulces.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/Cajas de Dulces.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/Cajas de Dulces.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/Cajas de Dulces.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
+        { name: "Caja Sorpresa Dulce", price: "$60.000 COP", image: "images/Cajas de Dulces.jpeg", description: "Un festival de sabores para los golosos con chocolates, gomitas, galletas y caramelos variados.", category: "cajas" },
     ],
     desayunos: [
-        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
-        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
-        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
-        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
-        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
-        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
-        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
-        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
-        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
-        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
-        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
-        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
-        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
-        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
-        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
-        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
-        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
-        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
-        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/DESAYUNO.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/Desayunos Sorpresa.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/Desayunos Sorpresa.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/Desayunos Sorpresa.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/Desayunos Sorpresa.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/Desayunos Sorpresa.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/Desayunos Sorpresa.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/Desayunos Sorpresa.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/Desayunos Sorpresa.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/Desayunos Sorpresa.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/Desayunos Sorpresa.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/Desayunos Sorpresa.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/Desayunos Sorpresa.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/Desayunos Sorpresa.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/Desayunos Sorpresa.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/Desayunos Sorpresa.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/Desayunos Sorpresa.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/Desayunos Sorpresa.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/Desayunos Sorpresa.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
+        { name: "Desayuno Clásico", price: "$70.000 COP", image: "images/Desayunos Sorpresa.jpeg", description: "Café, pan y todo lo tradicional para un buen día: incluye café, jugo, sándwich de jamón y queso, fruta y una magdalena.", category: "desayunos" },
     ],
     decoraciones: [
-        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
-        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
-        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
-        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
-        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
-        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
-        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
-        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
-        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
-        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
-        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
-        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
-        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
-        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
-        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
-        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
-        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
-        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
-        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/DECORACION.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/Decoración de Fiestas.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/Decoración de Fiestas.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/Decoración de Fiestas.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/Decoración de Fiestas.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/Decoración de Fiestas.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/Decoración de Fiestas.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/Decoración de Fiestas.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/Decoración de Fiestas.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/Decoración de Fiestas.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/Decoración de Fiestas.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/Decoración de Fiestas.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/Decoración de Fiestas.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/Decoración de Fiestas.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/Decoración de Fiestas.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/Decoración de Fiestas.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/Decoración de Fiestas.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/Decoración de Fiestas.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/Decoración de Fiestas.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
+        { name: "Decoración Fiesta Cumpleaños", price: "$150.000 COP", image: "images/Decoración de Fiestas.jpeg", description: "Transformamos cualquier espacio en el escenario perfecto con globos, banderines, manteles y centros de mesa.", category: "decoraciones" },
     ]
 };
 
@@ -201,16 +201,25 @@ function slugify(text) {
 
 // Mapa de título de categoría -> archivo de imagen existente en /images
 const categoryTitleToImage = {
+    '15 años': '15 años.jpeg',
     'Anchetas': 'Anchetas.jpeg',
-    'Ramos': 'Ramos.jpeg',
+    'Aniversario': 'Aniversario.jpeg',
+    'Arreglos con Peluches': 'Arreglos con Peluches.jpeg',
     'Bouquet': 'Bouquet.jpeg',
-    'Desayunos Sorpresa': 'Desayunos Sorpresa.jpeg',
     'Cajas de Dulces': 'Cajas de Dulces.jpeg',
     'Cajas de Lujo': 'Cajas de Lujo.jpeg',
     'Decoración de Fiestas': 'Decoración de Fiestas.jpeg',
     'Decoración de Habitaciones': 'Decoración de Habitaciones.jpeg',
-    'Arreglos con Peluches': 'Arreglos con Peluches.jpeg',
-    'Oso Teddy': 'Oso Teddy.jpeg'
+    'Desayunos Sorpresa': 'Desayunos Sorpresa.jpeg',
+    'Detalles con Virgenes': 'Detalles con Virgenes.jpeg',
+    'Detalles Empresariales': 'Detalles Empresariales.jpeg',
+    'Detalles Premium': 'Detalles Premium.jpeg',
+    'Fúnebres': 'Fúnebres.png',
+    'Nacimiento': 'Nacimiento.jpeg',
+    'Oso Teddy': 'Oso Teddy.jpeg',
+    'Plantas de Orquídea': 'Plantas de Orquídea.png',
+    'Ramos': 'Ramos.jpeg',
+    'Ramos con Dinero': 'Ramos con Dinero.jpeg'
 };
 
 function resolveCategoryImageByTitle(title) {
@@ -231,19 +240,26 @@ const categoryKeyToImage = {
 // Establece la imagen de un elemento <img> usando varias rutas de respaldo con lazy loading
 function setImageSrcWithFallback(imgEl, product, useLazyLoading = false) {
     const candidates = [];
-    if (product && product.image) candidates.push(product.image);
+    
+    // Primero intentar con la imagen definida en el producto
+    if (product && product.image) {
+        candidates.push(product.image);
+    }
+    
+    // Luego intentar con el mapeo de categorías por título
     if (product && product.categoryTitle) {
         const mapped = resolveCategoryImageByTitle(product.categoryTitle);
         if (mapped) candidates.push(mapped);
-        ['.jpeg', '.jpg', '.png', '.webp'].forEach(ext => {
-            candidates.push(`images/${encodeURIComponent(product.categoryTitle)}${ext}`);
-        });
     }
+    
+    // Finalmente intentar con el mapeo de categorías por clave
     if (product && product.category && categoryKeyToImage[product.category]) {
         candidates.push(categoryKeyToImage[product.category]);
     }
+    
     const uniqueCandidates = [...new Set(candidates.filter(Boolean))];
     let idx = 0;
+    
     function loadNext() {
         if (idx >= uniqueCandidates.length) return;
         const src = uniqueCandidates[idx++];
@@ -290,7 +306,6 @@ function ensurePlaceholderProducts() {
 
 // --- Variables DOM (se inicializan dentro de DOMContentLoaded) ---
 let productContainer;
-let filterButtons;
 let categoryCards;
 let paginationContainer;
 const whatsappNumber = "573192523075"; // Tu número de WhatsApp
@@ -509,33 +524,101 @@ function setupPagination(products, selectedFilter) {
 
     if (totalPages <= 1) return; // No mostrar paginación si solo hay una página
 
-    for (let i = 1; i <= totalPages; i++) {
+    // Configuración para mostrar 5 páginas en escritorio y 3 en móvil
+    const isMobile = window.innerWidth <= 768;
+    const maxVisiblePages = isMobile ? 3 : 5;
+    let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+    let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+    
+    // Ajustar startPage si estamos cerca del final
+    if (endPage - startPage < maxVisiblePages - 1) {
+        startPage = Math.max(1, endPage - maxVisiblePages + 1);
+    }
+
+    // Botón "Primera página" si no estamos en la primera
+    if (currentPage > 1) {
+        const firstButton = document.createElement('button');
+        firstButton.textContent = '«';
+        firstButton.title = 'Primera página';
+        firstButton.addEventListener('click', () => {
+            currentPage = 1;
+            displayProducts(currentFilteredProducts, currentPage);
+            setupPagination(currentFilteredProducts, selectedFilter);
+            scrollToProducts();
+        }, { passive: true });
+        paginationContainer.appendChild(firstButton);
+    }
+
+    // Botón "Anterior" si no estamos en la primera página
+    if (currentPage > 1) {
+        const prevButton = document.createElement('button');
+        prevButton.textContent = '‹';
+        prevButton.title = 'Página anterior';
+        prevButton.addEventListener('click', () => {
+            currentPage--;
+            displayProducts(currentFilteredProducts, currentPage);
+            setupPagination(currentFilteredProducts, selectedFilter);
+            scrollToProducts();
+        }, { passive: true });
+        paginationContainer.appendChild(prevButton);
+    }
+
+    // Botones de páginas (máximo 5)
+    for (let i = startPage; i <= endPage; i++) {
         const pageButton = document.createElement('button');
         pageButton.textContent = i;
         if (i === currentPage) {
             pageButton.classList.add('active');
         }
         pageButton.addEventListener('click', () => {
-            currentPage = i; // Actualiza la página actual
-            displayProducts(currentFilteredProducts, currentPage); // Usar los productos filtrados actuales
-            
-            // Actualizar el estado activo de los botones de paginación
-            paginationContainer.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
-            pageButton.classList.add('active');
-            
-            // Hacer el scroll DESPUÉS de actualizar el contenido
-            setTimeout(() => {
-                const productsSection = document.querySelector('.products');
-                if (productsSection) {
-                    productsSection.scrollIntoView({ 
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            }, 50);
+            currentPage = i;
+            displayProducts(currentFilteredProducts, currentPage);
+            setupPagination(currentFilteredProducts, selectedFilter);
+            scrollToProducts();
         }, { passive: true });
         paginationContainer.appendChild(pageButton);
     }
+
+    // Botón "Siguiente" si no estamos en la última página
+    if (currentPage < totalPages) {
+        const nextButton = document.createElement('button');
+        nextButton.textContent = '›';
+        nextButton.title = 'Página siguiente';
+        nextButton.addEventListener('click', () => {
+            currentPage++;
+            displayProducts(currentFilteredProducts, currentPage);
+            setupPagination(currentFilteredProducts, selectedFilter);
+            scrollToProducts();
+        }, { passive: true });
+        paginationContainer.appendChild(nextButton);
+    }
+
+    // Botón "Última página" si no estamos en la última
+    if (currentPage < totalPages) {
+        const lastButton = document.createElement('button');
+        lastButton.textContent = '»';
+        lastButton.title = 'Última página';
+        lastButton.addEventListener('click', () => {
+            currentPage = totalPages;
+            displayProducts(currentFilteredProducts, currentPage);
+            setupPagination(currentFilteredProducts, selectedFilter);
+            scrollToProducts();
+        }, { passive: true });
+        paginationContainer.appendChild(lastButton);
+    }
+}
+
+// Función auxiliar para hacer scroll a la sección de productos
+function scrollToProducts() {
+    setTimeout(() => {
+        const productsSection = document.querySelector('.products');
+        if (productsSection) {
+            productsSection.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }, 50);
 }
 
 function loadAndFilterProducts(filter, page = 1) {
@@ -574,6 +657,25 @@ function addEventListenersToProductButtons() {
         button.removeEventListener('click', handleDetailClick); 
         button.addEventListener('click', handleDetailClick, { passive: true });
     });
+
+    // Listener para las imágenes de producto
+    document.querySelectorAll('.product-card > img').forEach(img => {
+        // Asegúrate de que no haya listeners duplicados
+        img.removeEventListener('click', handleImageClick);
+        img.addEventListener('click', handleImageClick, { passive: true });
+    });
+}
+
+// Función para manejar el click en la imagen del producto
+function handleImageClick() {
+    // Buscar el botón de detalle dentro de la misma tarjeta
+    const productCard = this.closest('.product-card');
+    if (productCard) {
+        const detailButton = productCard.querySelector('.btn-detail');
+        if (detailButton) {
+            detailButton.click();
+        }
+    }
 }
 
 // Funciones para manejar clics y evitar duplicados de listeners
@@ -746,12 +848,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Inicializar referencias a elementos del DOM
     productContainer = document.getElementById("product-container");
-    filterButtons = document.querySelectorAll(".filter-btn");
+    // filterButtons ya no se usa - se reemplazó por Select2
     categoryCards = document.querySelectorAll(".category-card"); 
     paginationContainer = document.getElementById("pagination-container");
 
     // Cargar imágenes de categorías por nombre exacto si no tienen imagen
-    assignCategoryImagesByExactTitle();
+    // assignCategoryImagesByExactTitle(); // Deshabilitado - las imágenes ya están definidas en el HTML
 
     // Asegurar productos temporales para todas las categorías
     ensurePlaceholderProducts();
@@ -825,36 +927,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // 5. Añadir Event Listeners para los botones de filtro (una vez)
-    if (filterButtons.length > 0) {
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-                const filter = this.dataset.filter;
-                loadAndFilterProducts(filter); 
-                
-                // Hacer el scroll DESPUÉS de actualizar el contenido
-                setTimeout(() => {
-                    const productsSection = document.querySelector('.products');
-                    if (productsSection) {
-                        productsSection.scrollIntoView({ 
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                }, 50);
-            }, { passive: true });
-        });
-    }
+    // 5. Código de botones de filtro removido - ahora se usa Select2
 
-    // Listener de orden por precio
-    const sortSelect = document.getElementById('priceSort');
-    if (sortSelect) {
-        sortSelect.addEventListener('change', function() {
-            loadAndFilterProducts(currentCategory || 'all', 1);
-        });
-    }
+    // Listener de orden por precio (se inicializa después de Select2)
+    // Se movió al bloque de inicialización de Select2 para usar jQuery
 
 
     // 6. Añadir Event Listeners para las tarjetas de categoría (una vez)
@@ -863,13 +939,16 @@ document.addEventListener('DOMContentLoaded', () => {
             card.addEventListener('click', function() {
                 const category = this.dataset.category;
 
-                filterButtons.forEach(btn => {
-                    btn.classList.remove('active');
-                    if (btn.dataset.filter === category) {
-                        btn.classList.add('active');
-                    }
-                });
-                loadAndFilterProducts(category); 
+                // Si jQuery y Select2 están disponibles, usar el select
+                if (typeof jQuery !== 'undefined' && jQuery.fn.select2) {
+                    jQuery(document).ready(function($) {
+                        // Limpiar selección anterior y seleccionar solo esta categoría
+                        $('#categoria-filtro').val([category]).trigger('change');
+                    });
+                } else {
+                    // Fallback: usar el método tradicional si Select2 no está disponible
+                    loadAndFilterProducts(category);
+                }
                 
                 // Hacer el scroll DESPUÉS de actualizar el contenido
                 setTimeout(() => {
@@ -887,6 +966,122 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 7. Cargar todos los productos al cargar la página inicialmente
     loadAndFilterProducts('all');
+
+    // 8. Inicializar Select2 para el filtro de categorías y ordenamiento por precio
+    if (typeof jQuery !== 'undefined' && jQuery.fn.select2) {
+        jQuery(document).ready(function($) {
+            // Función para formatear las opciones con emojis
+            function formatOption(option) {
+                if (!option.id) {
+                    return option.text;
+                }
+                return $(option.element).text();
+            }
+
+            // Inicializar Select2 para categorías
+            $('#categoria-filtro').select2({
+                placeholder: "Buscar o seleccionar categorías...",
+                allowClear: true,
+                language: "es",
+                width: '100%',
+                closeOnSelect: true,
+                templateResult: formatOption,
+                templateSelection: formatOption
+            });
+
+            // Inicializar Select2 para ordenar por precio
+            $('#priceSort').select2({
+                placeholder: "Seleccionar orden...",
+                language: "es",
+                width: 'resolve', // Ancho basado en el contenido
+                minimumResultsForSearch: Infinity, // Deshabilitar búsqueda
+                templateResult: formatOption,
+                templateSelection: formatOption
+            });
+
+            // Evento cuando cambia el ordenamiento por precio
+            $('#priceSort').on('change', function() {
+                const categoriasSeleccionadas = $('#categoria-filtro').val();
+                if (categoriasSeleccionadas && categoriasSeleccionadas.length > 0) {
+                    aplicarFiltroMultiple(categoriasSeleccionadas);
+                } else {
+                    loadAndFilterProducts('all', 1);
+                }
+            });
+
+            // Evento cuando cambia la selección del select de categorías
+            $('#categoria-filtro').on('change', function() {
+                const categoriasSeleccionadas = $(this).val();
+                const infoElement = $('#info-seleccion');
+                
+                if (categoriasSeleccionadas && categoriasSeleccionadas.length > 0) {
+                    // Actualizar mensaje de información
+                    infoElement.text(`${categoriasSeleccionadas.length} categoría(s) seleccionada(s)`);
+                    infoElement.addClass('active');
+                    
+                    // Aplicar filtro con múltiples categorías
+                    aplicarFiltroMultiple(categoriasSeleccionadas);
+                } else {
+                    // Mostrar todos los productos
+                    infoElement.text('Mostrando todas las categorías');
+                    infoElement.removeClass('active');
+                    loadAndFilterProducts('all');
+                }
+            });
+
+            // Función para aplicar filtro múltiple
+            window.aplicarFiltroMultiple = function(categorias) {
+                if (!categorias || categorias.length === 0) {
+                    loadAndFilterProducts('all');
+                    return;
+                }
+
+                // Obtener productos de todas las categorías seleccionadas
+                let todosLosProductosFiltrados = [];
+                categorias.forEach(categoria => {
+                    const productosDeCategoria = productsData[categoria] || [];
+                    todosLosProductosFiltrados = todosLosProductosFiltrados.concat(productosDeCategoria);
+                });
+
+                // Aplicar orden por precio si corresponde
+                const sortSelect = document.getElementById('priceSort');
+                if (sortSelect) {
+                    const sortValue = sortSelect.value;
+                    if (sortValue === 'asc' || sortValue === 'desc') {
+                        todosLosProductosFiltrados = todosLosProductosFiltrados.sort((a, b) => {
+                            const priceA = parseInt(String(a.price || '0').replace(/\D/g, '')) || 0;
+                            const priceB = parseInt(String(b.price || '0').replace(/\D/g, '')) || 0;
+                            return sortValue === 'asc' ? priceA - priceB : priceB - priceA;
+                        });
+                    }
+                }
+
+                // Resetear a página 1
+                currentPage = 1;
+                currentCategory = 'multiple';
+                
+                // Mostrar productos filtrados
+                displayProducts(todosLosProductosFiltrados, currentPage);
+                setupPagination(todosLosProductosFiltrados, 'multiple');
+                
+                // Hacer scroll a la sección de productos
+                setTimeout(() => {
+                    const productsSection = document.querySelector('.products');
+                    if (productsSection) {
+                        productsSection.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }, 50);
+            };
+
+            // Función para limpiar selección
+            window.limpiarFiltros = function() {
+                $('#categoria-filtro').val(null).trigger('change');
+            };
+        });
+    }
 });
 
 // --- Deshabilitar herramientas de desarrollador (funcionalidad de protección) ---
