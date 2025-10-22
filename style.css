@@ -1216,10 +1216,15 @@ footer {
 }
 
 @media (max-width: 600px) { /* Breakpoint adicional para la navegación */
+    /* 1. Reducir altura del nav en vista móvil */
+    nav {
+        padding: 5px 0;
+    }
+    
     nav ul {
         flex-direction: row;
         gap: 15px;
-        padding: 10px 0;
+        padding: 5px 0;
         flex-wrap: wrap;
         justify-content: center;
     }
@@ -1263,6 +1268,42 @@ footer {
 }
 
 @media (max-width: 480px) {
+    /* 1. Reducir aún más la altura del nav en vista móvil */
+    nav {
+        padding: 3px 0;
+    }
+    
+    /* 2. Reducir espacios entre títulos y parte superior/contenido en vista móvil */
+    .container {
+        padding: 10px; /* Ajuste para pantallas muy pequeñas */
+        margin: 10px auto; /* Reducir margen en móvil */
+    }
+    
+    /* Reducir espacio superior de las secciones */
+    .categories {
+        margin-top: 5px;
+    }
+    
+    .products {
+        margin-top: 15px;
+    }
+    
+    /* Reducir padding de los containers de secciones */
+    .categories .container {
+        padding-top: 3px;
+        padding-bottom: 8px;
+    }
+    
+    .products .container {
+        padding-top: 5px;
+    }
+    
+    /* 4. Igualar tamaño de todos los títulos al de "Sobre Nosotros" en móvil */
+    h2, .section-title {
+        font-size: 1.8em !important; /* Mismo tamaño para todos los títulos */
+        margin: 8px 0 10px !important; /* Reducir espacios arriba y abajo */
+    }
+    
     /* Reducir aún más el tamaño de párrafos justificados en pantallas muy pequeñas */
     #nosotros p {
         font-size: 0.85em !important;
@@ -1291,11 +1332,6 @@ footer {
         font-size: 1em;
         bottom: 60px;
         right: 12px;
-    }
-
-    .container {
-        padding: 10px; /* Ajuste para pantallas muy pequeñas */
-        margin: 15px auto; /* Reducir margen en móvil */
     }
 
     header h1 {
@@ -1384,12 +1420,17 @@ footer {
         align-items: center;
         margin: 0 auto; /* Centrar la fila de botones */
     }
+    /* 3. Igualar tamaño del botón "Ver" con el botón de WhatsApp en móvil */
     .product-card .btn-detail {
         height: 36px;
-        min-width: 40px;
-        padding: 6px 10px;
-        font-size: 0.75em;
+        width: 36px; /* Mismo ancho que el botón de WhatsApp */
+        min-width: 36px;
+        padding: 0;
+        font-size: 0.65em;
         margin: 0; /* Eliminar márgenes */
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .product-card .whatsapp-icon-btn {
         width: 36px;
