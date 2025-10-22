@@ -1015,6 +1015,15 @@ footer {
 
 /* Media Queries para Responsividad */
 @media (max-width: 900px) {
+    /* Reducir tamaño de párrafos justificados en móvil */
+    #nosotros p {
+        font-size: 0.95em !important;
+    }
+
+    .main-contact-left > p {
+        font-size: 0.95em !important;
+    }
+
     .main-contact-section-layout {
         flex-direction: column;
         align-items: center; /* Asegura que las columnas se centren */
@@ -1251,6 +1260,15 @@ footer {
 }
 
 @media (max-width: 480px) {
+    /* Reducir aún más el tamaño de párrafos justificados en pantallas muy pequeñas */
+    #nosotros p {
+        font-size: 0.85em !important;
+    }
+
+    .main-contact-left > p {
+        font-size: 0.85em !important;
+    }
+
     .container {
         padding: 10px; /* Ajuste para pantallas muy pequeñas */
         margin: 15px auto; /* Reducir margen en móvil */
