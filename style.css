@@ -1185,25 +1185,28 @@ footer {
 
     /* Botón flotante de WhatsApp para móviles */
     #floatingWhatsAppBtn {
-        width: 45px;
-        height: 45px;
+        width: 40px;
+        height: 40px;
+        bottom: 15px;
+        right: 15px;
     }
     
     #floatingWhatsAppBtn svg {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
     }
     
     /* MODIFICADO: Scroll to Top Button para ser circular en móviles */
     #scrollToTopBtn {
-        width: 45px;
-        height: 45px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 1.2em;
-        bottom: 70px;
+        font-size: 1.1em;
+        bottom: 65px;
+        right: 15px;
         text-align: center;
         position: fixed;
         padding: 0;
@@ -1267,6 +1270,27 @@ footer {
 
     .main-contact-left > p {
         font-size: 0.85em !important;
+    }
+
+    /* Botones flotantes aún más pequeños en pantallas muy pequeñas */
+    #floatingWhatsAppBtn {
+        width: 38px;
+        height: 38px;
+        bottom: 12px;
+        right: 12px;
+    }
+    
+    #floatingWhatsAppBtn svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    #scrollToTopBtn {
+        width: 38px;
+        height: 38px;
+        font-size: 1em;
+        bottom: 60px;
+        right: 12px;
     }
 
     .container {
