@@ -319,6 +319,18 @@ let modalDetailDescription;
 let modalDetailWhatsappBtn;
 let closeModalButton;
 
+// --- Modal de Zoom de Imagen ---
+let imageZoomModal;
+let zoomedImage;
+let zoomCloseButton;
+
+// --- Sistema de Favoritos ---
+let favoritesModal;
+let favoritesContainer;
+let floatingFavoritesBtn;
+let favoritesBadge;
+let favorites = [];
+
 // --- Funcionalidad Scroll To Top ---
 let scrollToTopBtn;
 
@@ -450,8 +462,15 @@ function displayProducts(products, page) {
         const useLazyLoading = index >= 4;
         setImageSrcWithFallback(imgEl, product, useLazyLoading);
 
+        // Título con botón de favoritos
         const titleEl = document.createElement('h3');
-        titleEl.textContent = product.name;
+        const titleText = document.createElement('span');
+        titleText.textContent = product.name;
+        titleEl.appendChild(titleText);
+        
+        // Botón de favoritos dentro del título
+        const favoriteBtn = createFavoriteButton(product);
+        titleEl.appendChild(favoriteBtn);
 
         const pricePEl = document.createElement('p');
         pricePEl.className = 'product-price';
@@ -722,6 +741,246 @@ function openProductDetailModal(product) {
     productDetailModal.style.display = "flex"; 
 }
 
+// --- Funciones para el Zoom de Imagen ---
+function openImageZoom() {
+    if (!imageZoomModal || !zoomedImage || !modalDetailImage) return;
+    
+    // Copiar la imagen actual del modal al modal de zoom
+    zoomedImage.src = modalDetailImage.src;
+    zoomedImage.alt = modalDetailImage.alt;
+    
+    // Mostrar el modal de zoom con animación
+    imageZoomModal.classList.add('active');
+    
+    // Prevenir scroll en el body
+    document.body.style.overflow = 'hidden';
+}
+
+function closeImageZoom() {
+    if (!imageZoomModal) return;
+    
+    // Ocultar el modal de zoom
+    imageZoomModal.classList.remove('active');
+    
+    // Restaurar scroll en el body
+    document.body.style.overflow = '';
+}
+
+// ============================================
+// SISTEMA DE FAVORITOS
+// ============================================
+
+// Cargar favoritos del localStorage
+function loadFavorites() {
+    const saved = localStorage.getItem('detallesLaurelFavorites');
+    if (saved) {
+        try {
+            favorites = JSON.parse(saved);
+        } catch (e) {
+            console.error('Error cargando favoritos:', e);
+            favorites = [];
+        }
+    }
+    updateFavoritesBadge();
+}
+
+// Guardar favoritos en localStorage
+function saveFavorites() {
+    try {
+        localStorage.setItem('detallesLaurelFavorites', JSON.stringify(favorites));
+        updateFavoritesBadge();
+    } catch (e) {
+        console.error('Error guardando favoritos:', e);
+    }
+}
+
+// Actualizar badge contador
+function updateFavoritesBadge() {
+    if (!favoritesBadge) return;
+    const count = favorites.length;
+    if (count > 0) {
+        favoritesBadge.textContent = count;
+        favoritesBadge.style.display = 'block';
+    } else {
+        favoritesBadge.style.display = 'none';
+    }
+}
+
+// Verificar si un producto es favorito
+function isFavorite(product) {
+    return favorites.some(fav => fav.name === product.name && fav.category === product.category);
+}
+
+// Agregar/quitar favorito
+function toggleFavorite(product, button) {
+    const index = favorites.findIndex(fav => fav.name === product.name && fav.category === product.category);
+    
+    if (index > -1) {
+        // Quitar de favoritos
+        favorites.splice(index, 1);
+        if (button) button.classList.remove('active');
+        
+        // Actualizar TODOS los botones de favoritos de este producto en la página
+        updateAllFavoriteButtons(product, false);
+    } else {
+        // Agregar a favoritos
+        favorites.push({
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            description: product.description,
+            category: product.category,
+            categoryTitle: product.categoryTitle
+        });
+        if (button) button.classList.add('active');
+        
+        // Actualizar TODOS los botones de favoritos de este producto en la página
+        updateAllFavoriteButtons(product, true);
+    }
+    
+    saveFavorites();
+    
+    // Si el modal de favoritos está abierto, actualizarlo
+    if (favoritesModal && favoritesModal.classList.contains('active')) {
+        renderFavorites();
+    }
+}
+
+// Actualizar todos los botones de favoritos de un producto específico
+function updateAllFavoriteButtons(product, isActive) {
+    // Buscar todos los botones de favoritos en la página
+    const allFavoriteButtons = document.querySelectorAll('.favorite-button');
+    
+    allFavoriteButtons.forEach(btn => {
+        // Verificar si este botón corresponde al producto
+        const btnProduct = btn.getAttribute('data-product-name');
+        const btnCategory = btn.getAttribute('data-product-category');
+        
+        if (btnProduct === product.name && btnCategory === product.category) {
+            if (isActive) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        }
+    });
+}
+
+// Abrir modal de favoritos
+function openFavoritesModal() {
+    if (!favoritesModal) return;
+    favoritesModal.classList.add('active');
+    renderFavorites();
+    document.body.style.overflow = 'hidden';
+}
+
+// Cerrar modal de favoritos
+function closeFavoritesModal() {
+    if (!favoritesModal) return;
+    favoritesModal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Renderizar favoritos en el modal
+function renderFavorites() {
+    if (!favoritesContainer) return;
+    
+    favoritesContainer.innerHTML = '';
+    
+    if (favorites.length === 0) {
+        favoritesContainer.innerHTML = `
+            <div class="empty-favorites">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                <h3>No tienes favoritos aún</h3>
+                <p>Haz clic en el corazón de los productos que te gusten para agregarlos aquí</p>
+            </div>
+        `;
+        return;
+    }
+    
+    const grid = document.createElement('div');
+    grid.className = 'favorites-grid';
+    
+    favorites.forEach((product, index) => {
+        const item = document.createElement('div');
+        item.className = 'favorite-item';
+        
+        const img = document.createElement('img');
+        img.alt = product.name;
+        setImageSrcWithFallback(img, product, false);
+        
+        const info = document.createElement('div');
+        info.className = 'favorite-item-info';
+        
+        const title = document.createElement('h4');
+        title.textContent = product.name;
+        
+        const price = document.createElement('p');
+        price.textContent = product.price;
+        
+        const actions = document.createElement('div');
+        actions.className = 'favorite-item-actions';
+        
+        const viewBtn = document.createElement('button');
+        viewBtn.className = 'btn-view-favorite';
+        viewBtn.textContent = 'Ver';
+        viewBtn.addEventListener('click', () => {
+            closeFavoritesModal();
+            openProductDetailModal(product);
+        });
+        
+        const removeBtn = document.createElement('button');
+        removeBtn.className = 'btn-remove-favorite';
+        removeBtn.textContent = 'Quitar';
+        removeBtn.addEventListener('click', () => {
+            toggleFavorite(product, null);
+        });
+        
+        actions.appendChild(viewBtn);
+        actions.appendChild(removeBtn);
+        
+        info.appendChild(title);
+        info.appendChild(price);
+        info.appendChild(actions);
+        
+        item.appendChild(img);
+        item.appendChild(info);
+        grid.appendChild(item);
+    });
+    
+    favoritesContainer.appendChild(grid);
+}
+
+// Crear botón de favorito para tarjeta de producto
+function createFavoriteButton(product) {
+    const button = document.createElement('button');
+    button.className = 'favorite-button';
+    button.title = 'Agregar a favoritos';
+    
+    // Agregar atributos data para identificar el producto
+    button.setAttribute('data-product-name', product.name);
+    button.setAttribute('data-product-category', product.category);
+    
+    if (isFavorite(product)) {
+        button.classList.add('active');
+    }
+    
+    button.innerHTML = `
+        <svg viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+    `;
+    
+    button.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleFavorite(product, button);
+    });
+    
+    return button;
+}
+
 function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         scrollToTopBtn.style.display = "block";
@@ -829,6 +1088,172 @@ function initTypewriterAnimation() {
     setTimeout(typeChar, 100);
 }
 
+// ============================================
+// HERO CAROUSEL FUNCTIONALITY
+// ============================================
+
+let currentSlide = 0;
+let carouselInterval;
+const slideDelay = 6000; // 6 segundos entre slides
+
+function initCarousel() {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const indicators = document.querySelectorAll('.carousel-indicator');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+
+    if (!slides.length) return;
+
+    function showSlide(index) {
+        // Normalizar el índice
+        if (index >= slides.length) {
+            currentSlide = 0;
+        } else if (index < 0) {
+            currentSlide = slides.length - 1;
+        } else {
+            currentSlide = index;
+        }
+
+        // Actualizar slides
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === currentSlide) {
+                slide.classList.add('active');
+            }
+        });
+
+        // Actualizar indicadores
+        indicators.forEach((indicator, i) => {
+            indicator.classList.remove('active');
+            if (i === currentSlide) {
+                indicator.classList.add('active');
+            }
+        });
+    }
+
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+        showSlide(currentSlide - 1);
+    }
+
+    function startAutoPlay() {
+        carouselInterval = setInterval(nextSlide, slideDelay);
+    }
+
+    function stopAutoPlay() {
+        clearInterval(carouselInterval);
+    }
+
+    function resetAutoPlay() {
+        stopAutoPlay();
+        startAutoPlay();
+    }
+
+    // Event Listeners
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetAutoPlay();
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetAutoPlay();
+        });
+    }
+
+    // Indicadores
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            showSlide(index);
+            resetAutoPlay();
+        });
+    });
+
+    // Event listeners para los botones de CTA del carrusel
+    const carouselButtons = document.querySelectorAll('.carousel-btn[data-category]');
+    carouselButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const category = this.getAttribute('data-category');
+            
+            // Navegar a la sección de productos
+            const productsSection = document.querySelector('#productos');
+            if (productsSection) {
+                productsSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+            
+            // Esperar un poco para que el scroll termine y luego aplicar el filtro
+            setTimeout(() => {
+                // Si jQuery y Select2 están disponibles
+                if (typeof jQuery !== 'undefined' && jQuery.fn.select2) {
+                    jQuery('#categoria-filtro').val([category]).trigger('change');
+                } else {
+                    // Fallback sin Select2
+                    loadAndFilterProducts(category);
+                }
+            }, 500);
+        });
+    });
+
+    // Funcionalidad táctil (swipe) para dispositivos móviles
+    const carouselContainer = document.querySelector('.carousel-container');
+    if (carouselContainer) {
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let touchStartY = 0;
+        let touchEndY = 0;
+
+        carouselContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        carouselContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeThreshold = 50; // Mínimo de píxeles para considerar un swipe
+            const horizontalDiff = touchEndX - touchStartX;
+            const verticalDiff = Math.abs(touchEndY - touchStartY);
+            
+            // Solo hacer swipe horizontal si el movimiento vertical es menor
+            if (verticalDiff < 50) {
+                if (horizontalDiff > swipeThreshold) {
+                    // Swipe derecha - ir a slide anterior
+                    prevSlide();
+                    resetAutoPlay();
+                } else if (horizontalDiff < -swipeThreshold) {
+                    // Swipe izquierda - ir a slide siguiente
+                    nextSlide();
+                    resetAutoPlay();
+                }
+            }
+        }
+    }
+
+    // Iniciar autoplay - funcionará continuamente sin importar dónde esté el usuario
+    startAutoPlay();
+    
+    // Asegurar que el autoplay continúe incluso después de interacciones
+    // Solo reiniciar si el usuario hace clic manualmente en controles
+    document.addEventListener('visibilitychange', function() {
+        if (!document.hidden && !carouselInterval) {
+            startAutoPlay();
+        }
+    });
+}
+
 // --- INICIALIZACIÓN DE TODO AL CARGAR EL DOM ---
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Eliminar el hash de la URL si existe
@@ -865,7 +1290,25 @@ document.addEventListener('DOMContentLoaded', () => {
     modalDetailPrice = document.getElementById("modalDetailPrice");
     modalDetailDescription = document.getElementById("modalDetailDescription");
     modalDetailWhatsappBtn = document.getElementById("modalDetailWhatsappBtn");
-    closeModalButton = productDetailModal.querySelector(".close-button");
+    closeModalButton = productDetailModal ? productDetailModal.querySelector(".close-button") : null;
+
+    // Image Zoom Modal elements
+    imageZoomModal = document.getElementById("imageZoomModal");
+    zoomedImage = document.getElementById("zoomedImage");
+    zoomCloseButton = imageZoomModal ? imageZoomModal.querySelector(".zoom-close-button") : null;
+
+    // Favorites Modal elements
+    favoritesModal = document.getElementById("favoritesModal");
+    favoritesContainer = document.getElementById("favoritesContainer");
+    floatingFavoritesBtn = document.getElementById("floatingFavoritesBtn");
+    favoritesBadge = document.getElementById("favoritesBadge");
+
+    // Validación de elementos del modal
+    if (!productDetailModal) console.error("Error: productDetailModal no encontrado");
+    if (!closeModalButton) console.error("Error: closeModalButton no encontrado");
+
+    // Cargar favoritos guardados
+    loadFavorites();
 
     // Scroll to top button
     scrollToTopBtn = document.getElementById("scrollToTopBtn");
@@ -882,6 +1325,28 @@ document.addEventListener('DOMContentLoaded', () => {
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         }, { passive: true });
+    }
+
+    // --- Event Listeners para el Sistema de Favoritos ---
+    
+    // Botón flotante de favoritos
+    if (floatingFavoritesBtn) {
+        floatingFavoritesBtn.addEventListener('click', openFavoritesModal, { passive: true });
+    }
+
+    // Cerrar modal de favoritos
+    if (favoritesModal) {
+        const favoritesCloseBtn = favoritesModal.querySelector('.favorites-close-button');
+        if (favoritesCloseBtn) {
+            favoritesCloseBtn.addEventListener('click', closeFavoritesModal);
+        }
+
+        // Cerrar al hacer click fuera del modal
+        favoritesModal.addEventListener('click', (e) => {
+            if (e.target === favoritesModal) {
+                closeFavoritesModal();
+            }
+        });
     }
 
     // Formulario de contacto
@@ -906,15 +1371,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 4. Añadir Event Listeners para el modal (una vez)
     if (productDetailModal && closeModalButton) {
-        closeModalButton.addEventListener('click', () => {
+        closeModalButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Botón X clickeado'); // Para depuración
             productDetailModal.style.display = "none";
-        });
+        }, false);
 
         window.addEventListener('click', (event) => {
             if (event.target == productDetailModal) {
                 productDetailModal.style.display = "none";
             }
         });
+    } else {
+        console.error('No se pudieron configurar los listeners del modal');
     }
 
     // Listener para el botón de WhatsApp dentro del modal (una vez)
@@ -925,6 +1395,48 @@ document.addEventListener('DOMContentLoaded', () => {
             sendToWhatsApp(productName, productPrice);
         }, { passive: true });
     }
+
+    // --- Event Listeners para el Zoom de Imagen ---
+    
+    // Click en la imagen del modal de producto para abrir zoom
+    if (modalDetailImage) {
+        modalDetailImage.addEventListener('click', function() {
+            // Solo abrir zoom si la imagen está cargada
+            if (this.classList.contains('loaded')) {
+                openImageZoom();
+            }
+        }, { passive: true });
+    }
+
+    // Click en el botón de cerrar del modal de zoom
+    if (zoomCloseButton) {
+        zoomCloseButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            closeImageZoom();
+        });
+    }
+
+    // Click en cualquier parte del modal de zoom para cerrarlo
+    if (imageZoomModal) {
+        imageZoomModal.addEventListener('click', function(e) {
+            // Solo cerrar si se hace click en el fondo, no en la imagen
+            if (e.target === imageZoomModal || e.target === zoomedImage) {
+                closeImageZoom();
+            }
+        }, { passive: true });
+    }
+
+    // Cerrar zoom con la tecla ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            if (imageZoomModal && imageZoomModal.classList.contains('active')) {
+                closeImageZoom();
+            } else if (favoritesModal && favoritesModal.classList.contains('active')) {
+                closeFavoritesModal();
+            }
+        }
+    });
 
 
     // 5. Código de botones de filtro removido - ahora se usa Select2
@@ -967,7 +1479,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // 7. Cargar todos los productos al cargar la página inicialmente
     loadAndFilterProducts('all');
 
-    // 8. Inicializar Select2 para el filtro de categorías y ordenamiento por precio
+    // 8. Inicializar el carrusel hero
+    initCarousel();
+
+    // 9. Inicializar Select2 para el filtro de categorías y ordenamiento por precio
     if (typeof jQuery !== 'undefined' && jQuery.fn.select2) {
         jQuery(document).ready(function($) {
             // Función para formatear las opciones con emojis
@@ -1083,6 +1598,66 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// --- CONTADOR DE ESTADÍSTICAS CON ANIMACIÓN ---
+function initStatsCounter() {
+    const statsSection = document.querySelector('.stats-section');
+    if (!statsSection) return;
+
+    const statNumbers = document.querySelectorAll('.stat-number');
+    let hasAnimated = false;
+
+    // Función para animar el conteo de un número
+    function animateCounter(element, target, duration = 2000) {
+        const start = 0;
+        const increment = target / (duration / 16); // 60 FPS
+        let current = start;
+        const suffix = element.getAttribute('data-suffix') || '';
+
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                element.textContent = target.toLocaleString('es-CO') + suffix;
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(current).toLocaleString('es-CO') + suffix;
+            }
+        }, 16);
+    }
+
+    // Usar IntersectionObserver para detectar cuando la sección es visible
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !hasAnimated) {
+                hasAnimated = true;
+                
+                // Animar cada número
+                statNumbers.forEach((statNumber, index) => {
+                    const target = parseInt(statNumber.getAttribute('data-target'));
+                    const statItem = statNumber.closest('.stat-item');
+                    
+                    // Agregar clase de animación con delay
+                    setTimeout(() => {
+                        statItem.classList.add('animate');
+                        animateCounter(statNumber, target);
+                    }, index * 200); // Delay escalonado
+                });
+            }
+        });
+    }, {
+        threshold: 0.3 // Se activa cuando el 30% de la sección es visible
+    });
+
+    observer.observe(statsSection);
+}
+
+// Inicializar el contador de estadísticas
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStatsCounter);
+} else {
+    initStatsCounter();
+}
+
 
 // --- Deshabilitar herramientas de desarrollador (funcionalidad de protección) ---
 document.addEventListener('contextmenu', function(e) {
